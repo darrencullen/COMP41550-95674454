@@ -13,5 +13,4 @@
 
 - (void)setNumberOfSides:(int) numberOfSides;
 
-
 @end

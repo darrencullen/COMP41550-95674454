@@ -22,10 +22,32 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "GLOBAL">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.polygonNameView.hidden">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[ViewController viewDidLoad]:ViewController.m">
          <PersistentStrings>
             <PersistentString
-               value = "self.model.numberOfSides">
+               value = "self.polygonNameView.hidden">
+            </PersistentString>
+            <PersistentString
+               value = "[defaults boolForKey:@&quot;showPolygonName&quot;]">
+            </PersistentString>
+            <PersistentString
+               value = "[defaults integerForKey:@&quot;numberOfSides&quot;];">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[ViewController updatePolygonDisplay]:ViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[defaults integerForKey:@&quot;numberOfSides&quot;]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

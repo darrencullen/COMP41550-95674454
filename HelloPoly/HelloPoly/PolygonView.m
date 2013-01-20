@@ -10,19 +10,9 @@
 
 @interface PolygonView ()
 @property (nonatomic, strong) NSArray *objectPoints;
-@property (nonatomic) BOOL showPolyDescription;
 @end
 
 @implementation PolygonView
-
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
 
 - (void)setNumberOfSides:(int)numberOfSides{   
     self.objectPoints = [PolygonView pointsForPolygonInRect:self.bounds numberOfSides:numberOfSides];
@@ -49,8 +39,6 @@
 
 - (void)drawRect:(CGRect)rect
 {
-    // Drawing code
-    
     CGContextRef context = UIGraphicsGetCurrentContext();
     [[UIColor blackColor] setStroke];
     CGContextSetLineWidth(context, 3.0);

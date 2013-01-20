@@ -86,6 +86,7 @@
                         <outlet property="polygonNameView" destination="Wbq-8D-WPE" id="vZc-QY-Umy"/>
                         <outlet property="polygonView" destination="GXy-Pd-Lt9" id="C1y-hP-yE0"/>
                         <outlet property="stepperSides" destination="ON4-Vh-0Ur" id="Xdq-A8-eok"/>
+                        <outlet property="switchPolygonName" destination="AMF-yF-DjN" id="IT5-bq-n2u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -104,29 +105,6 @@
             <point key="canvasLocation" x="-180" y="-219"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="PolygonShape" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PolygonShape.h"/>
-        </class>
-        <class className="PolygonView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PolygonView.h"/>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="showPolygonName:" candidateClass="UISwitch"/>
-                <relationship kind="action" name="stepNumberOfSides:" candidateClass="UIStepper"/>
-                <relationship kind="action" name="swipeDecrease:" candidateClass="UISwipeGestureRecognizer"/>
-                <relationship kind="action" name="swipeIncrease:" candidateClass="UISwipeGestureRecognizer"/>
-                <relationship kind="outlet" name="model" candidateClass="PolygonShape"/>
-                <relationship kind="outlet" name="numberOfSidesLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="polygonName" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="polygonNameView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="polygonView" candidateClass="PolygonView"/>
-                <relationship kind="outlet" name="stepperSides" candidateClass="UIStepper"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

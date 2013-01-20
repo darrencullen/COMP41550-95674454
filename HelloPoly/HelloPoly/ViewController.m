@@ -12,72 +12,68 @@
 @synthesize numberOfSidesLabel = _numberOfSidesLabel;
 @synthesize model = _model;
 
-//- (IBAction)decrease:(UIButton *)sender {
-//    NSLog(@"I'm in the decrease method");
-//    self.model.numberOfSides -=1;
-//    self.stepperSides.value = self.model.numberOfSides;
-//
-//    [self updateNumberOfSidesDisplay];
-//    [self enableDisableButtons];
-//}
-
-//- (IBAction)increase:(UIButton *)sender {
-//    NSLog(@"I'm in the decrease method");
-//    self.model.numberOfSides +=1;
-//    self.stepperSides.value = self.model.numberOfSides;
-//    
-//    [self updateNumberOfSidesDisplay];
-//    [self enableDisableButtons];
-//}
 
 - (IBAction)stepNumberOfSides:(UIStepper *)sender {
     self.model.numberOfSides = self.stepperSides.value;
-    [self updateNumberOfSidesDisplay];
-//    [self enableDisableButtons];
+    [self updatePolygonDisplay];
 }
 
 - (IBAction)swipeIncrease:(UISwipeGestureRecognizer *)sender {
     self.stepperSides.value = self.model.numberOfSides += 1;
-    [self updateNumberOfSidesDisplay];
+    [self updatePolygonDisplay];
 }
 
 - (IBAction)swipeDecrease:(UISwipeGestureRecognizer *)sender {
     self.stepperSides.value = self.model.numberOfSides -= 1;
-    [self updateNumberOfSidesDisplay];
+    [self updatePolygonDisplay];
 }
 
 - (void)viewDidLoad{
+    self.polygonNameView.backgroundColor = self.polygonView.backgroundColor;
+    
     // configure polygon from saved value
-    // Get the stored data before the view loads
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSInteger restoredNumberOfSides = [defaults integerForKey:@"numberOfSides"];
+    self.polygonNameView.hidden = [defaults boolForKey:@"hidePolygonName"];
+    self.switchPolygonName.On = ![defaults boolForKey:@"hidePolygonName"];
+    
     
     // configure polygon from label
-    if (!restoredNumberOfSides){
-        self.model.numberOfSides = [self.numberOfSidesLabel.text integerValue];
-        self.stepperSides.value = self.model.numberOfSides;
+    if (![defaults integerForKey:@"numberOfSides"]){
+        self.model.numberOfSides = self.stepperSides.value = [self.numberOfSidesLabel.text integerValue];
     } else {
-        self.model.numberOfSides = self.stepperSides.value = restoredNumberOfSides;
+        self.model.numberOfSides = self.stepperSides.value = [defaults integerForKey:@"numberOfSides"];
     }
     
-    [self updateNumberOfSidesDisplay];
-    self.polygonNameView.backgroundColor = self.polygonView.backgroundColor;
+    [self updatePolygonDisplay];
     [super viewDidLoad];
 }
 
-// TODO AWAKE FROM NIB!
 
-- (void)updateNumberOfSidesDisplay{
+- (void)updatePolygonDisplay{
     self.numberOfSidesLabel.text = [NSString stringWithFormat:@"%d", self.model.numberOfSides];
-    
-    // save default
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setInteger:self.model.numberOfSides forKey:@"numberOfSides"];
     
     [self.polygonView setNumberOfSides:self.model.numberOfSides];
     self.polygonName.text = self.model.name;
+    
+    // store number of sides for use in restart
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setInteger:self.model.numberOfSides forKey:@"numberOfSides"];
+    
+    [self.polygonView setNeedsDisplay];
 }
 
+
+- (IBAction)showPolygonName:(UISwitch *)sender {
+    self.polygonNameView.hidden=![sender isOn];
+    
+    // store name view choice for use in restart
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:self.polygonNameView.hidden forKey:@"hidePolygonName"];
+    
+    [self.polygonView setNeedsDisplay];
+}
+
+/* obsoleted due to replacing buttons with stepper
 //- (void)enableDisableButtons{
 //    if (self.model.numberOfSides < 4){
 //        self.decreaseButton.enabled = NO;
@@ -101,7 +97,24 @@
 //    
 //    NSLog(@"My polygon: %@", self.model.name);
 //}
-- (IBAction)showPolygonName:(UISwitch *)sender {
-    self.polygonNameView.hidden=![sender isOn];
-}
+ 
+ //- (IBAction)decrease:(UIButton *)sender {
+ //    NSLog(@"I'm in the decrease method");
+ //    self.model.numberOfSides -=1;
+ //    self.stepperSides.value = self.model.numberOfSides;
+ //
+ //    [self updateNumberOfSidesDisplay];
+ //    [self enableDisableButtons];
+ //}
+ 
+ //- (IBAction)increase:(UIButton *)sender {
+ //    NSLog(@"I'm in the decrease method");
+ //    self.model.numberOfSides +=1;
+ //    self.stepperSides.value = self.model.numberOfSides;
+ //
+ //    [self updateNumberOfSidesDisplay];
+ //    [self enableDisableButtons];
+ //}
+*/
+
 @end

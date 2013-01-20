@@ -10,7 +10,6 @@
 
 @interface PolygonView ()
 @property (nonatomic, strong) NSArray *objectPoints;
-@property (nonatomic) BOOL showPolyDescription;
 @end
 
 @implementation PolygonView
@@ -25,10 +24,6 @@
 }
 
 - (void)setNumberOfSides:(int)numberOfSides{
-    CGRect  viewRect = CGRectMake(10, 10, 100, 100);
-    UIView* myView = [[UIView alloc] initWithFrame:viewRect];
-    
-    
     self.objectPoints = [PolygonView pointsForPolygonInRect:self.bounds numberOfSides:numberOfSides];
     [self setNeedsDisplay];
     NSLog(@"Number of sides = %d", numberOfSides);
@@ -66,8 +61,9 @@
         CGContextAddLineToPoint(context, point.x, point.y);
     }
     CGContextClosePath(context);
-    CGContextSetStrokeColorWithColor(context, [UIColor whiteColor].CGColor);
-    CGContextSetFillColorWithColor(context, [UIColor lightTextColor].CGColor);
+    CGContextSetFillColorWithColor(context, [UIColor greenColor].CGColor);
+    //    CGContextFillPath(context);
+    //   CGContextStrokePath(context);
     CGContextDrawPath(context, kCGPathFillStroke);
 }
 

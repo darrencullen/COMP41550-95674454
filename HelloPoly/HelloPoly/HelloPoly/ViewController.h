@@ -17,10 +17,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *increaseButton;
 @property (strong, nonatomic) IBOutlet PolygonView *polygonView;
 @property (weak, nonatomic) IBOutlet UIStepper *stepperSides;
-@property (weak, nonatomic) IBOutlet UIView *polygonName;
+@property (weak, nonatomic) IBOutlet UISlider *sliderSides;
 
 - (IBAction)decrease:(id)sender;
 - (IBAction)increase:(id)sender;
 - (IBAction)stepNumberOfSides:(UIStepper *)sender;
-
+- (IBAction)slideNumberOfSides:(UISlider *)sender;
 @end

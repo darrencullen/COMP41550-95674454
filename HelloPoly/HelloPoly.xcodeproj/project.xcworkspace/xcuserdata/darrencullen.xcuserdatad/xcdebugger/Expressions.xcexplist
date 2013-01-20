@@ -13,5 +13,21 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "-[ViewController updateNumberOfSidesDisplay]:ViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.model.numberOfSides">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[ViewController viewDidLoad]:ViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.model.numberOfSides">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

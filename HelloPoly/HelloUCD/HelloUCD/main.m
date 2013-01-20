@@ -1,8 +1,8 @@
 //
 //  main.m
-//  HelloPoly
+//  HelloUCD
 //
-//  Created by darren cullen on 15/01/2013.
+//  Created by darren cullen on 14/01/2013.
 //  Copyright (c) 2013 COMP41550. All rights reserved.
 //
 
@@ -10,7 +10,8 @@
 
 #import "AppDelegate.h"
 
-int main(int argc, char *argv[]){
+int main(int argc, char *argv[])
+{
     @autoreleasepool {
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }

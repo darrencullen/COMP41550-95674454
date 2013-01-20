@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "-[ViewController updateNumberOfSidesDisplay]:ViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.model.numberOfSides">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[ViewController decrease:]:ViewController.m">
          <PersistentStrings>
             <PersistentString
@@ -14,7 +22,7 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[ViewController updateNumberOfSidesDisplay]:ViewController.m">
+         contextName = "-[ViewController viewDidLoad]:ViewController.m">
          <PersistentStrings>
             <PersistentString
                value = "self.model.numberOfSides">
@@ -22,10 +30,13 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[ViewController viewDidLoad]:ViewController.m">
+         contextName = "-[ViewController swipeIncrease:]:ViewController.m">
          <PersistentStrings>
             <PersistentString
                value = "self.model.numberOfSides">
+            </PersistentString>
+            <PersistentString
+               value = "self.stepperSides.value">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

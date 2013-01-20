@@ -24,7 +24,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" id="GXy-Pd-Lt9" customClass="PolygonView">
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" id="GXy-Pd-Lt9" customClass="PolygonView">
                                 <rect key="frame" x="20" y="117" width="280" height="295"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -67,6 +67,11 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="J4J-BW-Dmp" appends="YES" id="HiM-jV-8IR"/>
+                            <outletCollection property="gestureRecognizers" destination="hNU-fO-o12" appends="YES" id="joF-ve-RkD"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="model" destination="gWi-BH-dQy" id="0vc-Sc-x8a"/>
@@ -79,6 +84,16 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
                 <customObject id="gWi-BH-dQy" userLabel="Model" customClass="PolygonShape"/>
+                <swipeGestureRecognizer direction="right" id="J4J-BW-Dmp" userLabel="swipeIncrease">
+                    <connections>
+                        <action selector="swipeIncrease:" destination="2" id="1l4-UT-tDg"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="hNU-fO-o12" userLabel="swipeDecrease">
+                    <connections>
+                        <action selector="swipeDecrease:" destination="2" id="osR-ry-Y0p"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-180" y="-219"/>
         </scene>
@@ -95,6 +110,8 @@
             <relationships>
                 <relationship kind="action" name="showPolygonName:" candidateClass="UISwitch"/>
                 <relationship kind="action" name="stepNumberOfSides:" candidateClass="UIStepper"/>
+                <relationship kind="action" name="swipeDecrease:" candidateClass="UISwipeGestureRecognizer"/>
+                <relationship kind="action" name="swipeIncrease:" candidateClass="UISwipeGestureRecognizer"/>
                 <relationship kind="outlet" name="model" candidateClass="PolygonShape"/>
                 <relationship kind="outlet" name="numberOfSidesLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="polygonName" candidateClass="UILabel"/>

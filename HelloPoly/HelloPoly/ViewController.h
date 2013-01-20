@@ -24,5 +24,7 @@
 //- (IBAction)decrease:(id)sender;
 //- (IBAction)increase:(id)sender;
 - (IBAction)stepNumberOfSides:(UIStepper *)sender;
+- (IBAction)swipeIncrease:(UISwipeGestureRecognizer *)sender;
+- (IBAction)swipeDecrease:(UISwipeGestureRecognizer *)sender;
 
 @end

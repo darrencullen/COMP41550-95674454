@@ -36,6 +36,16 @@
 //    [self enableDisableButtons];
 }
 
+- (IBAction)swipeIncrease:(UISwipeGestureRecognizer *)sender {
+    self.stepperSides.value = self.model.numberOfSides += 1;
+    [self updateNumberOfSidesDisplay];
+}
+
+- (IBAction)swipeDecrease:(UISwipeGestureRecognizer *)sender {
+    self.stepperSides.value = self.model.numberOfSides -= 1;
+    [self updateNumberOfSidesDisplay];
+}
+
 - (void)viewDidLoad{
     // configure polygon from saved value
     // Get the stored data before the view loads

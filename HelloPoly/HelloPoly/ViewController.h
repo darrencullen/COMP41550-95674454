@@ -13,14 +13,16 @@
 @interface ViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *numberOfSidesLabel;
 @property (strong, nonatomic) IBOutlet PolygonShape *model;
-@property (weak, nonatomic) IBOutlet UIButton *decreaseButton;
-@property (weak, nonatomic) IBOutlet UIButton *increaseButton;
+//@property (weak, nonatomic) IBOutlet UIButton *decreaseButton;
+//@property (weak, nonatomic) IBOutlet UIButton *increaseButton;
 @property (strong, nonatomic) IBOutlet PolygonView *polygonView;
 @property (weak, nonatomic) IBOutlet UIStepper *stepperSides;
-@property (weak, nonatomic) IBOutlet UIView *polygonName;
+@property (weak, nonatomic) IBOutlet UIView *polygonNameView;
+@property (weak, nonatomic) IBOutlet UILabel *polygonName;
+- (IBAction)showPolygonName:(UISwitch *)sender;
 
-- (IBAction)decrease:(id)sender;
-- (IBAction)increase:(id)sender;
+//- (IBAction)decrease:(id)sender;
+//- (IBAction)increase:(id)sender;
 - (IBAction)stepNumberOfSides:(UIStepper *)sender;
 
 @end

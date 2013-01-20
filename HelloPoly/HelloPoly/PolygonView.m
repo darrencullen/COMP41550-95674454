@@ -24,11 +24,7 @@
     return self;
 }
 
-- (void)setNumberOfSides:(int)numberOfSides{
-    CGRect  viewRect = CGRectMake(10, 10, 100, 100);
-    UIView* myView = [[UIView alloc] initWithFrame:viewRect];
-    
-    
+- (void)setNumberOfSides:(int)numberOfSides{   
     self.objectPoints = [PolygonView pointsForPolygonInRect:self.bounds numberOfSides:numberOfSides];
     [self setNeedsDisplay];
     NSLog(@"Number of sides = %d", numberOfSides);

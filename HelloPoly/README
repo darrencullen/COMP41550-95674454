@@ -1,0 +1,3 @@
+Darren, Cullen, 95674454, darrencullen@gmail.com
+
+The app displays a polygon based upon the number of sides selected by the user. The user can alter the number of sides by either tapping on a stepper control or swiping left and right. The user can also determine whether the name of the polygon gets displayed by using a switch control. The number of sides and the setting whether to display the name are both saved and then restored on startup.

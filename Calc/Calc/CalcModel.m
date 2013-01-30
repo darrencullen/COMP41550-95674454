@@ -18,6 +18,11 @@
         self.operand = sqrt(self.operand);
     else if ([@"+/-" isEqualToString:operation])
         self.operand = - self.operand;
+    else if ([operation isEqual:@"C"]){
+        self.operand = 0;
+        self.waitingOperand = 0;
+        self.waitingOperation = nil;
+    }
     else {
         [self performWaitingOperation];
         self.waitingOperation = operation;

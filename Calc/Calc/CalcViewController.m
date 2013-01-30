@@ -14,6 +14,11 @@
 - (IBAction)digitPressed:(UIButton *)sender
 {
     NSString *digit = sender.titleLabel.text;
+    
+    if ([digit isEqual:@"."])
+        if ([self.calcDisplay.text rangeOfString:@"."].location != NSNotFound)
+            return;
+    
     if (self.isInTheMiddleOfTypingSomething)
         self.calcDisplay.text = [self.calcDisplay.text stringByAppendingString:digit];
     else {

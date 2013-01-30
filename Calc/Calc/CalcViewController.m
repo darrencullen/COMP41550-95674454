@@ -39,6 +39,14 @@
     [[self calcDisplay] setText:[NSString stringWithFormat:@"%g", result]];
 }
 
+- (IBAction)storeValueInMemory:(UIButton *)sender {
+    self.calcModel.valueInMemory = [self.calcDisplay.text doubleValue];
+}
+
+- (IBAction)retrieveValueFromMemory:(UIButton *)sender {
+    [[self calcDisplay] setText:[NSString stringWithFormat:@"%g", self.calcModel.valueInMemory]];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -50,5 +58,17 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+//- (IBAction)doAlert:(id)sender {
+//    UIAlertView *alertDialog;
+//    alertDialog=[[UIAlertView alloc]
+//                 initWithTitle:@"Alert button selected"
+//                 message:@"I need your attention now"
+//                 delegate:nil
+//                 cancelButtonTitle:@"OK"
+//                 otherButtonTitles:nil];
+//    [alertDialog show];
+//}
 
 @end

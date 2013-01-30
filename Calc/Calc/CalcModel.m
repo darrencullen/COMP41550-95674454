@@ -10,18 +10,31 @@
 
 @implementation CalcModel
 
+
+- (double)valueInMemory{
+    self.waitingOperation = nil;
+    return self.valueInMemory;
+}
+
 - (double)performOperation:(NSString *)operation
 {
     // TODO: check for non-negative numbers
     
     if ([operation isEqual:@"sqrt"])
         self.operand = sqrt(self.operand);
-    else if ([@"+/-" isEqualToString:operation])
+    else if ([operation isEqual:@"+/-"])
         self.operand = - self.operand;
+    else if ([operation isEqual:@"1/x"])
+        self.operand = 1 / self.operand;
+    else if ([operation isEqual:@"sin"])
+        self.operand = sin(self.operand);
+    else if ([operation isEqual:@"cos"])
+        self.operand = cos(self.operand);
     else if ([operation isEqual:@"C"]){
         self.operand = 0;
         self.waitingOperand = 0;
         self.waitingOperation = nil;
+        self.valueInMemory = 0;
     }
     else {
         [self performWaitingOperation];
@@ -30,6 +43,12 @@
     }
     
     return self.operand;
+}
+
+- (void)performMemoryOperation:(NSString *)memoryOperation
+{
+    
+    
 }
 
 - (void)performWaitingOperation

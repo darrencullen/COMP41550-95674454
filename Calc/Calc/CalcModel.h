@@ -13,8 +13,8 @@
 @property (nonatomic) double operand;
 @property (nonatomic) double waitingOperand;
 @property (nonatomic, strong) NSString *waitingOperation;
+@property (nonatomic) double valueInMemory;
 
 - (double)performOperation:(NSString *)operation;
-
 
 @end

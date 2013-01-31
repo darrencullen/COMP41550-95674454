@@ -11,11 +11,6 @@
 @implementation CalcModel
 
 
-- (double)valueInMemory{
-    self.waitingOperation = nil;
-    return self.valueInMemory;
-}
-
 - (double)performOperation:(NSString *)operation
 {
     // TODO: check for non-negative numbers
@@ -30,6 +25,8 @@
         self.operand = sin(self.operand);
     else if ([operation isEqual:@"cos"])
         self.operand = cos(self.operand);
+    else if ([operation isEqual:@"mem+"])
+        self.valueInMemory = self.valueInMemory + self.operand;
     else if ([operation isEqual:@"C"]){
         self.operand = 0;
         self.waitingOperand = 0;
@@ -43,12 +40,6 @@
     }
     
     return self.operand;
-}
-
-- (void)performMemoryOperation:(NSString *)memoryOperation
-{
-    
-    
 }
 
 - (void)performWaitingOperation

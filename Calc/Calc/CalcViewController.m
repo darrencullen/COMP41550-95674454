@@ -8,23 +8,50 @@
 
 #import "CalcViewController.h"
 
+@interface CalcViewController()
+@property (nonatomic) BOOL isInTheMiddleOfTypingSomething;
+@property (nonatomic) BOOL hasMemoryJustBeenAccessed;
+@end
+
 @implementation CalcViewController
+
 
 
 - (IBAction)digitPressed:(UIButton *)sender
 {
     NSString *digit = sender.titleLabel.text;
     
+    // don't allow more than one dot
     if ([digit isEqual:@"."])
         if ([self.calcDisplay.text rangeOfString:@"."].location != NSNotFound)
             return;
     
+    // handle pi
+    if ([digit isEqual:@"π"])
+        digit = [NSString stringWithFormat:@"%g", M_PI];
+    
     if (self.isInTheMiddleOfTypingSomething)
-        self.calcDisplay.text = [self.calcDisplay.text stringByAppendingString:digit];
+        if (self.hasMemoryJustBeenAccessed == YES)
+            self.calcDisplay.text = digit;
+    
+        // replace digit if 0 displayed or else append digit
+        else if ([self.calcDisplay.text isEqual:@"0"])
+            if ([digit isEqual:@"."])
+               self.calcDisplay.text = [self.calcDisplay.text stringByAppendingString:digit];
+            else
+                self.calcDisplay.text = digit;
+    
+        else
+            self.calcDisplay.text = [self.calcDisplay.text stringByAppendingString:digit];
     else {
-        self.calcDisplay.text = digit;
+        if ([digit isEqual:@"."])
+            self.calcDisplay.text = [self.calcDisplay.text stringByAppendingString:digit];
+        else
+            self.calcDisplay.text = digit;
         self.isInTheMiddleOfTypingSomething = YES;
     }
+    
+    self.hasMemoryJustBeenAccessed = NO;
 }
 
 - (IBAction)operationPressed:(UIButton *)sender
@@ -37,14 +64,27 @@
     NSString *operation = [[sender titleLabel] text];
     double result = [[self calcModel] performOperation:operation];
     [[self calcDisplay] setText:[NSString stringWithFormat:@"%g", result]];
+    
+    self.hasMemoryJustBeenAccessed = NO;
 }
 
 - (IBAction)storeValueInMemory:(UIButton *)sender {
     self.calcModel.valueInMemory = [self.calcDisplay.text doubleValue];
+    self.hasMemoryJustBeenAccessed = YES;
 }
 
 - (IBAction)retrieveValueFromMemory:(UIButton *)sender {
     [[self calcDisplay] setText:[NSString stringWithFormat:@"%g", self.calcModel.valueInMemory]];
+    self.calcModel.operand = self.calcModel.valueInMemory;
+    self.hasMemoryJustBeenAccessed = YES;
+}
+
+- (IBAction)backspacePressed:(UIButton *)sender
+{
+    if ([self.calcDisplay.text length] > 1)
+        self.calcDisplay.text = [self.calcDisplay.text substringToIndex:[self.calcDisplay.text length] - 1];
+    else if ([self.calcDisplay.text length] == 1)
+        self.calcDisplay.text = @"0";
 }
 
 - (void)viewDidLoad

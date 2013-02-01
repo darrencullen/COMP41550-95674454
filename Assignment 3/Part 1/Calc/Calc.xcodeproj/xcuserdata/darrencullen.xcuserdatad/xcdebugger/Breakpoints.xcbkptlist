@@ -39,7 +39,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "64"
          endingLineNumber = "64"
-         landmarkName = "-performWaitingOperation"
+         landmarkName = "-performOperation:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint

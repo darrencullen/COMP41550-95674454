@@ -65,6 +65,17 @@
     double result = [[self calcModel] performOperation:operation];
     [[self calcDisplay] setText:[NSString stringWithFormat:@"%g", result]];
     
+    if (self.calcModel.operationError == YES){
+        UIAlertView *alertDialog;
+        alertDialog=[[UIAlertView alloc]
+                     initWithTitle:@"Operation Error"
+                     message:self.calcModel.operationErrorMessage
+                     delegate:nil
+                     cancelButtonTitle:@"OK"
+                     otherButtonTitles:nil];
+        [alertDialog show];
+    }
+    
     self.hasMemoryJustBeenAccessed = NO;
 }
 

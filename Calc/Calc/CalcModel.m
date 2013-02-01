@@ -13,8 +13,29 @@
 
 - (double)performOperation:(NSString *)operation
 {
-    // TODO: check for non-negative numbers
+    self.operationError = NO;
     
+    if (([self.waitingOperation isEqual:@"/"]) && (self.operand == 0)){
+        self.operationError = YES;
+        self.operationErrorMessage = @"Division by zero not allowed";
+        self.operand = 0;
+        self.waitingOperand = 0;
+        self.waitingOperation = nil;
+        return 0;
+    }
+    
+    if (([operation isEqual:@"sqrt"]) && (self.operand < 0)){
+        self.operationError = YES;
+        self.operationErrorMessage = @"Square root of negative number not allowed";
+        self.operand = 0;
+        self.waitingOperand = 0;
+        self.waitingOperation = nil;
+        return 0;
+    }
+    
+    
+    // TODO: check for non-negative numbers
+
     if ([operation isEqual:@"sqrt"])
         self.operand = sqrt(self.operand);
     else if ([operation isEqual:@"+/-"])
@@ -43,9 +64,7 @@
 }
 
 - (void)performWaitingOperation
-{
-    // TODO: handle divide by zero better than a silent failure
-    
+{      
     if([@"+" isEqualToString:self.waitingOperation])
         self.operand = self.waitingOperand + self.operand;
     else if([@"-" isEqualToString:self.waitingOperation])
@@ -54,6 +73,7 @@
         self.operand = self.waitingOperand * self.operand;
     else if([@"/" isEqualToString:self.waitingOperation])
         if(self.operand) self.operand = self.waitingOperand / self.operand;
+
 }
 
 @end

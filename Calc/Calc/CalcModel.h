@@ -14,6 +14,8 @@
 @property (nonatomic) double waitingOperand;
 @property (nonatomic, strong) NSString *waitingOperation;
 @property (nonatomic) double valueInMemory;
+@property (nonatomic) BOOL operationError;
+@property (nonatomic, strong) NSString *operationErrorMessage;
 
 - (double)performOperation:(NSString *)operation;
 

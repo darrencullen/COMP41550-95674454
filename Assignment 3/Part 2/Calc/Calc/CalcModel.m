@@ -10,14 +10,28 @@
 
 @implementation CalcModel
 
++ (double)evaluateExpression:(id)anExpression usingVariableValues:(NSDictionary *)variable
+{
+    return 0;
+}
+
++ (NSSet *)variablesInExpression:(id)anExpression
+{
+    return nil;
+}
+
++ (id)propertyListForExpression:(id)anExpression
+{
+    return nil;
+}
 
 - (double)performOperation:(NSString *)operation
 {
-    self.operationError = NO;
+    _operationError = NO;
     
     if (([self.waitingOperation isEqual:@"/"]) && (self.operand == 0)){
-        self.operationError = YES;
-        self.operationErrorMessage = @"Division by zero not allowed";
+        _operationError = YES;
+        _operationErrorMessage = @"Division by zero not allowed";
         self.operand = 0;
         self.waitingOperand = 0;
         self.waitingOperation = nil;
@@ -25,8 +39,8 @@
     }
     
     if (([operation isEqual:@"sqrt"]) && (self.operand < 0)){
-        self.operationError = YES;
-        self.operationErrorMessage = @"Square root of negative number not allowed";
+        _operationError = YES;
+        _operationErrorMessage = @"Square root of negative number not allowed";
         self.operand = 0;
         self.waitingOperand = 0;
         self.waitingOperation = nil;
@@ -47,12 +61,12 @@
     else if ([operation isEqual:@"cos"])
         self.operand = cos(self.operand);
     else if ([operation isEqual:@"mem+"])
-        self.valueInMemory = self.valueInMemory + self.operand;
+        _valueInMemory = self.valueInMemory + self.operand;
     else if ([operation isEqual:@"C"]){
         self.operand = 0;
         self.waitingOperand = 0;
         self.waitingOperation = nil;
-        self.valueInMemory = 0;
+        _valueInMemory = 0;
     }
     else {
         [self performWaitingOperation];
@@ -76,4 +90,18 @@
 
 }
 
+- (void)setVariableAsOperand:(NSString *)variableName
+{
+    
+}
+
+- (NSString *)descriptionOfExpression:(id)anExpression
+{
+    return nil;
+}
+
+- (id)expressionForPropertyList:(id)propertyList
+{
+    return nil;
+}
 @end

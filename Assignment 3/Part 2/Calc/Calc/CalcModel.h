@@ -14,9 +14,18 @@
 @property (nonatomic) double waitingOperand;
 @property (nonatomic, strong) NSString *waitingOperation;
 @property (nonatomic) double valueInMemory;
-@property (nonatomic) BOOL operationError;
-@property (nonatomic, strong) NSString *operationErrorMessage;
+@property (readonly, strong) id expression;
+@property (readonly) BOOL operationError;
+@property (readonly, strong) NSString *operationErrorMessage;
 
 - (double)performOperation:(NSString *)operation;
+- (void)setVariableAsOperand:(NSString *)variableName;
+
+
++ (double)evaluateExpression:(id)anExpression usingVariableValues:(NSDictionary *)variable;
++ (NSSet *)variablesInExpression:(id)anExpression;
+- (NSString *)descriptionOfExpression:(id)anExpression;
++ (id)propertyListForExpression:(id)anExpression;
+- (id)expressionForPropertyList:(id)propertyList;
 
 @end

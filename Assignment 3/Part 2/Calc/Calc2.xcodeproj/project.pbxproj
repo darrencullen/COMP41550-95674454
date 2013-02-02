@@ -30,14 +30,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		494D977016B7346D00B9339D /* Calc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calc.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		494D977016B7346D00B9339D /* Calc2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calc2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		494D977316B7346D00B9339D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		494D977516B7346D00B9339D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		494D977716B7346D00B9339D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		494D977B16B7346D00B9339D /* Calc-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Calc-Info.plist"; sourceTree = "<group>"; };
+		494D977B16B7346D00B9339D /* Calc2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Calc2-Info.plist"; sourceTree = "<group>"; };
 		494D977D16B7346D00B9339D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		494D977F16B7346D00B9339D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		494D978116B7346D00B9339D /* Calc-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Calc-Prefix.pch"; sourceTree = "<group>"; };
+		494D978116B7346D00B9339D /* Calc2-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Calc2-Prefix.pch"; sourceTree = "<group>"; };
 		494D978216B7346D00B9339D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		494D978316B7346D00B9339D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		494D978516B7346D00B9339D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -84,7 +84,7 @@
 		494D977116B7346D00B9339D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				494D977016B7346D00B9339D /* Calc.app */,
+				494D977016B7346D00B9339D /* Calc2.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -115,10 +115,10 @@
 			isa = PBXGroup;
 			children = (
 				49FBA63516B889C9005F8FCB /* Resources */,
-				494D977B16B7346D00B9339D /* Calc-Info.plist */,
+				494D977B16B7346D00B9339D /* Calc2-Info.plist */,
 				494D977C16B7346D00B9339D /* InfoPlist.strings */,
 				494D977F16B7346D00B9339D /* main.m */,
-				494D978116B7346D00B9339D /* Calc-Prefix.pch */,
+				494D978116B7346D00B9339D /* Calc2-Prefix.pch */,
 				494D978516B7346D00B9339D /* Default.png */,
 				494D978716B7346D00B9339D /* Default@2x.png */,
 				494D978916B7346D00B9339D /* Default-568h@2x.png */,
@@ -155,9 +155,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		494D976F16B7346D00B9339D /* Calc */ = {
+		494D976F16B7346D00B9339D /* Calc2 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 494D979316B7346D00B9339D /* Build configuration list for PBXNativeTarget "Calc" */;
+			buildConfigurationList = 494D979316B7346D00B9339D /* Build configuration list for PBXNativeTarget "Calc2" */;
 			buildPhases = (
 				494D976C16B7346D00B9339D /* Sources */,
 				494D976D16B7346D00B9339D /* Frameworks */,
@@ -167,9 +167,9 @@
 			);
 			dependencies = (
 			);
-			name = Calc;
+			name = Calc2;
 			productName = Calc;
-			productReference = 494D977016B7346D00B9339D /* Calc.app */;
+			productReference = 494D977016B7346D00B9339D /* Calc2.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -181,7 +181,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = 95674454;
 			};
-			buildConfigurationList = 494D976B16B7346D00B9339D /* Build configuration list for PBXProject "Calc" */;
+			buildConfigurationList = 494D976B16B7346D00B9339D /* Build configuration list for PBXProject "Calc2" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -193,7 +193,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				494D976F16B7346D00B9339D /* Calc */,
+				494D976F16B7346D00B9339D /* Calc2 */,
 			);
 		};
 /* End PBXProject section */
@@ -315,10 +315,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Calc/Calc-Prefix.pch";
-				INFOPLIST_FILE = "Calc/Calc-Info.plist";
+				GCC_PREFIX_HEADER = "Calc/Calc2-Prefix.pch";
+				INFOPLIST_FILE = "Calc/Calc2-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Calc2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -327,10 +327,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Calc/Calc-Prefix.pch";
-				INFOPLIST_FILE = "Calc/Calc-Info.plist";
+				GCC_PREFIX_HEADER = "Calc/Calc2-Prefix.pch";
+				INFOPLIST_FILE = "Calc/Calc2-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Calc2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -338,7 +338,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		494D976B16B7346D00B9339D /* Build configuration list for PBXProject "Calc" */ = {
+		494D976B16B7346D00B9339D /* Build configuration list for PBXProject "Calc2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				494D979116B7346D00B9339D /* Debug */,
@@ -347,7 +347,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		494D979316B7346D00B9339D /* Build configuration list for PBXNativeTarget "Calc" */ = {
+		494D979316B7346D00B9339D /* Build configuration list for PBXNativeTarget "Calc2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				494D979416B7346D00B9339D /* Debug */,

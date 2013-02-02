@@ -98,6 +98,11 @@
         self.calcDisplay.text = @"0";
 }
 
+- (IBAction)variablePressed:(UIButton *)sender
+{
+    [[self calcModel] setVariableAsOperand:sender.titleLabel.text];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -111,15 +116,5 @@
 }
 
 
-//- (IBAction)doAlert:(id)sender {
-//    UIAlertView *alertDialog;
-//    alertDialog=[[UIAlertView alloc]
-//                 initWithTitle:@"Alert button selected"
-//                 message:@"I need your attention now"
-//                 delegate:nil
-//                 cancelButtonTitle:@"OK"
-//                 otherButtonTitles:nil];
-//    [alertDialog show];
-//}
 
 @end

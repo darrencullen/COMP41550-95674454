@@ -17,7 +17,16 @@
          contextName = "-[CalcModel performOperation:]:CalcModel.m">
          <PersistentStrings>
             <PersistentString
+               value = "operation">
+            </PersistentString>
+            <PersistentString
                value = "self.operand">
+            </PersistentString>
+            <PersistentString
+               value = "self.waitingOperand">
+            </PersistentString>
+            <PersistentString
+               value = "self.waitingOperation">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

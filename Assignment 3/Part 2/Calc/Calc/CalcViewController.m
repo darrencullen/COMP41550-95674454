@@ -52,6 +52,7 @@
     }
     
     self.hasMemoryJustBeenAccessed = NO;
+    //self.expressionDisplay.text = [self.expressionDisplay.text stringByAppendingString:digit];
 }
 
 - (IBAction)operationPressed:(UIButton *)sender
@@ -65,6 +66,7 @@
     double result = [[self calcModel] performOperation:operation];
     [[self calcDisplay] setText:[NSString stringWithFormat:@"%g", result]];
     
+    
     if (self.calcModel.operationError == YES){
         UIAlertView *alertDialog;
         alertDialog=[[UIAlertView alloc]
@@ -77,6 +79,7 @@
     }
     
     self.hasMemoryJustBeenAccessed = NO;
+    self.expressionDisplay.text = self.calcModel.expression;
 }
 
 - (IBAction)storeValueInMemory:(UIButton *)sender {
@@ -101,6 +104,21 @@
 - (IBAction)variablePressed:(UIButton *)sender
 {
     [[self calcModel] setVariableAsOperand:sender.titleLabel.text];
+    self.expressionDisplay.text = self.calcModel.expression;
+}
+
+- (IBAction)solveExpressionPressed:(UIButton *)sender {
+    NSSet *variablesCurrentlyInExpression = [CalcModel variablesInExpression:self.calcModel.expression];
+    
+    if (variablesCurrentlyInExpression){
+        
+        
+        //CalcModel evaluateExpression:(id)self.calcModel.expression usingVariableValues:(NSDictionary *)variable;
+    }
+        
+         
+        
+        
 }
 
 - (void)viewDidLoad
@@ -117,4 +135,8 @@
 
 
 
+- (void)viewDidUnload {
+    [self setExpressionDisplay:nil];
+    [super viewDidUnload];
+}
 @end

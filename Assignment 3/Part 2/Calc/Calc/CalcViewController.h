@@ -13,9 +13,11 @@
 
 @property (nonatomic, strong) IBOutlet CalcModel *calcModel;
 @property (nonatomic, weak) IBOutlet UILabel *calcDisplay;
+@property (weak, nonatomic) IBOutlet UILabel *expressionDisplay;
 
 - (IBAction)digitPressed:(UIButton *)sender;
 - (IBAction)operationPressed:(UIButton *)sender;
 - (IBAction)backspacePressed:(UIButton *)sender;
 - (IBAction)variablePressed:(UIButton *)sender;
+- (IBAction)solveExpressionPressed:(UIButton *)sender;
 @end

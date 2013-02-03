@@ -8,7 +8,20 @@
 
 #import "CalcModel.h"
 
+@interface CalcModel()
+@property (nonatomic) BOOL doesExpressionHaveVariable;
+@end
+
 @implementation CalcModel
+
+- (id)init
+{
+    if (self = [super init])
+    {
+        _expression = [[NSMutableString alloc] init];
+    }
+    return self;
+}
 
 + (double)evaluateExpression:(id)anExpression usingVariableValues:(NSDictionary *)variable
 {
@@ -47,6 +60,12 @@
         return 0;
     }
     
+    if ([self.waitingOperation isEqual:@"="]){
+        if (![operation isEqual:@"="])
+            [_expression appendFormat:@"%@", operation];
+    }
+    else
+        [_expression appendFormat:@"%g%@",self.operand, operation];
     
     // TODO: check for non-negative numbers
 
@@ -67,14 +86,19 @@
         self.waitingOperand = 0;
         self.waitingOperation = nil;
         _valueInMemory = 0;
+        _expression = nil;
+        self.doesExpressionHaveVariable = NO;
     }
     else {
         [self performWaitingOperation];
         self.waitingOperation = operation;
         self.waitingOperand = self.operand;
     }
-    
-    return self.operand;
+
+    if (self.doesExpressionHaveVariable == YES)
+        return 0;
+    else
+        return self.operand;
 }
 
 - (void)performWaitingOperation
@@ -92,7 +116,8 @@
 
 - (void)setVariableAsOperand:(NSString *)variableName
 {
-    
+    [_expression appendFormat:@"%@", variableName];
+    self.doesExpressionHaveVariable = YES;
 }
 
 - (NSString *)descriptionOfExpression:(id)anExpression

@@ -10,22 +10,34 @@
 
 @interface CalcModel : NSObject
 
+// store operation and operand
 @property (nonatomic) double operand;
 @property (nonatomic) double waitingOperand;
 @property (nonatomic, strong) NSString *waitingOperation;
+
+// store value in memory
 @property (nonatomic) double valueInMemory;
-@property (readonly, strong) id expression;
+
+// relay error details to controller
 @property (readonly) BOOL operationError;
 @property (readonly, strong) NSString *operationErrorMessage;
 
+// build expression as operands and operations entered
+@property (readonly, strong) id expression;
+
+// perform calculations
 - (double)performOperation:(NSString *)operation;
++ (double)evaluateExpression:(id)anExpression usingVariableValues:(NSDictionary *)variable;
+
+// set variable
 - (void)setVariableAsOperand:(NSString *)variableName;
 
 
-+ (double)evaluateExpression:(id)anExpression usingVariableValues:(NSDictionary *)variable;
-+ (NSSet *)variablesInExpression:(id)anExpression;
-- (NSString *)descriptionOfExpression:(id)anExpression;
 + (id)propertyListForExpression:(id)anExpression;
 - (id)expressionForPropertyList:(id)propertyList;
 
+
+// utility methods
++ (NSSet *)variablesInExpression:(id)anExpression;
+- (NSString *)descriptionOfExpression:(id)anExpression;
 @end

@@ -79,7 +79,7 @@
     }
     
     self.hasMemoryJustBeenAccessed = NO;
-    self.expressionDisplay.text = self.calcModel.expression;
+    self.expressionDisplay.text = [[self calcModel] descriptionOfExpression:self.calcModel.expression];
 }
 
 - (IBAction)storeValueInMemory:(UIButton *)sender {
@@ -104,7 +104,7 @@
 - (IBAction)variablePressed:(UIButton *)sender
 {
     [[self calcModel] setVariableAsOperand:sender.titleLabel.text];
-    self.expressionDisplay.text = self.calcModel.expression;
+    self.expressionDisplay.text = [[self calcModel] descriptionOfExpression:self.calcModel.expression];
 }
 
 - (IBAction)solveExpressionPressed:(UIButton *)sender {

@@ -10,6 +10,7 @@
 
 @interface CalcModel()
 @property (nonatomic) BOOL doesExpressionHaveVariable;
+@property (nonatomic) int latestVariableIndex;
 @end
 
 @implementation CalcModel
@@ -18,23 +19,34 @@
 {
     if (self = [super init])
     {
-        _expression = [[NSMutableString alloc] init];
+        _expression = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
 + (double)evaluateExpression:(id)anExpression usingVariableValues:(NSDictionary *)variable
 {
+    // TODO: evaluate expression
     return 0;
 }
 
 + (NSSet *)variablesInExpression:(id)anExpression
 {
-    return nil;
+    NSMutableSet *expressionVariables = [[NSMutableSet alloc] init];
+    
+    for (NSString *item in anExpression) {
+        [expressionVariables addObject:item];
+    }
+    
+    if ([expressionVariables count] == 0)
+        return nil;
+    else
+        return expressionVariables;
 }
 
 + (id)propertyListForExpression:(id)anExpression
 {
+    // TODO:
     return nil;
 }
 
@@ -62,10 +74,17 @@
     
     if ([self.waitingOperation isEqual:@"="]){
         if (![operation isEqual:@"="])
-            [_expression appendFormat:@"%@", operation];
+            [_expression addObject:operation];
     }
-    else
-        [_expression appendFormat:@"%g%@",self.operand, operation];
+    else{
+        // only add operand if last object in expression wasn't a variable
+        if ((self.latestVariableIndex != [_expression count]) || (self.latestVariableIndex == 0)){
+            NSString *trimmedOperand = [NSString stringWithFormat:@"%g",self.operand];
+            [_expression addObject:trimmedOperand];
+        }
+        [_expression addObject:operation];
+    }
+
     
     // TODO: check for non-negative numbers
 
@@ -86,7 +105,7 @@
         self.waitingOperand = 0;
         self.waitingOperation = nil;
         _valueInMemory = 0;
-        _expression = nil;
+        [_expression removeAllObjects];
         self.doesExpressionHaveVariable = NO;
     }
     else {
@@ -111,22 +130,28 @@
         self.operand = self.waitingOperand * self.operand;
     else if([@"/" isEqualToString:self.waitingOperation])
         if(self.operand) self.operand = self.waitingOperand / self.operand;
-
 }
 
 - (void)setVariableAsOperand:(NSString *)variableName
 {
-    [_expression appendFormat:@"%@", variableName];
+    [_expression addObject:variableName];
     self.doesExpressionHaveVariable = YES;
+    self.latestVariableIndex = [_expression count];
 }
 
 - (NSString *)descriptionOfExpression:(id)anExpression
 {
-    return nil;
+    NSMutableString *expressionDescription = [[NSMutableString alloc] init];
+    
+    for (NSString *item in anExpression) {
+        [expressionDescription appendString:item];
+         }
+    return expressionDescription;
 }
 
 - (id)expressionForPropertyList:(id)propertyList
 {
+    // TODO:
     return nil;
 }
 @end

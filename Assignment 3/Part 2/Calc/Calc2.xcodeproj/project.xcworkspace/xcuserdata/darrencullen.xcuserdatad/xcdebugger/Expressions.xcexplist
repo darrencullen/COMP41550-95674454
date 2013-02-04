@@ -23,6 +23,9 @@
                value = "self.operand">
             </PersistentString>
             <PersistentString
+               value = "_expression">
+            </PersistentString>
+            <PersistentString
                value = "self.waitingOperand">
             </PersistentString>
             <PersistentString

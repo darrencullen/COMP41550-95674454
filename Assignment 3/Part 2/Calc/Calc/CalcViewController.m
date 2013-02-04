@@ -108,17 +108,13 @@
 }
 
 - (IBAction)solveExpressionPressed:(UIButton *)sender {
-    NSSet *variablesCurrentlyInExpression = [CalcModel variablesInExpression:self.calcModel.expression];
+    NSSet *variablesCurrentlyInExpression = [[NSSet alloc] initWithSet:[CalcModel variablesInExpression:self.calcModel.expression]];
     
     if (variablesCurrentlyInExpression){
         
         
         //CalcModel evaluateExpression:(id)self.calcModel.expression usingVariableValues:(NSDictionary *)variable;
     }
-        
-         
-        
-        
 }
 
 - (void)viewDidLoad
@@ -132,8 +128,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
 
 - (void)viewDidUnload {
     [self setExpressionDisplay:nil];

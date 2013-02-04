@@ -35,7 +35,10 @@
     NSMutableSet *expressionVariables = [[NSMutableSet alloc] init];
     
     for (NSString *item in anExpression) {
-        [expressionVariables addObject:item];
+        if (([item isEqual:@"a"]) || ([item isEqual:@"b"]) || ([item isEqual:@"x"])){
+            if (![expressionVariables containsObject:item])
+                [expressionVariables addObject:item];
+        }
     }
     
     if ([expressionVariables count] == 0)

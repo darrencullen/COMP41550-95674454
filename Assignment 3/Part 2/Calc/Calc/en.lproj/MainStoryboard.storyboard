@@ -491,7 +491,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="solveExpressionPressed:" destination="2" eventType="touchUpInside" id="rZ9-Ak-lkN"/>
+                                    <action selector="solveExpressionPressed:" destination="2" eventType="touchUpInside" id="F5M-dD-gUM"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -508,7 +508,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
                 <customObject id="8ps-8O-qtA" customClass="CalcModel"/>
             </objects>
-            <point key="canvasLocation" x="-2197" y="-13"/>
+            <point key="canvasLocation" x="-2557" y="-4"/>
         </scene>
     </scenes>
     <resources>

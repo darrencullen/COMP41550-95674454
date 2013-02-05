@@ -27,7 +27,7 @@
 + (double)evaluateExpression:(id)anExpression usingVariableValues:(NSDictionary *)variable
 {
     // TODO: evaluate expression
-    return 0;
+    return 33.33;
 }
 
 + (NSSet *)variablesInExpression:(id)anExpression

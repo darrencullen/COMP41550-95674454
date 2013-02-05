@@ -11,10 +11,11 @@
 @interface CalcViewController()
 @property (nonatomic) BOOL isInTheMiddleOfTypingSomething;
 @property (nonatomic) BOOL hasMemoryJustBeenAccessed;
+@property (nonatomic) int variablesCount;
+@property (nonatomic, strong) NSMutableDictionary *variablesSet;
 @end
 
 @implementation CalcViewController
-
 
 
 - (IBAction)digitPressed:(UIButton *)sender
@@ -108,19 +109,47 @@
 }
 
 - (IBAction)solveExpressionPressed:(UIButton *)sender {
+    self.variablesCount = 0;
+    [self.variablesSet removeAllObjects];
+    
     NSSet *variablesCurrentlyInExpression = [[NSSet alloc] initWithSet:[CalcModel variablesInExpression:self.calcModel.expression]];
+    self.variablesCount = [variablesCurrentlyInExpression count];
     
     if (variablesCurrentlyInExpression){
-        
-        
-        //CalcModel evaluateExpression:(id)self.calcModel.expression usingVariableValues:(NSDictionary *)variable;
+        for (NSString *item in variablesCurrentlyInExpression) {
+            UIAlertView *alertDialog;
+            alertDialog = [[UIAlertView alloc] initWithTitle:@"Enter value for variable"
+                                                    message:item
+                                                    delegate:self
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles:nil];
+                
+            alertDialog.alertViewStyle=UIAlertViewStylePlainTextInput;
+            UITextField * alertTextField = [alertDialog textFieldAtIndex:0];
+            alertTextField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+            [alertDialog show];
+        }
+
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+      if (buttonIndex == 0){
+        if ([[alertView textFieldAtIndex:0] text]){         
+            self.variablesSet[alertView.message] = [[alertView textFieldAtIndex:0] text];
+        }
+    }
+    
+    if ([self.variablesSet count] == self.variablesCount){
+        NSLog(@"time to solve");
+        [[self calcDisplay] setText:[NSString stringWithFormat:@"%g", [CalcModel evaluateExpression:self.calcModel.expression usingVariableValues:self.variablesSet]]];
     }
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	self.variablesSet = [[NSMutableDictionary alloc] init];
 }
 
 - (void)didReceiveMemoryWarning

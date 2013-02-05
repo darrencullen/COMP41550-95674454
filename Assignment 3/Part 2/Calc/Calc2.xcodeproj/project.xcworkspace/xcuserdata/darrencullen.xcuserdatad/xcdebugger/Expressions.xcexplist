@@ -33,5 +33,25 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "+[CalcModel variablesInExpression:]:CalcModel.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[CalcViewController solveExpressionPressed:]:CalcViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[CalcViewController alertView:clickedButtonAtIndex:]:CalcViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.variablesCount">
+            </PersistentString>
+            <PersistentString
+               value = "alertView.message">
+            </PersistentString>
+            <PersistentString
+               value = "self.variablesSet">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

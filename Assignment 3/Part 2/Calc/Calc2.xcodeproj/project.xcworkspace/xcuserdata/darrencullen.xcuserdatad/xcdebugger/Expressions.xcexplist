@@ -3,6 +3,17 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "-[CalcViewController promptForVariables]:CalcViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.variablesSet">
+            </PersistentString>
+            <PersistentString
+               value = "self.calcModel.expression">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[CalcModel performWaitingOperation]:CalcModel.m">
          <PersistentStrings>
             <PersistentString
@@ -43,13 +54,13 @@
          contextName = "-[CalcViewController alertView:clickedButtonAtIndex:]:CalcViewController.m">
          <PersistentStrings>
             <PersistentString
+               value = "self.variablesSet">
+            </PersistentString>
+            <PersistentString
                value = "self.variablesCount">
             </PersistentString>
             <PersistentString
                value = "alertView.message">
-            </PersistentString>
-            <PersistentString
-               value = "self.variablesSet">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

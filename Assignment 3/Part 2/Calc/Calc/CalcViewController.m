@@ -11,8 +11,9 @@
 @interface CalcViewController()
 @property (nonatomic) BOOL isInTheMiddleOfTypingSomething;
 @property (nonatomic) BOOL hasMemoryJustBeenAccessed;
-@property (nonatomic) int variablesCount;
 @property (nonatomic, strong) NSMutableDictionary *variablesSet;
+@property (nonatomic, strong) NSString *variableBeingSet;
+@property (nonatomic, strong) NSMutableSet *variablesCurrentlyInExpression;
 @end
 
 @implementation CalcViewController
@@ -109,41 +110,46 @@
 }
 
 - (IBAction)solveExpressionPressed:(UIButton *)sender {
-    self.variablesCount = 0;
     [self.variablesSet removeAllObjects];
+    self.variablesCurrentlyInExpression = [[NSMutableSet alloc] initWithSet:[CalcModel variablesInExpression:self.calcModel.expression]];
     
-    NSSet *variablesCurrentlyInExpression = [[NSSet alloc] initWithSet:[CalcModel variablesInExpression:self.calcModel.expression]];
-    self.variablesCount = [variablesCurrentlyInExpression count];
-    
-    if (variablesCurrentlyInExpression){
-        for (NSString *item in variablesCurrentlyInExpression) {
-            UIAlertView *alertDialog;
-            alertDialog = [[UIAlertView alloc] initWithTitle:@"Enter value for variable"
-                                                    message:item
-                                                    delegate:self
-                                                    cancelButtonTitle:@"OK"
-                                                    otherButtonTitles:nil];
-                
-            alertDialog.alertViewStyle=UIAlertViewStylePlainTextInput;
-            UITextField * alertTextField = [alertDialog textFieldAtIndex:0];
-            alertTextField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
-            [alertDialog show];
-        }
+    if (self.variablesCurrentlyInExpression){
+        [self promptForVariables];
+    }
+}
 
+- (void)promptForVariables {
+    
+    if (![self.variablesCurrentlyInExpression count]){
+        [[self calcDisplay] setText:[NSString stringWithFormat:@"%g", [CalcModel evaluateExpression:self.calcModel.expression usingVariableValues:self.variablesSet]]];
+        
+        return;
+        
+    } else {
+        self.variableBeingSet = [self.variablesCurrentlyInExpression anyObject];
+        [self.variablesCurrentlyInExpression removeObject:self.variableBeingSet];
+        
+        UIAlertView *alertDialog;
+        alertDialog = [[UIAlertView alloc] initWithTitle:@"Enter value for variable"
+                                                 message:self.variableBeingSet
+                                                delegate:self
+                                       cancelButtonTitle:@"OK"
+                                       otherButtonTitles:nil];
+        
+        alertDialog.alertViewStyle=UIAlertViewStylePlainTextInput;
+        UITextField * alertTextField = [alertDialog textFieldAtIndex:0];
+        alertTextField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+        [alertDialog show];
     }
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
       if (buttonIndex == 0){
         if ([[alertView textFieldAtIndex:0] text]){         
-            self.variablesSet[alertView.message] = [[alertView textFieldAtIndex:0] text];
+            [self.variablesSet setValue:[[alertView textFieldAtIndex:0] text] forKey:self.variableBeingSet];
         }
     }
-    
-    if ([self.variablesSet count] == self.variablesCount){
-        NSLog(@"time to solve");
-        [[self calcDisplay] setText:[NSString stringWithFormat:@"%g", [CalcModel evaluateExpression:self.calcModel.expression usingVariableValues:self.variablesSet]]];
-    }
+    [self promptForVariables];
 }
 
 - (void)viewDidLoad

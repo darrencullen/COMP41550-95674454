@@ -3,26 +3,7 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "-[CalcViewController promptForVariables]:CalcViewController.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.variablesSet">
-            </PersistentString>
-            <PersistentString
-               value = "self.calcModel.expression">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[CalcModel performWaitingOperation]:CalcModel.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.operand">
-            </PersistentString>
-            <PersistentString
-               value = "self.waitingOperation">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "-[CalcViewController solveExpressionPressed:]:CalcViewController.m">
       </ContextState>
       <ContextState
          contextName = "-[CalcModel performOperation:]:CalcModel.m">
@@ -45,10 +26,29 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "-[CalcModel evaluateExpressionTest:]:CalcModel.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "anExpression">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "+[CalcModel variablesInExpression:]:CalcModel.m">
       </ContextState>
       <ContextState
-         contextName = "-[CalcViewController solveExpressionPressed:]:CalcViewController.m">
+         contextName = "+[CalcModel evaluateExpression:usingVariableValues:]:CalcModel.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[CalcModel performWaitingOperation]:CalcModel.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.operand">
+            </PersistentString>
+            <PersistentString
+               value = "self.waitingOperation">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "-[CalcViewController alertView:clickedButtonAtIndex:]:CalcViewController.m">
@@ -61,6 +61,17 @@
             </PersistentString>
             <PersistentString
                value = "alertView.message">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[CalcViewController promptForVariables]:CalcViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.variablesSet">
+            </PersistentString>
+            <PersistentString
+               value = "self.calcModel.expression">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

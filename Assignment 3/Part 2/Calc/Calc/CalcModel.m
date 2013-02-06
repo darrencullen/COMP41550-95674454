@@ -27,8 +27,13 @@
 + (double)evaluateExpression:(id)anExpression usingVariableValues:(NSDictionary *)variable
 {
     
-    // TODO: evaluate expression
-    return 33.33;
+//    NSMutableSet *expressionVariables = [[NSMutableSet alloc] init];
+    
+    for (NSString *item in anExpression) {
+        NSLog(@"%@",item);
+    }
+    
+    return 33;
 }
 
 + (NSSet *)variablesInExpression:(id)anExpression

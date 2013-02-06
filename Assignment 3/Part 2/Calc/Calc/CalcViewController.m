@@ -11,9 +11,10 @@
 @interface CalcViewController()
 @property (nonatomic) BOOL isInTheMiddleOfTypingSomething;
 @property (nonatomic) BOOL hasMemoryJustBeenAccessed;
-@property (nonatomic, strong) NSMutableDictionary *variablesSet;
+@property (nonatomic, retain) NSMutableDictionary *variablesSet;
 @property (nonatomic, strong) NSString *variableBeingSet;
 @property (nonatomic, strong) NSMutableSet *variablesCurrentlyInExpression;
+@property (nonatomic) double expressionResult;
 @end
 
 @implementation CalcViewController
@@ -121,8 +122,10 @@
 - (void)promptForVariables {
     
     if (![self.variablesCurrentlyInExpression count]){
-        [[self calcDisplay] setText:[NSString stringWithFormat:@"%g", [CalcModel evaluateExpression:self.calcModel.expression usingVariableValues:self.variablesSet]]];
+        //[[self calcDisplay] setText:[NSString stringWithFormat:@"%g", [CalcModel evaluateExpression:self.calcModel.expression usingVariableValues:self.variablesSet]]];
         
+        self.expressionResult = [CalcModel evaluateExpression:self.calcModel.expression usingVariableValues:self.variablesSet];
+
         return;
         
     } else {

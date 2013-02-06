@@ -66,6 +66,28 @@
     }
     
     NSString *operation = [[sender titleLabel] text];
+    [self solveEquation:operation];
+//    double result = [[self calcModel] performOperation:operation];
+//    [[self calcDisplay] setText:[NSString stringWithFormat:@"%g", result]];
+//    
+//    
+//    if (self.calcModel.operationError == YES){
+//        UIAlertView *alertDialog;
+//        alertDialog=[[UIAlertView alloc]
+//                     initWithTitle:@"Operation Error"
+//                     message:self.calcModel.operationErrorMessage
+//                     delegate:nil
+//                     cancelButtonTitle:@"OK"
+//                     otherButtonTitles:nil];
+//        [alertDialog show];
+//    }
+//    
+//    self.hasMemoryJustBeenAccessed = NO;
+//    self.expressionDisplay.text = [[self calcModel] descriptionOfExpression:self.calcModel.expression];
+}
+
+- (void) solveEquation:(NSString *)operation
+{
     double result = [[self calcModel] performOperation:operation];
     [[self calcDisplay] setText:[NSString stringWithFormat:@"%g", result]];
     
@@ -116,6 +138,8 @@
     
     if (self.variablesCurrentlyInExpression){
         [self promptForVariables];
+    } else {
+        [self solveEquation:@"="];
     }
 }
 
@@ -125,7 +149,8 @@
         //[[self calcDisplay] setText:[NSString stringWithFormat:@"%g", [CalcModel evaluateExpression:self.calcModel.expression usingVariableValues:self.variablesSet]]];
         
         self.expressionResult = [CalcModel evaluateExpression:self.calcModel.expression usingVariableValues:self.variablesSet];
-
+        [[self calcDisplay] setText:[NSString stringWithFormat:@"%g", self.expressionResult]];
+        
         return;
         
     } else {

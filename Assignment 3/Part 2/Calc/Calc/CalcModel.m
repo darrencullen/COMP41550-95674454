@@ -7,6 +7,7 @@
 //
 
 #import "CalcModel.h"
+#import "DDMathParser.h"
 
 @interface CalcModel()
 @property (nonatomic) BOOL doesExpressionHaveVariable;
@@ -26,14 +27,20 @@
 
 + (double)evaluateExpression:(id)anExpression usingVariableValues:(NSDictionary *)variable
 {
-    
-//    NSMutableSet *expressionVariables = [[NSMutableSet alloc] init];
+    NSMutableString *expressionToEvaluate = [[NSMutableString alloc] init];
     
     for (NSString *item in anExpression) {
-        NSLog(@"%@",item);
+        if (variable[item]){
+            [expressionToEvaluate appendString:[variable objectForKey:item]];
+        } else {
+            [expressionToEvaluate appendString:item];
+        }
+        NSLog(@"expression: %@:",expressionToEvaluate);
     }
+
+    double result = [[expressionToEvaluate numberByEvaluatingString] doubleValue];
     
-    return 33;
+    return result;
 }
 
 + (NSSet *)variablesInExpression:(id)anExpression

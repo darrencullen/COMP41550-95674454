@@ -40,7 +40,7 @@
         // replace digit if 0 displayed or else append digit
         else if ([self.calcDisplay.text isEqual:@"0"])
             if ([digit isEqual:@"."])
-               self.calcDisplay.text = [self.calcDisplay.text stringByAppendingString:digit];
+                self.calcDisplay.text = [self.calcDisplay.text stringByAppendingString:digit];
             else
                 self.calcDisplay.text = digit;
     
@@ -133,13 +133,22 @@
 }
 
 - (IBAction)solveExpressionPressed:(UIButton *)sender {
+//    // if number has been typed before solve clicked then add it to expression
+//    if (self.isInTheMiddleOfTypingSomething){
+//        self.calcModel.operand = [self.calcDisplay.text doubleValue];
+//        self.isInTheMiddleOfTypingSomething = NO;
+//    }        
+    
     [self.variablesSet removeAllObjects];
     self.variablesCurrentlyInExpression = [[NSMutableSet alloc] initWithSet:[CalcModel variablesInExpression:self.calcModel.expression]];
-    
-    if (self.variablesCurrentlyInExpression){
+
+    if ([self.variablesCurrentlyInExpression count] > 0){
         [self promptForVariables];
     } else {
-        [self solveEquation:@"="];
+        self.expressionResult = [CalcModel evaluateExpression:self.calcModel.expression usingVariableValues:self.variablesSet];
+        [[self calcDisplay] setText:[NSString stringWithFormat:@"%g", self.expressionResult]];
+        
+        return;
     }
 }
 

@@ -29,6 +29,9 @@
 {
     NSMutableString *expressionToEvaluate = [[NSMutableString alloc] init];
     
+    // TODO at this point, use waiting operand etc
+    // loop. if numeric - set operand. if not - performoperation.
+    
     for (NSString *item in anExpression) {
         if (variable[item]){
             [expressionToEvaluate appendString:[variable objectForKey:item]];
@@ -37,9 +40,12 @@
         }
         NSLog(@"expression: %@:",expressionToEvaluate);
     }
-
-    double result = [[expressionToEvaluate numberByEvaluatingString] doubleValue];
     
+    expressionToEvaluate = [[expressionToEvaluate stringByReplacingOccurrencesOfString:@"="
+                                                                            withString:@""]
+                             mutableCopy];
+    
+    double result = [[expressionToEvaluate numberByEvaluatingString] doubleValue];
     return result;
 }
 

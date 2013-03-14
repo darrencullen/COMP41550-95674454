@@ -7,6 +7,7 @@
 //
 
 #import "CalcViewController.h"
+#import "GraphCalcViewController.h"
 
 @interface CalcViewController()
 @property (nonatomic) BOOL isInTheMiddleOfTypingSomething;
@@ -19,6 +20,15 @@
 
 @implementation CalcViewController
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+        [self.navigationController setNavigationBarHidden:YES animated:NO];
+    }
+    return self;
+}
 
 - (IBAction)digitPressed:(UIButton *)sender
 {
@@ -193,6 +203,7 @@
 {
     [super viewDidLoad];
 	self.variablesSet = [[NSMutableDictionary alloc] init];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
 - (void)didReceiveMemoryWarning
@@ -201,8 +212,25 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+}
+
 - (void)viewDidUnload {
     [self setExpressionDisplay:nil];
     [super viewDidUnload];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+	if ([segue.identifier isEqualToString:@"ShowGraph"])
+	{
+        GraphCalcViewController *graphCalcVC = segue.destinationViewController;
+        graphCalcVC.expressionToPlot = [[self calcModel] descriptionOfExpression:self.calcModel.expression];
+        
+        // TODO: is this needed here????
+        //[segue.destinationViewController setDelegate:self];
+	}
 }
 @end

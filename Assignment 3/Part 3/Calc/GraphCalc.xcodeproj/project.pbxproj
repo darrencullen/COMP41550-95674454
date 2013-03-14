@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4919206C16EBAFB600B7AA68 /* AxesDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4919206B16EBAFB600B7AA68 /* AxesDrawer.m */; };
+		4919206F16EBB06E00B7AA68 /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4919206E16EBB06E00B7AA68 /* GraphView.m */; };
 		494D977416B7346D00B9339D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 494D977316B7346D00B9339D /* UIKit.framework */; };
 		494D977616B7346D00B9339D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 494D977516B7346D00B9339D /* Foundation.framework */; };
 		494D977816B7346D00B9339D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 494D977716B7346D00B9339D /* CoreGraphics.framework */; };
@@ -19,6 +21,7 @@
 		494D978D16B7346D00B9339D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 494D978B16B7346D00B9339D /* MainStoryboard.storyboard */; };
 		494D979016B7346D00B9339D /* CalcViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 494D978F16B7346D00B9339D /* CalcViewController.m */; };
 		494D979816B735ED00B9339D /* CalcModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 494D979716B735ED00B9339D /* CalcModel.m */; };
+		49F40A3316CEE30E00CDD141 /* GraphCalcViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F40A3216CEE30E00CDD141 /* GraphCalcViewController.m */; };
 		49F6764716B9D3F9008954B6 /* Task List.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 49F6764616B9D3F9008954B6 /* Task List.rtf */; };
 		49FBA63016B88982005F8FCB /* btn_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 49FBA62B16B88982005F8FCB /* btn_black.png */; };
 		49FBA63116B88982005F8FCB /* btn_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 49FBA62C16B88982005F8FCB /* btn_blue.png */; };
@@ -51,14 +54,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		494D977016B7346D00B9339D /* Calc3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calc3.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4919206A16EBAFB600B7AA68 /* AxesDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AxesDrawer.h; sourceTree = "<group>"; };
+		4919206B16EBAFB600B7AA68 /* AxesDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AxesDrawer.m; sourceTree = "<group>"; };
+		4919206D16EBB06E00B7AA68 /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
+		4919206E16EBB06E00B7AA68 /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphView.m; sourceTree = "<group>"; };
+		494D977016B7346D00B9339D /* GraphCalc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraphCalc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		494D977316B7346D00B9339D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		494D977516B7346D00B9339D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		494D977716B7346D00B9339D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		494D977B16B7346D00B9339D /* Calc3-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Calc3-Info.plist"; sourceTree = "<group>"; };
+		494D977B16B7346D00B9339D /* GraphCalc-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GraphCalc-Info.plist"; sourceTree = "<group>"; };
 		494D977D16B7346D00B9339D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		494D977F16B7346D00B9339D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		494D978116B7346D00B9339D /* Calc3-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Calc3-Prefix.pch"; sourceTree = "<group>"; };
+		494D978116B7346D00B9339D /* GraphCalc-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GraphCalc-Prefix.pch"; sourceTree = "<group>"; };
 		494D978216B7346D00B9339D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		494D978316B7346D00B9339D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		494D978516B7346D00B9339D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -69,6 +76,8 @@
 		494D978F16B7346D00B9339D /* CalcViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalcViewController.m; sourceTree = "<group>"; };
 		494D979616B735ED00B9339D /* CalcModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalcModel.h; sourceTree = "<group>"; };
 		494D979716B735ED00B9339D /* CalcModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalcModel.m; sourceTree = "<group>"; };
+		49F40A3116CEE30E00CDD141 /* GraphCalcViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphCalcViewController.h; sourceTree = "<group>"; };
+		49F40A3216CEE30E00CDD141 /* GraphCalcViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphCalcViewController.m; sourceTree = "<group>"; };
 		49F6764616B9D3F9008954B6 /* Task List.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "Task List.rtf"; sourceTree = "<group>"; };
 		49FBA62B16B88982005F8FCB /* btn_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_black.png; sourceTree = "<group>"; };
 		49FBA62C16B88982005F8FCB /* btn_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_blue.png; sourceTree = "<group>"; };
@@ -150,7 +159,7 @@
 		494D977116B7346D00B9339D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				494D977016B7346D00B9339D /* Calc3.app */,
+				494D977016B7346D00B9339D /* GraphCalc.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -172,6 +181,7 @@
 				494D978316B7346D00B9339D /* AppDelegate.m */,
 				494D978B16B7346D00B9339D /* MainStoryboard.storyboard */,
 				494D979916B7360B00B9339D /* MVC Calc */,
+				49F40A3016CEE2EB00CDD141 /* MVC Graph Calc */,
 				494D977A16B7346D00B9339D /* Supporting Files */,
 			);
 			path = Calc;
@@ -182,10 +192,10 @@
 			children = (
 				49FE5D2C16C31641003465B4 /* DDMathParser */,
 				49FBA63516B889C9005F8FCB /* Resources */,
-				494D977B16B7346D00B9339D /* Calc3-Info.plist */,
+				494D977B16B7346D00B9339D /* GraphCalc-Info.plist */,
 				494D977C16B7346D00B9339D /* InfoPlist.strings */,
 				494D977F16B7346D00B9339D /* main.m */,
-				494D978116B7346D00B9339D /* Calc3-Prefix.pch */,
+				494D978116B7346D00B9339D /* GraphCalc-Prefix.pch */,
 				494D978516B7346D00B9339D /* Default.png */,
 				494D978716B7346D00B9339D /* Default@2x.png */,
 				494D978916B7346D00B9339D /* Default-568h@2x.png */,
@@ -203,6 +213,19 @@
 				494D978F16B7346D00B9339D /* CalcViewController.m */,
 			);
 			name = "MVC Calc";
+			sourceTree = "<group>";
+		};
+		49F40A3016CEE2EB00CDD141 /* MVC Graph Calc */ = {
+			isa = PBXGroup;
+			children = (
+				49F40A3116CEE30E00CDD141 /* GraphCalcViewController.h */,
+				49F40A3216CEE30E00CDD141 /* GraphCalcViewController.m */,
+				4919206D16EBB06E00B7AA68 /* GraphView.h */,
+				4919206E16EBB06E00B7AA68 /* GraphView.m */,
+				4919206A16EBAFB600B7AA68 /* AxesDrawer.h */,
+				4919206B16EBAFB600B7AA68 /* AxesDrawer.m */,
+			);
+			name = "MVC Graph Calc";
 			sourceTree = "<group>";
 		};
 		49FBA63516B889C9005F8FCB /* Resources */ = {
@@ -274,9 +297,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		494D976F16B7346D00B9339D /* Calc3 */ = {
+		494D976F16B7346D00B9339D /* GraphCalc */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 494D979316B7346D00B9339D /* Build configuration list for PBXNativeTarget "Calc3" */;
+			buildConfigurationList = 494D979316B7346D00B9339D /* Build configuration list for PBXNativeTarget "GraphCalc" */;
 			buildPhases = (
 				494D976C16B7346D00B9339D /* Sources */,
 				494D976D16B7346D00B9339D /* Frameworks */,
@@ -286,9 +309,9 @@
 			);
 			dependencies = (
 			);
-			name = Calc3;
+			name = GraphCalc;
 			productName = Calc;
-			productReference = 494D977016B7346D00B9339D /* Calc3.app */;
+			productReference = 494D977016B7346D00B9339D /* GraphCalc.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -300,7 +323,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = 95674454;
 			};
-			buildConfigurationList = 494D976B16B7346D00B9339D /* Build configuration list for PBXProject "Calc3" */;
+			buildConfigurationList = 494D976B16B7346D00B9339D /* Build configuration list for PBXProject "GraphCalc" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -312,7 +335,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				494D976F16B7346D00B9339D /* Calc3 */,
+				494D976F16B7346D00B9339D /* GraphCalc */,
 			);
 		};
 /* End PBXProject section */
@@ -370,6 +393,9 @@
 				49FE5D6C16C31641003465B4 /* DDParserTypes.m in Sources */,
 				49FE5D6D16C31641003465B4 /* DDTypes.m in Sources */,
 				49FE5D6E16C31641003465B4 /* NSString+DDMathParsing.m in Sources */,
+				49F40A3316CEE30E00CDD141 /* GraphCalcViewController.m in Sources */,
+				4919206C16EBAFB600B7AA68 /* AxesDrawer.m in Sources */,
+				4919206F16EBB06E00B7AA68 /* GraphView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,10 +481,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Calc/Calc3-Prefix.pch";
-				INFOPLIST_FILE = "Calc/Calc3-Info.plist";
+				GCC_PREFIX_HEADER = "Calc/GraphCalc-Prefix.pch";
+				INFOPLIST_FILE = "Calc/GraphCalc-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				PRODUCT_NAME = Calc3;
+				PRODUCT_NAME = GraphCalc;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -467,10 +493,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Calc/Calc3-Prefix.pch";
-				INFOPLIST_FILE = "Calc/Calc3-Info.plist";
+				GCC_PREFIX_HEADER = "Calc/GraphCalc-Prefix.pch";
+				INFOPLIST_FILE = "Calc/GraphCalc-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				PRODUCT_NAME = Calc3;
+				PRODUCT_NAME = GraphCalc;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -478,7 +504,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		494D976B16B7346D00B9339D /* Build configuration list for PBXProject "Calc3" */ = {
+		494D976B16B7346D00B9339D /* Build configuration list for PBXProject "GraphCalc" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				494D979116B7346D00B9339D /* Debug */,
@@ -487,7 +513,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		494D979316B7346D00B9339D /* Build configuration list for PBXNativeTarget "Calc3" */ = {
+		494D979316B7346D00B9339D /* Build configuration list for PBXNativeTarget "GraphCalc" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				494D979416B7346D00B9339D /* Debug */,

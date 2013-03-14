@@ -13,6 +13,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+//    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+//    CalcViewController *calcViewController = [[navigationController viewControllers] objectAtIndex:0];
     return YES;
 }
 							

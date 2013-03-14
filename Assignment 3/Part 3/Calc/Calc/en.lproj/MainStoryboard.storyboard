@@ -1,25 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3006" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="dvI-1B-pel">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3006" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Jhe-fN-DEB">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="gUb-I0-LDS">
-            <objects>
-                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="dvI-1B-pel" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CBi-AU-dMb">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="2" kind="relationship" relationship="rootViewController" id="QcX-wP-HWl"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aWk-qb-9Lt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-4436" y="-1965"/>
-        </scene>
-        <!--Calc View Controller-->
+        <!--Calc View Controller - Calc-->
         <scene sceneID="5">
             <objects>
                 <viewController id="2" customClass="CalcViewController" sceneMemberID="viewController">
@@ -465,7 +450,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GDu-dJ-aaw">
-                                <rect key="frame" x="88" y="414" width="148" height="40"/>
+                                <rect key="frame" x="88" y="414" width="70" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="solve" backgroundImage="btn_red.png">
@@ -479,10 +464,25 @@
                                     <action selector="solveExpressionPressed:" destination="2" eventType="touchUpInside" id="F5M-dD-gUM"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vx1-HH-RWo">
+                                <rect key="frame" x="166" y="414" width="70" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="graph" backgroundImage="btn_red.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="xXy-s3-eAs" kind="push" identifier="ShowGraph" id="5hu-7E-WEn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="lEG-Mn-KZ6"/>
+                    <navigationItem key="navigationItem" title="Calc" id="lEG-Mn-KZ6"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="calcDisplay" destination="cb5-0G-XX6" id="xKa-eY-GSq"/>
@@ -493,7 +493,79 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
                 <customObject id="8ps-8O-qtA" customClass="CalcModel"/>
             </objects>
-            <point key="canvasLocation" x="-3809" y="-1958"/>
+            <point key="canvasLocation" x="-3343" y="-1958"/>
+        </scene>
+        <!--Graph Calc View Controller - Graph Calc-->
+        <scene sceneID="hPc-DJ-Clh">
+            <objects>
+                <viewController title="Graph Calc" id="xXy-s3-eAs" customClass="GraphCalcViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7JW-UC-5hh">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="Yf8-H4-KMY">
+                                <rect key="frame" x="0.0" y="372" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Zoom -" id="NVx-5M-qea">
+                                        <connections>
+                                            <action selector="zoomOut:" destination="xXy-s3-eAs" id="erp-Bn-9g1"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="4mZ-bI-Vmw"/>
+                                    <barButtonItem title="Zoom +" id="sn2-Ry-gI4">
+                                        <connections>
+                                            <action selector="zoomIn:" destination="xXy-s3-eAs" id="wwp-16-ewm"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <view contentMode="scaleToFill" id="lcw-F5-wRB" customClass="GraphView">
+                                <rect key="frame" x="0.0" y="27" width="320" height="345"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="expression" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sKh-7Q-aDR">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Graph Calc" id="p0K-EP-XVu"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <connections>
+                        <outlet property="expressionLabel" destination="sKh-7Q-aDR" id="oUL-0a-DIG"/>
+                        <outlet property="graphView" destination="lcw-F5-wRB" id="vVq-ic-aIp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6bp-uo-Hg6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2870" y="-1958"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hra-7D-nZ9">
+            <objects>
+                <navigationController id="Jhe-fN-DEB" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="866-xl-zjm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2" kind="relationship" relationship="rootViewController" id="zAp-gi-gRX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tBn-Th-F3C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3947" y="-1958"/>
         </scene>
     </scenes>
     <resources>
@@ -502,26 +574,6 @@
         <image name="btn_red.png" width="46" height="48"/>
         <image name="btn_white.png" width="46" height="48"/>
     </resources>
-    <classes>
-        <class className="CalcModel" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CalcModel.h"/>
-        </class>
-        <class className="CalcViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CalcViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backspacePressed:" candidateClass="UIButton"/>
-                <relationship kind="action" name="digitPressed:" candidateClass="UIButton"/>
-                <relationship kind="action" name="operationPressed:" candidateClass="UIButton"/>
-                <relationship kind="action" name="retrieveValueFromMemory:" candidateClass="UIButton"/>
-                <relationship kind="action" name="solveExpressionPressed:" candidateClass="UIButton"/>
-                <relationship kind="action" name="storeValueInMemory:" candidateClass="UIButton"/>
-                <relationship kind="action" name="variablePressed:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="calcDisplay" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="calcModel" candidateClass="CalcModel"/>
-                <relationship kind="outlet" name="expressionDisplay" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

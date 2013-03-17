@@ -160,6 +160,8 @@
         self.expressionResult = [CalcModel evaluateExpression:self.calcModel.expression usingVariableValues:self.variablesSet];
         [[self calcDisplay] setText:[NSString stringWithFormat:@"%g", self.expressionResult]];
         
+        [CalcModel propertyListForExpression:self.calcModel.expression];
+        
         return;
         
     } else {
@@ -193,6 +195,10 @@
 {
     [super viewDidLoad];
 	self.variablesSet = [[NSMutableDictionary alloc] init];
+    
+    // restore saved expression if it exists
+    [[self calcModel] expressionForPropertyList:nil];
+    self.expressionDisplay.text = [[self calcModel] descriptionOfExpression:self.calcModel.expression];
 }
 
 - (void)didReceiveMemoryWarning

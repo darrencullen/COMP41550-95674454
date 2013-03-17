@@ -10,9 +10,19 @@
 
 @interface GraphCalcViewController ()
 
+@property (nonatomic) CGFloat graphOrigin;
+@property (nonatomic) CGFloat graphScale;
+@property (strong, nonatomic) IBOutlet GraphView *graphView;
+@property (weak, nonatomic) IBOutlet UILabel *expressionLabel;
+
+- (IBAction)zoomIn:(id)sender;
+- (IBAction)zoomOut:(id)sender;
+
 @end
 
 @implementation GraphCalcViewController
+
+#define DEFAULT_SCALE 100;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -24,10 +34,18 @@
     return self;
 }
 
+- (CGFloat)graphScale
+{
+    
+    // Set the scale to the default scale if none already
+    if (!_graphScale) _graphScale = DEFAULT_SCALE;
+    
+    return _graphScale;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     [self setGraphZoomLevel:.1];
     
 	// Do any additional setup after loading the view.
@@ -37,12 +55,12 @@
 
 - (IBAction)zoomIn:(id)sender
 {
-    [self setGraphZoomLevel:self.graphView.zoomLevel * 10];
+    [self setGraphZoomLevel:self.graphView.scale * 10];
 }
 
 - (IBAction)zoomOut:(id)sender
 {
-    [self setGraphZoomLevel:self.graphView.zoomLevel * .1];
+    [self setGraphZoomLevel:self.graphView.scale * .1];
 }
 
 //- (void) pointsOnGraph:(GraphView *) graphViewDelegator
@@ -52,7 +70,7 @@
 
 - (void) setGraphZoomLevel:(double) zoomLevel
 {
-    self.graphView.zoomLevel = zoomLevel;
+    self.graphView.scale = zoomLevel;
     [self.graphView setNeedsDisplay];
 }
 

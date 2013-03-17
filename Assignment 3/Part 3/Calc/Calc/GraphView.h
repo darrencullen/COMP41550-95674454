@@ -11,12 +11,12 @@
 @class GraphView;
 
 @protocol GraphViewDelegate <NSObject>
-- (void) pointsOnGraph:(GraphView *) graphViewDelegator;
-- (void) setGraphZoomLevel:(double) graphZoomLevel;
+- (id) pointsOnGraph:(GraphView *) graphViewDelegator;
+- (id) setGraphScale:(double) graphScale;
 @end
 
 @interface GraphView : UIView
 @property (nonatomic, assign) id <GraphViewDelegate> delegate;
-@property (nonatomic) double zoomLevel;
+@property (nonatomic) double scale;
 @end
 

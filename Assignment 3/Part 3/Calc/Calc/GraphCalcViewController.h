@@ -12,11 +12,6 @@
 
 @interface GraphCalcViewController : UIViewController <GraphViewDelegate>
 
-@property (strong, nonatomic) IBOutlet GraphView *graphView;
-@property (weak, nonatomic) IBOutlet UILabel *expressionLabel;
-- (IBAction)zoomIn:(id)sender;
-- (IBAction)zoomOut:(id)sender;
-
 @property (nonatomic, strong) NSString *expressionToPlot;
 
 @end

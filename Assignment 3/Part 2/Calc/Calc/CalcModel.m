@@ -43,7 +43,7 @@
     
     expressionToEvaluate = [[expressionToEvaluate stringByReplacingOccurrencesOfString:@"="
                                                                             withString:@""]
-                             mutableCopy];
+                            mutableCopy];
     
     double result = [[expressionToEvaluate numberByEvaluatingString] doubleValue];
     return result;
@@ -67,7 +67,7 @@
 }
 
 + (id)propertyListForExpression:(id)anExpression
-{    
+{
     // get paths from root direcory
     NSArray *paths = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES);
     // get documents path
@@ -80,16 +80,16 @@
         [expressionItems addObject:expressionItem];
     }
     
-    // create dictionary    
+    // create dictionary
     NSArray *keys = @[@"expressionID", @"expressionItemsArray"];
     NSArray *values = @[[NSString stringWithString:plistPath],
-                       [NSArray arrayWithObject:expressionItems]];
+                        [NSArray arrayWithObject:expressionItems]];
     NSDictionary *plistDict = [NSDictionary dictionaryWithObjects:values forKeys:keys];
-        
+    
     NSString *error = nil;
     // create NSData from dictionary
     NSData *plistData = [NSPropertyListSerialization dataFromPropertyList:plistDict format:NSPropertyListXMLFormat_v1_0 errorDescription:&error];
-        
+    
     // check if plistData exists
     if(plistData)
     {
@@ -100,7 +100,7 @@
         NSLog(@"Error in saveData: %@", error);
     }
     
-    return nil; 
+    return nil;
 }
 
 - (double)performOperation:(NSString *)operation
@@ -127,38 +127,18 @@
         return 0;
     }
     
-    if ([self.waitingOperation isEqual:@"="]){
-        if (![operation isEqual:@"="])
-            [_expression addObject:operation];
-    } else if (([self.waitingOperation isEqual:@"sin"]) || ([self.waitingOperation isEqual:@"cos"])){
-        [_expression addObject:operation];
-    }
-    else{
-        // only add operand if last object in expression wasn't a variable
-        if ((self.latestVariableIndex != [_expression count]) || (self.latestVariableIndex == 0)){
-            NSString *trimmedOperand = [NSString stringWithFormat:@"%g",self.operand];
-            [_expression addObject:trimmedOperand];
-        }
-        
-        if (([operation isEqual:@"sin"]) || ([operation isEqual:@"cos"])){
-            [_expression insertObject:@"(" atIndex:0];
-            [_expression insertObject:operation atIndex:0];
-            [_expression addObject:@")"];
-        }
-        else
-            [_expression addObject:operation];
-    }
-
+    [self buildExpression:operation];
+    
     if ([operation isEqual:@"sqrt"])
         self.operand = sqrt(self.operand);
     else if ([operation isEqual:@"+/-"])
         self.operand = - self.operand;
     else if ([operation isEqual:@"1/x"])
         self.operand = 1 / self.operand;
-//    else if ([operation isEqual:@"sin"])
-//        self.operand = sin(self.operand);
-//    else if ([operation isEqual:@"cos"])
-//        self.operand = cos(self.operand);
+    else if ([operation isEqual:@"sin"])
+        self.operand = sin(self.operand);
+    else if ([operation isEqual:@"cos"])
+        self.operand = cos(self.operand);
     else if ([operation isEqual:@"mem+"])
         _valueInMemory = self.valueInMemory + self.operand;
     else if ([operation isEqual:@"C"]){
@@ -174,15 +154,58 @@
         self.waitingOperation = operation;
         self.waitingOperand = self.operand;
     }
-
+    
     if (self.doesExpressionHaveVariable == YES)
         return 0;
     else
         return self.operand;
 }
 
+
+- (void)buildExpression:(NSString *)operation
+{
+    // TODO: SORT THIS OUT!!!!
+    if ([self.waitingOperation isEqual:@"="]){
+        // if operation pressed after =, then replace = with operation and allow expression to be built upon
+        if (![operation isEqual:@"="]){
+            [_expression removeLastObject];
+            [_expression addObject:operation];
+        }
+        return;
+    }
+    
+    if ([_expression count] > 0){
+        // if previous operation was sqrt, sin or cos, just append operation
+        NSString *previousItemInExpression = [[NSString alloc] initWithString:[_expression lastObject]];
+        if ([self isScientificFunction:previousItemInExpression]){
+            [_expression addObject:operation];
+            return;
+        }
+    }
+    
+    if ((self.latestVariableIndex != [_expression count]) || (self.latestVariableIndex == 0)){
+            // only add operand if last object in expression wasn't a variable
+            
+        NSString *trimmedOperand = [NSString stringWithFormat:@"%g",self.operand];
+        [_expression addObject:trimmedOperand];
+        
+        return;
+    }
+    
+    [_expression addObject:operation];
+    return;
+}
+
+- (BOOL)isScientificFunction:(NSString *)function
+{
+    if (([function isEqual:@"sin"]) || ([function isEqual:@"cos"]) || ([function isEqual:@"sin"]))
+        return YES;
+    else return NO;
+}
+
+
 - (void)performWaitingOperation
-{      
+{
     if([@"+" isEqualToString:self.waitingOperation])
         self.operand = self.waitingOperand + self.operand;
     else if([@"-" isEqualToString:self.waitingOperation])
@@ -202,18 +225,28 @@
 
 - (NSString *)descriptionOfExpression:(id)anExpression
 {
+    NSMutableArray *describeExpression = [[NSMutableArray alloc] init];
     NSMutableString *expressionDescription = [[NSMutableString alloc] init];
     
     for (NSString *item in anExpression) {
+        if ([self isScientificFunction:item]){
+            [describeExpression insertObject:@"(" atIndex:0];
+            [describeExpression insertObject:item atIndex:0];
+            [describeExpression addObject:@")"];
+        } else {
+            [describeExpression addObject:item];
+        }
+    }
+    
+    for (NSString *item in describeExpression) {
         [expressionDescription appendString:item];
         NSLog(@"expression item: %@",item);
-         }
+    }
     return expressionDescription;
 }
 
 - (id)expressionForPropertyList:(id)propertyList
-{    
-    // Data.plist code
+{
     // get paths from root direcory
     NSArray *paths = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES);
     // get documents path
@@ -242,7 +275,8 @@
     
     // assign values
     NSArray *savedExpression = [NSMutableArray arrayWithArray:[temp objectForKey:@"expressionItemsArray"]];
-    _expression = [savedExpression objectAtIndex:0];
+    if (savedExpression.count > 0)
+        _expression = [savedExpression objectAtIndex:0];
     
     return nil;
 }

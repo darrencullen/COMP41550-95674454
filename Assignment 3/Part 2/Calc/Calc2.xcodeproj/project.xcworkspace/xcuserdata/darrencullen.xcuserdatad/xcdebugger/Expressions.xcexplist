@@ -45,7 +45,32 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "-[CalcModel buildExpression:]:CalcModel.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "trimmedOperand">
+            </PersistentString>
+            <PersistentString
+               value = "self.operand">
+            </PersistentString>
+            <PersistentString
+               value = "self.waitingOperand">
+            </PersistentString>
+            <PersistentString
+               value = "self.waitingOperation">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "+[CalcModel variablesInExpression:]:CalcModel.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[CalcViewController operationPressed:]:CalcViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.isInTheMiddleOfTypingSomething">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "-[CalcModel performWaitingOperation]:CalcModel.m">

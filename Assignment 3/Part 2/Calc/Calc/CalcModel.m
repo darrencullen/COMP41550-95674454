@@ -10,7 +10,7 @@
 #import "DDMathParser.h"
 
 @interface CalcModel()
-@property (nonatomic) BOOL doesExpressionHaveVariable;
+//@property (nonatomic) BOOL expressionVariableSet;
 @property (nonatomic) int latestVariableIndex;
 @end
 
@@ -66,43 +66,6 @@
         return expressionVariables;
 }
 
-+ (id)propertyListForExpression:(id)anExpression
-{
-    // get paths from root direcory
-    NSArray *paths = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES);
-    // get documents path
-    NSString *documentsPath = [paths objectAtIndex:0];
-    // get the path to our plist file
-    NSString *plistPath = [documentsPath stringByAppendingPathComponent:@"Expression.plist"];
-    
-    NSMutableArray *expressionItems = [[NSMutableArray alloc] init];
-    for (NSString *expressionItem in anExpression) {
-        [expressionItems addObject:expressionItem];
-    }
-    
-    // create dictionary
-    NSArray *keys = @[@"expressionID", @"expressionItemsArray"];
-    NSArray *values = @[[NSString stringWithString:plistPath],
-                        [NSArray arrayWithObject:expressionItems]];
-    NSDictionary *plistDict = [NSDictionary dictionaryWithObjects:values forKeys:keys];
-    
-    NSString *error = nil;
-    // create NSData from dictionary
-    NSData *plistData = [NSPropertyListSerialization dataFromPropertyList:plistDict format:NSPropertyListXMLFormat_v1_0 errorDescription:&error];
-    
-    // check if plistData exists
-    if(plistData)
-    {
-        [plistData writeToFile:plistPath atomically:YES];
-    }
-    else
-    {
-        NSLog(@"Error in saveData: %@", error);
-    }
-    
-    return nil;
-}
-
 - (double)performOperation:(NSString *)operation
 {
     // TODO: fix solving of expression
@@ -147,7 +110,7 @@
         self.waitingOperation = nil;
         _valueInMemory = 0;
         [_expression removeAllObjects];
-        self.doesExpressionHaveVariable = NO;
+        //self.expressionVariableSet = NO;
     }
     else {
         [self performWaitingOperation];
@@ -155,10 +118,10 @@
         self.waitingOperand = self.operand;
     }
     
-    if (self.doesExpressionHaveVariable == YES){
+    if ([self doesExpressionHaveVariable]){
         if ([operation isEqualToString:@"="]){
             _operationError = YES;
-            _operationErrorMessage = @"Variable value required";
+            _operationErrorMessage = @"Variable value required - use Solve expression";
         }
         return 0;
     }
@@ -166,11 +129,30 @@
         return self.operand;
 }
 
+- (BOOL)doesExpressionHaveVariable
+{
+    for (NSString *item in _expression) {
+        if ([self isVariableExpressionItem:item])
+            return YES;
+    }
+    return NO;
+}
 
 - (void)buildExpression:(NSString *)operation
 {
+    // if expression being built from property list then waitingOperation is nil
+    if (!(self.waitingOperation) && (self.operand == 0) && (self.waitingOperand == 0)){
+        NSString *lastExpressionItem = [[NSString alloc] initWithString:[_expression lastObject]];
+        if ([lastExpressionItem isEqual:@"="]){
+            [_expression removeLastObject];
+            [_expression addObject:operation];
+        }
+        return;
+
+    }
+    
+    // if operation pressed after =, then replace = with operation and allow expression to be built upon
     if ([self.waitingOperation isEqual:@"="]){
-        // if operation pressed after =, then replace = with operation and allow expression to be built upon
         if (![operation isEqual:@"="]){
             [_expression removeLastObject];
             [_expression addObject:operation];
@@ -178,28 +160,25 @@
         return;
     }
     
-    // TODO: NOT FIXED YET!!
+    // if previous operation was sqrt, sin or cos, just append operation
     if ([_expression count] > 0){
-        // if previous operation was sqrt, sin or cos, just append operation
         NSString *previousItemInExpression = [[NSString alloc] initWithString:[_expression lastObject]];
         if ([self isScientificFunction:previousItemInExpression]){
             [_expression addObject:operation];
-            return;
-        } else {
-            [_expression addObject:operation];
+    
             return;
         }
     }
     
+    // only add operand if last object in expression wasn't a variable
     if ((self.latestVariableIndex != [_expression count]) || (self.latestVariableIndex == 0)){
-            // only add operand if last object in expression wasn't a variable
-            
         NSString *trimmedOperand = [NSString stringWithFormat:@"%g",self.operand];
         [_expression addObject:trimmedOperand];
         [_expression addObject:operation];
         return;
     }
     
+    [_expression addObject:operation];
     return;
 }
 
@@ -210,6 +189,12 @@
     else return NO;
 }
 
+- (BOOL)isVariableExpressionItem:(NSString *)function
+{
+    if (([function isEqual:@"a"]) || ([function isEqual:@"b"]) || ([function isEqual:@"x"]))
+        return YES;
+    else return NO;
+}
 
 - (void)performWaitingOperation
 {
@@ -226,7 +211,7 @@
 - (void)setVariableAsOperand:(NSString *)variableName
 {
     [_expression addObject:variableName];
-    self.doesExpressionHaveVariable = YES;
+    //self.expressionVariableSet = YES;
     self.latestVariableIndex = [_expression count];
 }
 
@@ -287,4 +272,42 @@
     
     return nil;
 }
+
++ (id)propertyListForExpression:(id)anExpression
+{
+    // get paths from root direcory
+    NSArray *paths = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES);
+    // get documents path
+    NSString *documentsPath = [paths objectAtIndex:0];
+    // get the path to our plist file
+    NSString *plistPath = [documentsPath stringByAppendingPathComponent:@"Expression.plist"];
+    
+    NSMutableArray *expressionItems = [[NSMutableArray alloc] init];
+    for (NSString *expressionItem in anExpression) {
+        [expressionItems addObject:expressionItem];
+    }
+    
+    // create dictionary
+    NSArray *keys = @[@"expressionID", @"expressionItemsArray"];
+    NSArray *values = @[[NSString stringWithString:plistPath],
+                        [NSArray arrayWithObject:expressionItems]];
+    NSDictionary *plistDict = [NSDictionary dictionaryWithObjects:values forKeys:keys];
+    
+    NSString *error = nil;
+    // create NSData from dictionary
+    NSData *plistData = [NSPropertyListSerialization dataFromPropertyList:plistDict format:NSPropertyListXMLFormat_v1_0 errorDescription:&error];
+    
+    // check if plistData exists
+    if(plistData)
+    {
+        [plistData writeToFile:plistPath atomically:YES];
+    }
+    else
+    {
+        NSLog(@"Error in saveData: %@", error);
+    }
+    
+    return nil;
+}
+
 @end

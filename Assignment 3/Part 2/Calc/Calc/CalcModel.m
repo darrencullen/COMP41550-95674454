@@ -28,25 +28,27 @@
 + (double)evaluateExpression:(id)anExpression usingVariableValues:(NSDictionary *)variable
 {
     NSMutableString *expressionToEvaluate = [[NSMutableString alloc] init];
-    
-    // TODO: at this point, use waiting operand etc
-    // loop. if numeric - set operand. if not - performoperation.
-    
-    for (NSString *item in anExpression) {
-        if (variable[item]){
-            [expressionToEvaluate appendString:[variable objectForKey:item]];
-        } else {
-            [expressionToEvaluate appendString:item];
-        }
-        //NSLog(@"expression: %@:",expressionToEvaluate);
-    }
-    
+//
+//    // TODO: at this point, use waiting operand etc
+//    // loop. if numeric - set operand. if not - performoperation.
+//    
+//    for (NSString *item in anExpression) {
+//        if (variable[item]){
+//            [expressionToEvaluate appendString:[variable objectForKey:item]];
+//        } else {
+//            [expressionToEvaluate appendString:item];
+//        }
+//        //NSLog(@"expression: %@:",expressionToEvaluate);
+//    }
+//    
     expressionToEvaluate = [[expressionToEvaluate stringByReplacingOccurrencesOfString:@"="
                                                                             withString:@""]
                             mutableCopy];
     
     double result = [[expressionToEvaluate numberByEvaluatingString] doubleValue];
+   // double result = [[expressionToEvaluate solveExpression] doubleValue];
     return result;
+    
 }
 
 + (NSSet *)variablesInExpression:(id)anExpression
@@ -125,7 +127,9 @@
         if ([self isExpressionComplex])
             [self solveExpression:_expression];
         else
-            [self performWaitingOperation];
+            [self solveExpression:_expression];
+            // TODO: resinstate code
+            //[self performWaitingOperation];
         
         self.waitingOperation = operation;
         self.waitingOperand = self.operand;
@@ -147,7 +151,7 @@
 - (BOOL)doesExpressionHaveScientificNotation
 {
     for (NSString *item in _expression) {
-        if ([self isScientificFunction:item])
+        if ([self isScientificOperation:item])
             return YES;
     }
     return NO;
@@ -186,7 +190,7 @@
         return;
     }
     
-    if ([self isScientificFunction:operation]){
+    if ([self isScientificOperation:operation]){
         [_expression addObject:operation];
         self.waitingOperand = 0;
         return;
@@ -195,7 +199,7 @@
     // if previous operation was sqrt, sin or cos, just append operation
     if ([_expression count] > 0){
         NSString *previousItemInExpression = [[NSString alloc] initWithString:[_expression lastObject]];
-        if ([self isScientificFunction:previousItemInExpression]){
+        if ([self isScientificOperation:previousItemInExpression]){
             NSString *trimmedOperand = [NSString stringWithFormat:@"%g",self.operand];
             [_expression addObject:trimmedOperand];
             [_expression addObject:operation];
@@ -218,18 +222,33 @@
     return;
 }
 
-- (BOOL)isScientificFunction:(NSString *)function
+- (BOOL)isScientificOperation:(NSString *)operation
 {
-    if (([function isEqualToString:@"sin"]) || ([function isEqualToString:@"cos"]))
+    if (([operation isEqualToString:@"sin"]) || ([operation isEqualToString:@"cos"]))
         return YES;
     else return NO;
 }
 
-- (BOOL)isTotalExpressionFunction:(NSString *)function
+- (BOOL)isRegularOperation:(NSString *)operation
 {
-    if (([function isEqualToString:@"sqrt"]) || ([function isEqualToString:@"1/x"]))
+    if (([operation isEqualToString:@"+"]) || ([operation isEqualToString:@"-"]) || ([operation isEqualToString:@"*"]) || ([operation isEqualToString:@"/"]))
         return YES;
     else return NO;
+}
+
+- (BOOL)isTotalExpressionOperation:(NSString *)operation 
+{
+    if (([operation isEqualToString:@"sqrt"]) || ([operation isEqualToString:@"1/x"]) || ([operation isEqualToString:@"+/-"]))
+        return YES;
+    else return NO;
+}
+
+- (BOOL)isOperandItem:(NSString *)item
+{
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    NSNumber *number = [formatter numberFromString:item];
+    return number != nil;
 }
 
 - (BOOL)isVariableExpressionItem:(NSString *)function
@@ -241,7 +260,58 @@
 
 - (void)solveExpression:(id)anExpression
 {
+    NSMutableArray *waitingExpressionOperations;
+    NSMutableString *waitingScientificOperation;
     
+    self.operand = 0;
+    self.waitingOperand = 0;
+    self.waitingOperation = nil;
+    
+    for (NSString *item in anExpression){
+        if ([self isOperandItem:item]){
+            if ((!self.waitingOperation) && (!waitingScientificOperation))
+                self.operand = [item doubleValue];
+            else {
+                self.waitingOperand = [item doubleValue];
+                if (waitingScientificOperation){
+                    if ([waitingScientificOperation isEqualToString:@"sin"])
+                        self.operand += sin(self.waitingOperand);
+                    else if ([waitingScientificOperation isEqualToString:@"cos"])
+                        self.operand += cos(self.waitingOperand);
+                    
+                    waitingScientificOperation = nil;
+                    
+                } else [self performWaitingOperation];
+            }
+            
+        } else if ([self isRegularOperation:item]){
+            self.waitingOperation = item;
+            
+        } else if ([self isTotalExpressionOperation:item]){
+            if (!waitingExpressionOperations){
+                waitingExpressionOperations = [[NSMutableArray alloc] init];
+                [waitingExpressionOperations addObject:item];
+            }
+        } else if ([self isScientificOperation:item]){
+            if (!waitingScientificOperation){
+                waitingScientificOperation = [[NSMutableString alloc] initWithString:item];
+            }
+        }
+    }
+    
+    // perform operations that impact the whole expression i.e. are performed on the whole expression rather than an operand within it
+    if (waitingExpressionOperations){
+        NSString *totalExpressionOperation;
+        for (int i=[waitingExpressionOperations count]; i>0; i--) {
+            totalExpressionOperation = waitingExpressionOperations[i];
+            if ([totalExpressionOperation isEqualToString:@"sqrt"])
+                self.operand = sqrt(self.operand);
+            else if ([totalExpressionOperation isEqualToString:@"+/-"])
+                self.operand = - self.operand;
+            else if ([totalExpressionOperation isEqualToString:@"1/x"])
+                self.operand = 1 / self.operand;
+        }
+    }
 }
 
 - (void)performWaitingOperation
@@ -255,7 +325,7 @@
     else if ([self.waitingOperation isEqualToString:@"sin"])
         self.operand = sin(self.operand);
     else if ([self.waitingOperation isEqualToString:@"cos"])
-        self.operand = cos(self.operand);
+        self.operand = cos(self.operand); 
     else if([@"/" isEqualToString:self.waitingOperation])
         if(self.operand) self.operand = self.waitingOperand / self.operand;
     
@@ -279,11 +349,11 @@
         NSLog(@"expression: %@", _expression);
         NSLog(@"descriptionOfExpression: %@", describeExpression);
         
-        if ([self isTotalExpressionFunction:item]){
+        if ([self isTotalExpressionOperation:item]){
             [describeExpression insertObject:@"(" atIndex:0];
             [describeExpression insertObject:item atIndex:0];
             [describeExpression addObject:@")"];
-        } else if ([self isScientificFunction:item]){
+        } else if ([self isScientificOperation:item]){
             [describeExpression addObject:item];
             [describeExpression addObject:@"("];
             [describeExpression addObject:@")"];

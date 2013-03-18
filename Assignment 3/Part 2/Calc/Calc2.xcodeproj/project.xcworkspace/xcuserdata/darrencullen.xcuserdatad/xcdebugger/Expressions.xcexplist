@@ -73,10 +73,32 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "GLOBAL">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.waitingOperand">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[CalcModel performWaitingOperation]:CalcModel.m">
          <PersistentStrings>
             <PersistentString
                value = "self.operand">
+            </PersistentString>
+            <PersistentString
+               value = "self.waitingOperation">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[CalcModel solveExpression:]:CalcModel.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.operand">
+            </PersistentString>
+            <PersistentString
+               value = "self.waitingOperand">
             </PersistentString>
             <PersistentString
                value = "self.waitingOperation">

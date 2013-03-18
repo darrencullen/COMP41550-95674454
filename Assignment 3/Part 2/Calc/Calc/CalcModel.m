@@ -72,6 +72,16 @@
     
     _operationError = NO;
     
+    if ([operation isEqual:@"C"]){
+        self.operand = 0;
+        self.waitingOperand = 0;
+        self.waitingOperation = nil;
+        _valueInMemory = 0;
+        [_expression removeAllObjects];
+        
+        return 0;
+    }
+    
     if (([self.waitingOperation isEqual:@"/"]) && (self.operand == 0)){
         _operationError = YES;
         _operationErrorMessage = @"Division by zero not allowed";
@@ -104,14 +114,6 @@
         self.operand = cos(self.operand);
     else if ([operation isEqual:@"mem+"])
         _valueInMemory = self.valueInMemory + self.operand;
-    else if ([operation isEqual:@"C"]){
-        self.operand = 0;
-        self.waitingOperand = 0;
-        self.waitingOperation = nil;
-        _valueInMemory = 0;
-        [_expression removeAllObjects];
-        //self.expressionVariableSet = NO;
-    }
     else {
         [self performWaitingOperation];
         self.waitingOperation = operation;

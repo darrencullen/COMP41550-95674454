@@ -80,14 +80,11 @@
         self.hasCompleteEquationJustBeenSolved = YES;
     else
         self.hasCompleteEquationJustBeenSolved = NO;
+    
+    //[self checkForErrorsInModel];
 }
 
-- (void) solveEquation:(NSString *)operation
-{
-    double result = [[self calcModel] performOperation:operation];
-    [[self calcDisplay] setText:[NSString stringWithFormat:@"%g", result]];
-    
-    
+- (void)checkForErrorsInModel{
     if (self.calcModel.operationError == YES){
         UIAlertView *alertDialog;
         alertDialog=[[UIAlertView alloc]
@@ -98,6 +95,14 @@
                      otherButtonTitles:nil];
         [alertDialog show];
     }
+}
+
+- (void) solveEquation:(NSString *)operation
+{
+    double result = [[self calcModel] performOperation:operation];
+    [[self calcDisplay] setText:[NSString stringWithFormat:@"%g", result]];
+
+    [self checkForErrorsInModel];
     
     self.hasMemoryJustBeenAccessed = NO;
 
@@ -208,7 +213,8 @@
     
     // solve restored expression
     if (self.expressionDisplay.text.length > 0)
-        [self solveExpression];
+        if (![CalcModel variablesInExpression:self.calcModel.expression])
+            [self solveExpression];
 }
 
 - (void)didReceiveMemoryWarning

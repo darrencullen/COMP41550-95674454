@@ -155,8 +155,13 @@
         self.waitingOperand = self.operand;
     }
     
-    if (self.doesExpressionHaveVariable == YES)
+    if (self.doesExpressionHaveVariable == YES){
+        if ([operation isEqualToString:@"="]){
+            _operationError = YES;
+            _operationErrorMessage = @"Variable value required";
+        }
         return 0;
+    }
     else
         return self.operand;
 }
@@ -164,7 +169,6 @@
 
 - (void)buildExpression:(NSString *)operation
 {
-    // TODO: SORT THIS OUT!!!!
     if ([self.waitingOperation isEqual:@"="]){
         // if operation pressed after =, then replace = with operation and allow expression to be built upon
         if (![operation isEqual:@"="]){
@@ -174,10 +178,14 @@
         return;
     }
     
+    // TODO: NOT FIXED YET!!
     if ([_expression count] > 0){
         // if previous operation was sqrt, sin or cos, just append operation
         NSString *previousItemInExpression = [[NSString alloc] initWithString:[_expression lastObject]];
         if ([self isScientificFunction:previousItemInExpression]){
+            [_expression addObject:operation];
+            return;
+        } else {
             [_expression addObject:operation];
             return;
         }
@@ -188,11 +196,10 @@
             
         NSString *trimmedOperand = [NSString stringWithFormat:@"%g",self.operand];
         [_expression addObject:trimmedOperand];
-        
+        [_expression addObject:operation];
         return;
     }
     
-    [_expression addObject:operation];
     return;
 }
 

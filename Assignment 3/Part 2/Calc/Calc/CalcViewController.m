@@ -32,12 +32,12 @@
     NSString *digit = sender.titleLabel.text;
     
     // don't allow more than one dot
-    if ([digit isEqual:@"."])
+    if ([digit isEqualToString:@"."])
         if ([self.calcDisplay.text rangeOfString:@"."].location != NSNotFound)
             return;
     
     // handle pi
-    if ([digit isEqual:@"π"])
+    if ([digit isEqualToString:@"π"])
         digit = [NSString stringWithFormat:@"%g", M_PI];
     
     if (self.isInTheMiddleOfTypingSomething == YES)
@@ -46,7 +46,7 @@
     
         // replace digit if 0 displayed or else append digit
         else if ([self.calcDisplay.text isEqual:@"0"])
-            if ([digit isEqual:@"."])
+            if ([digit isEqualToString:@"."])
                 self.calcDisplay.text = [self.calcDisplay.text stringByAppendingString:digit];
             else
                 self.calcDisplay.text = digit;
@@ -54,7 +54,7 @@
         else
             self.calcDisplay.text = [self.calcDisplay.text stringByAppendingString:digit];
     else {
-        if ([digit isEqual:@"."])
+        if ([digit isEqualToString:@"."])
             self.calcDisplay.text = [self.calcDisplay.text stringByAppendingString:digit];
         else
             self.calcDisplay.text = digit;
@@ -73,6 +73,14 @@
     }
     
     NSString *operation = [[sender titleLabel] text];
+    
+    // if equation has just been solved then selecting sin or cos starts another expression
+    if (self.hasCompleteEquationJustBeenSolved == YES)
+        if (([operation isEqualToString:@"sin"]) || ([operation isEqualToString:@"cos"])){
+            [self solveEquation:@"C"];
+            self.hasCompleteEquationJustBeenSolved = NO;
+        }
+    
     [self solveEquation:operation];
     
     // if equation has just been solved, reset the flag if operation pressed

@@ -38,7 +38,7 @@
         } else {
             [expressionToEvaluate appendString:item];
         }
-        NSLog(@"expression: %@:",expressionToEvaluate);
+        //NSLog(@"expression: %@:",expressionToEvaluate);
     }
     
     expressionToEvaluate = [[expressionToEvaluate stringByReplacingOccurrencesOfString:@"="
@@ -54,7 +54,7 @@
     NSMutableSet *expressionVariables = [[NSMutableSet alloc] init];
     
     for (NSString *item in anExpression) {
-        if (([item isEqual:@"a"]) || ([item isEqual:@"b"]) || ([item isEqual:@"x"])){
+        if (([item isEqualToString:@"a"]) || ([item isEqualToString:@"b"]) || ([item isEqualToString:@"x"])){
             if (![expressionVariables containsObject:item])
                 [expressionVariables addObject:item];
         }
@@ -72,7 +72,7 @@
     
     _operationError = NO;
     
-    if ([operation isEqual:@"C"]){
+    if ([operation isEqualToString:@"C"]){
         self.operand = 0;
         self.waitingOperand = 0;
         self.waitingOperation = nil;
@@ -82,7 +82,7 @@
         return 0;
     }
     
-    if (([self.waitingOperation isEqual:@"/"]) && (self.operand == 0)){
+    if (([self.waitingOperation isEqualToString:@"/"]) && (self.operand == 0)){
         _operationError = YES;
         _operationErrorMessage = @"Division by zero not allowed";
         self.operand = 0;
@@ -91,7 +91,7 @@
         return 0;
     }
     
-    if (([operation isEqual:@"sqrt"]) && (self.operand < 0)){
+    if (([operation isEqualToString:@"sqrt"]) && (self.operand < 0)){
         _operationError = YES;
         _operationErrorMessage = @"Square root of negative number not allowed";
         self.operand = 0;
@@ -102,33 +102,37 @@
     
     [self buildExpression:operation];
     
-    if ([operation isEqual:@"sqrt"])
+    if ([operation isEqualToString:@"sqrt"])
         self.operand = sqrt(self.operand);
-    else if ([operation isEqual:@"+/-"])
+    else if ([operation isEqualToString:@"+/-"])
         self.operand = - self.operand;
-    else if ([operation isEqual:@"1/x"])
+    else if ([operation isEqualToString:@"1/x"])
         self.operand = 1 / self.operand;
-    else if ([operation isEqual:@"sin"])
-        self.operand = sin(self.operand);
-    else if ([operation isEqual:@"cos"])
-        self.operand = cos(self.operand);
-    else if ([operation isEqual:@"mem+"])
+//    else if ([operation isEqualToString:@"sin"])
+//        self.operand = sin(self.operand);
+//    else if ([operation isEqualToString:@"cos"])
+//        self.operand = cos(self.operand);
+    else if ([operation isEqualToString:@"mem+"])
         _valueInMemory = self.valueInMemory + self.operand;
-    else {
-        [self performWaitingOperation];
-        self.waitingOperation = operation;
-        self.waitingOperand = self.operand;
-    }
-    
-    if ([self doesExpressionHaveVariable]){
+    else if ([self doesExpressionHaveVariable]){
         if ([operation isEqualToString:@"="]){
             _operationError = YES;
             _operationErrorMessage = @"Variable value required - use Solve expression";
         }
         return 0;
+        
+    } else {
+        if ([self isExpressionComplex])
+            [self solveExpression:_expression];
+        else
+            [self performWaitingOperation];
+        
+        self.waitingOperation = operation;
+        self.waitingOperand = self.operand;
     }
-    else
-        return self.operand;
+    
+    NSLog(@"performOperation: %@", _expression);
+    return self.operand;
 }
 
 - (BOOL)doesExpressionHaveVariable
@@ -140,21 +144,41 @@
     return NO;
 }
 
+- (BOOL)doesExpressionHaveScientificNotation
+{
+    for (NSString *item in _expression) {
+        if ([self isScientificFunction:item])
+            return YES;
+    }
+    return NO;
+}
+
+- (BOOL)isExpressionComplex
+{
+    if (([self doesExpressionHaveScientificNotation]) || ([self doesExpressionHaveVariable]))
+        return YES;
+    else
+        return NO;
+}
+
 - (void)buildExpression:(NSString *)operation
 {
     // if expression being built from property list then waitingOperation is nil
     if (!(self.waitingOperation) && (self.operand == 0) && (self.waitingOperand == 0)){
-        NSString *lastExpressionItem = [[NSString alloc] initWithString:[_expression lastObject]];
-        if ([lastExpressionItem isEqual:@"="]){
-            [_expression removeLastObject];
+        if ([_expression count] > 0){
+            NSString *lastExpressionItem = [[NSString alloc] initWithString:[_expression lastObject]];
+            if ([lastExpressionItem isEqualToString:@"="]){
+                [_expression removeLastObject];
+                [_expression addObject:operation];
+            }
+        } else
             [_expression addObject:operation];
-        }
+        
         return;
-
     }
     
     // if operation pressed after =, then replace = with operation and allow expression to be built upon
-    if ([self.waitingOperation isEqual:@"="]){
+    if ([self.waitingOperation isEqualToString:@"="]){
         if (![operation isEqual:@"="]){
             [_expression removeLastObject];
             [_expression addObject:operation];
@@ -162,10 +186,18 @@
         return;
     }
     
+    if ([self isScientificFunction:operation]){
+        [_expression addObject:operation];
+        self.waitingOperand = 0;
+        return;
+    }
+    
     // if previous operation was sqrt, sin or cos, just append operation
     if ([_expression count] > 0){
         NSString *previousItemInExpression = [[NSString alloc] initWithString:[_expression lastObject]];
         if ([self isScientificFunction:previousItemInExpression]){
+            NSString *trimmedOperand = [NSString stringWithFormat:@"%g",self.operand];
+            [_expression addObject:trimmedOperand];
             [_expression addObject:operation];
     
             return;
@@ -181,21 +213,35 @@
     }
     
     [_expression addObject:operation];
+    
+    NSLog(@"buildExpression: %@", _expression);
     return;
 }
 
 - (BOOL)isScientificFunction:(NSString *)function
 {
-    if (([function isEqual:@"sin"]) || ([function isEqual:@"cos"]) || ([function isEqual:@"sin"]))
+    if (([function isEqualToString:@"sin"]) || ([function isEqualToString:@"cos"]))
+        return YES;
+    else return NO;
+}
+
+- (BOOL)isTotalExpressionFunction:(NSString *)function
+{
+    if (([function isEqualToString:@"sqrt"]) || ([function isEqualToString:@"1/x"]))
         return YES;
     else return NO;
 }
 
 - (BOOL)isVariableExpressionItem:(NSString *)function
 {
-    if (([function isEqual:@"a"]) || ([function isEqual:@"b"]) || ([function isEqual:@"x"]))
+    if (([function isEqualToString:@"a"]) || ([function isEqualToString:@"b"]) || ([function isEqualToString:@"x"]))
         return YES;
     else return NO;
+}
+
+- (void)solveExpression:(id)anExpression
+{
+    
 }
 
 - (void)performWaitingOperation
@@ -206,8 +252,14 @@
         self.operand = self.waitingOperand - self.operand;
     else if([@"*" isEqualToString:self.waitingOperation])
         self.operand = self.waitingOperand * self.operand;
+    else if ([self.waitingOperation isEqualToString:@"sin"])
+        self.operand = sin(self.operand);
+    else if ([self.waitingOperation isEqualToString:@"cos"])
+        self.operand = cos(self.operand);
     else if([@"/" isEqualToString:self.waitingOperation])
         if(self.operand) self.operand = self.waitingOperand / self.operand;
+    
+    NSLog(@"performWaitingOperation: %@", _expression);
 }
 
 - (void)setVariableAsOperand:(NSString *)variableName
@@ -221,14 +273,27 @@
 {
     NSMutableArray *describeExpression = [[NSMutableArray alloc] init];
     NSMutableString *expressionDescription = [[NSMutableString alloc] init];
+    BOOL parenthesisedParameter = NO;
     
     for (NSString *item in anExpression) {
-        if ([self isScientificFunction:item]){
+        NSLog(@"expression: %@", _expression);
+        NSLog(@"descriptionOfExpression: %@", describeExpression);
+        
+        if ([self isTotalExpressionFunction:item]){
             [describeExpression insertObject:@"(" atIndex:0];
             [describeExpression insertObject:item atIndex:0];
             [describeExpression addObject:@")"];
+        } else if ([self isScientificFunction:item]){
+            [describeExpression addObject:item];
+            [describeExpression addObject:@"("];
+            [describeExpression addObject:@")"];
+            parenthesisedParameter = YES;
+        } else if (parenthesisedParameter == YES){
+            [describeExpression insertObject:item atIndex:[describeExpression count]-1];
+            parenthesisedParameter = NO;
         } else {
             [describeExpression addObject:item];
+            parenthesisedParameter = NO;
         }
     }
     

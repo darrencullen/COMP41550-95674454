@@ -3,14 +3,6 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "-[CalcModel evaluateExpressionTest:]:CalcModel.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "anExpression">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "-[CalcModel performOperation:]:CalcModel.m">
          <PersistentStrings>
             <PersistentString
@@ -31,6 +23,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "-[CalcModel evaluateExpressionTest:]:CalcModel.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "anExpression">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[CalcViewController promptForVariables]:CalcViewController.m">
          <PersistentStrings>
             <PersistentString
@@ -43,6 +43,9 @@
                value = "self.calcModel.expression">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "+[CalcModel variablesInExpression:]:CalcModel.m">
       </ContextState>
       <ContextState
          contextName = "-[CalcModel buildExpression:]:CalcModel.m">
@@ -62,21 +65,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "+[CalcModel variablesInExpression:]:CalcModel.m">
-      </ContextState>
-      <ContextState
-         contextName = "-[CalcViewController operationPressed:]:CalcViewController.m">
+         contextName = "-[CalcViewController solveExpressionPressed:]:CalcViewController.m">
          <PersistentStrings>
             <PersistentString
-               value = "self.isInTheMiddleOfTypingSomething">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "GLOBAL">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.waitingOperand">
+               value = "self.variablesCurrentlyInExpression">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -120,10 +112,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[CalcViewController solveExpressionPressed:]:CalcViewController.m">
+         contextName = "-[CalcViewController operationPressed:]:CalcViewController.m">
          <PersistentStrings>
             <PersistentString
-               value = "self.variablesCurrentlyInExpression">
+               value = "self.isInTheMiddleOfTypingSomething">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

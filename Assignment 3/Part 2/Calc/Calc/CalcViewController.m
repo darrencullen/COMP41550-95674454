@@ -219,10 +219,26 @@
     [[self calcModel] expressionForPropertyList:nil];
     self.expressionDisplay.text = [[self calcModel] descriptionOfExpression:self.calcModel.expression];
     
-    // solve restored expression
-    if (self.expressionDisplay.text.length > 0)
-        if (![CalcModel variablesInExpression:self.calcModel.expression])
-            [self solveExpression];
+    @try
+    {
+        // solve restored expression
+        if (self.expressionDisplay.text.length > 0)
+            if (![CalcModel variablesInExpression:self.calcModel.expression])
+                [self solveExpression];
+    }
+    
+    @catch (NSException *ex) {
+        NSLog(@"CalcViewController.viewDidLoad error: %@", ex);
+        UIAlertView *alertDialog;
+        alertDialog=[[UIAlertView alloc]
+                     initWithTitle:@"Operation Error"
+                     message:@"Problem reloading saved expression. Values have been reset"
+                     delegate:nil
+                     cancelButtonTitle:@"OK"
+                     otherButtonTitles:nil];
+        [alertDialog show];
+        [self solveEquation:@"C"];
+    }
 }
 
 - (void)didReceiveMemoryWarning

@@ -10,6 +10,6 @@
 
 @interface NSArray (DCMathExpressionParsing)
 
-- (double)doubleByEvaluatingArrayWithVariables:(NSArray *)anExpression usingVariableValues:(NSDictionary *)variables;
+- (double)evaluateMathematicalExpressionWithVariables:(NSArray *)anExpression usingVariableValues:(NSDictionary *)variables;
 
 @end

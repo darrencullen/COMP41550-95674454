@@ -26,55 +26,11 @@
 }
 
 + (double)evaluateExpression:(id)anExpression usingVariableValues:(NSDictionary *)variables
-{
-    // TODO: at this point, use waiting operand etc
-    // loop. if numeric - set operand. if not - performoperation.
-    NSMutableArray *describeExpression = [[NSMutableArray alloc] init];
-    BOOL parenthesisedParameter = NO;
+{    
+    NSArray *describeExpression = [[NSArray alloc] init];
+    double result = [describeExpression evaluateMathematicalExpressionWithVariables:anExpression usingVariableValues:variables];
     
-    for (NSString *item in anExpression) {
-        NSLog(@"expression: %@", anExpression);
-        NSLog(@"descriptionOfExpression: %@", describeExpression);
-        
-        if (([item isEqualToString:@"sqrt"]) || ([item isEqualToString:@"1/x"]) || ([item isEqualToString:@"+/-"])){
-            [describeExpression insertObject:@"(" atIndex:0];
-            [describeExpression insertObject:item atIndex:0];
-            [describeExpression addObject:@")"];
-            
-        } else if (([item isEqualToString:@"sin"]) || ([item isEqualToString:@"cos"])){
-            [describeExpression addObject:item];
-            [describeExpression addObject:@"("];
-            [describeExpression addObject:@")"];
-            parenthesisedParameter = YES;
-            
-        } else if (parenthesisedParameter == YES){
-            if (([item isEqualToString:@"a"]) || ([item isEqualToString:@"b"]) || ([item isEqualToString:@"x"])){
-                if (variables[item]){
-                    [describeExpression insertObject:[variables objectForKey:item] atIndex:[describeExpression count]-1];
-                } else {
-                    [describeExpression insertObject:item atIndex:[describeExpression count]-1];
-                }
-            } else {
-                [describeExpression insertObject:item atIndex:[describeExpression count]-1];
-            }
-            parenthesisedParameter = NO;
-            
-        } else if (([item isEqualToString:@"a"]) || ([item isEqualToString:@"b"]) || ([item isEqualToString:@"x"])){
-            if (variables[item]){
-                [describeExpression addObject:[variables objectForKey:item]];
-            } else {
-                [describeExpression addObject:item];
-            }
-            
-        } else {
-            [describeExpression addObject:item];
-            parenthesisedParameter = NO;
-        }
-    }
-    
-    double result = [describeExpression doubleByEvaluatingArrayWithVariables];
     return result;
-
 }
 
 + (NSSet *)variablesInExpression:(id)anExpression
@@ -96,8 +52,6 @@
 
 - (double)performOperation:(NSString *)operation
 {
-    // TODO: fix solving of expression
-    
     _operationError = NO;
     
     if ([operation isEqualToString:@"C"]){
@@ -153,9 +107,7 @@
         if ([self isExpressionComplex])
             [self solveExpression:_expression];
         else
-            [self solveExpression:_expression];
-            // TODO: resinstate code
-            //[self performWaitingOperation];
+            [self performWaitingOperation];
         
         self.waitingOperation = operation;
         self.waitingOperand = self.operand;

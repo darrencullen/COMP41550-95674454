@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49098C9C16F7E86E008F34FF /* NSArray+DCMathExpressionParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = 49098C9B16F7E86E008F34FF /* NSArray+DCMathExpressionParsing.m */; };
 		494D977416B7346D00B9339D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 494D977316B7346D00B9339D /* UIKit.framework */; };
 		494D977616B7346D00B9339D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 494D977516B7346D00B9339D /* Foundation.framework */; };
 		494D977816B7346D00B9339D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 494D977716B7346D00B9339D /* CoreGraphics.framework */; };
@@ -52,6 +53,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		49098C9A16F7E86E008F34FF /* NSArray+DCMathExpressionParsing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+DCMathExpressionParsing.h"; sourceTree = "<group>"; };
+		49098C9B16F7E86E008F34FF /* NSArray+DCMathExpressionParsing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+DCMathExpressionParsing.m"; sourceTree = "<group>"; };
 		494D977016B7346D00B9339D /* Calc2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calc2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		494D977316B7346D00B9339D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		494D977516B7346D00B9339D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -182,6 +185,8 @@
 		494D977A16B7346D00B9339D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				49098C9A16F7E86E008F34FF /* NSArray+DCMathExpressionParsing.h */,
+				49098C9B16F7E86E008F34FF /* NSArray+DCMathExpressionParsing.m */,
 				49FE5D2C16C31641003465B4 /* DDMathParser */,
 				49FBA63516B889C9005F8FCB /* Resources */,
 				494D977B16B7346D00B9339D /* Calc2-Info.plist */,
@@ -374,6 +379,7 @@
 				49FE5D6C16C31641003465B4 /* DDParserTypes.m in Sources */,
 				49FE5D6D16C31641003465B4 /* DDTypes.m in Sources */,
 				49FE5D6E16C31641003465B4 /* NSString+DDMathParsing.m in Sources */,
+				49098C9C16F7E86E008F34FF /* NSArray+DCMathExpressionParsing.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

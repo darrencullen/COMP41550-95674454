@@ -7,7 +7,7 @@
 //
 
 #import "CalcModel.h"
-#import "DDMathParser.h"
+#import "NSArray+DCMathExpressionParsing.h"
 
 @interface CalcModel()
 //@property (nonatomic) BOOL expressionVariableSet;
@@ -25,30 +25,56 @@
     return self;
 }
 
-+ (double)evaluateExpression:(id)anExpression usingVariableValues:(NSDictionary *)variable
++ (double)evaluateExpression:(id)anExpression usingVariableValues:(NSDictionary *)variables
 {
-    NSMutableString *expressionToEvaluate = [[NSMutableString alloc] init];
-//
-//    // TODO: at this point, use waiting operand etc
-//    // loop. if numeric - set operand. if not - performoperation.
-//    
-//    for (NSString *item in anExpression) {
-//        if (variable[item]){
-//            [expressionToEvaluate appendString:[variable objectForKey:item]];
-//        } else {
-//            [expressionToEvaluate appendString:item];
-//        }
-//        //NSLog(@"expression: %@:",expressionToEvaluate);
-//    }
-//    
-    expressionToEvaluate = [[expressionToEvaluate stringByReplacingOccurrencesOfString:@"="
-                                                                            withString:@""]
-                            mutableCopy];
+    // TODO: at this point, use waiting operand etc
+    // loop. if numeric - set operand. if not - performoperation.
+    NSMutableArray *describeExpression = [[NSMutableArray alloc] init];
+    BOOL parenthesisedParameter = NO;
     
-    double result = [[expressionToEvaluate numberByEvaluatingString] doubleValue];
-   // double result = [[expressionToEvaluate solveExpression] doubleValue];
+    for (NSString *item in anExpression) {
+        NSLog(@"expression: %@", anExpression);
+        NSLog(@"descriptionOfExpression: %@", describeExpression);
+        
+        if (([item isEqualToString:@"sqrt"]) || ([item isEqualToString:@"1/x"]) || ([item isEqualToString:@"+/-"])){
+            [describeExpression insertObject:@"(" atIndex:0];
+            [describeExpression insertObject:item atIndex:0];
+            [describeExpression addObject:@")"];
+            
+        } else if (([item isEqualToString:@"sin"]) || ([item isEqualToString:@"cos"])){
+            [describeExpression addObject:item];
+            [describeExpression addObject:@"("];
+            [describeExpression addObject:@")"];
+            parenthesisedParameter = YES;
+            
+        } else if (parenthesisedParameter == YES){
+            if (([item isEqualToString:@"a"]) || ([item isEqualToString:@"b"]) || ([item isEqualToString:@"x"])){
+                if (variables[item]){
+                    [describeExpression insertObject:[variables objectForKey:item] atIndex:[describeExpression count]-1];
+                } else {
+                    [describeExpression insertObject:item atIndex:[describeExpression count]-1];
+                }
+            } else {
+                [describeExpression insertObject:item atIndex:[describeExpression count]-1];
+            }
+            parenthesisedParameter = NO;
+            
+        } else if (([item isEqualToString:@"a"]) || ([item isEqualToString:@"b"]) || ([item isEqualToString:@"x"])){
+            if (variables[item]){
+                [describeExpression addObject:[variables objectForKey:item]];
+            } else {
+                [describeExpression addObject:item];
+            }
+            
+        } else {
+            [describeExpression addObject:item];
+            parenthesisedParameter = NO;
+        }
+    }
+    
+    double result = [describeExpression doubleByEvaluatingArrayWithVariables];
     return result;
-    
+
 }
 
 + (NSSet *)variablesInExpression:(id)anExpression

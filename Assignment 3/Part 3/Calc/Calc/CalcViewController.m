@@ -12,6 +12,7 @@
 @interface CalcViewController()
 @property (nonatomic) BOOL isInTheMiddleOfTypingSomething;
 @property (nonatomic) BOOL hasMemoryJustBeenAccessed;
+@property (nonatomic) BOOL hasCompleteEquationJustBeenSolved;
 @property (nonatomic, retain) NSMutableDictionary *variablesSet;
 @property (nonatomic, strong) NSString *variableBeingSet;
 @property (nonatomic, strong) NSMutableSet *variablesCurrentlyInExpression;
@@ -32,24 +33,30 @@
 
 - (IBAction)digitPressed:(UIButton *)sender
 {
+    // if equation has just been solved then selecting a digit starts another expression
+    if (self.hasCompleteEquationJustBeenSolved == YES){
+        [self solveEquation:@"C"];
+        self.hasCompleteEquationJustBeenSolved = NO;
+    }
+    
     NSString *digit = sender.titleLabel.text;
     
     // don't allow more than one dot
-    if ([digit isEqual:@"."])
+    if ([digit isEqualToString:@"."])
         if ([self.calcDisplay.text rangeOfString:@"."].location != NSNotFound)
             return;
     
     // handle pi
-    if ([digit isEqual:@"π"])
+    if ([digit isEqualToString:@"π"])
         digit = [NSString stringWithFormat:@"%g", M_PI];
     
-    if (self.isInTheMiddleOfTypingSomething)
+    if (self.isInTheMiddleOfTypingSomething == YES)
         if (self.hasMemoryJustBeenAccessed == YES)
             self.calcDisplay.text = digit;
     
         // replace digit if 0 displayed or else append digit
-        else if ([self.calcDisplay.text isEqual:@"0"])
-            if ([digit isEqual:@"."])
+        else if ([self.calcDisplay.text isEqualToString:@"0"])
+            if ([digit isEqualToString:@"."])
                 self.calcDisplay.text = [self.calcDisplay.text stringByAppendingString:digit];
             else
                 self.calcDisplay.text = digit;
@@ -57,7 +64,7 @@
         else
             self.calcDisplay.text = [self.calcDisplay.text stringByAppendingString:digit];
     else {
-        if ([digit isEqual:@"."])
+        if ([digit isEqualToString:@"."])
             self.calcDisplay.text = [self.calcDisplay.text stringByAppendingString:digit];
         else
             self.calcDisplay.text = digit;
@@ -70,38 +77,31 @@
 
 - (IBAction)operationPressed:(UIButton *)sender
 {
-    if (self.isInTheMiddleOfTypingSomething){
+    if (self.isInTheMiddleOfTypingSomething == YES){
         self.calcModel.operand = [self.calcDisplay.text doubleValue];
         self.isInTheMiddleOfTypingSomething = NO;
     }
     
     NSString *operation = [[sender titleLabel] text];
+
+    // if equation has just been solved then selecting sin or cos starts another expression
+    if (self.hasCompleteEquationJustBeenSolved == YES)
+        if (([operation isEqualToString:@"sin"]) || ([operation isEqualToString:@"cos"])){
+            [self solveEquation:@"C"];
+            self.hasCompleteEquationJustBeenSolved = NO;
+        }
+
     [self solveEquation:operation];
-//    double result = [[self calcModel] performOperation:operation];
-//    [[self calcDisplay] setText:[NSString stringWithFormat:@"%g", result]];
-//    
-//    
-//    if (self.calcModel.operationError == YES){
-//        UIAlertView *alertDialog;
-//        alertDialog=[[UIAlertView alloc]
-//                     initWithTitle:@"Operation Error"
-//                     message:self.calcModel.operationErrorMessage
-//                     delegate:nil
-//                     cancelButtonTitle:@"OK"
-//                     otherButtonTitles:nil];
-//        [alertDialog show];
-//    }
-//    
-//    self.hasMemoryJustBeenAccessed = NO;
-//    self.expressionDisplay.text = [[self calcModel] descriptionOfExpression:self.calcModel.expression];
+    
+    // if equation has just been solved, reset the flag if operation pressed
+    if ([operation isEqualToString:@"="])
+        self.hasCompleteEquationJustBeenSolved = YES;
+    else
+        self.hasCompleteEquationJustBeenSolved = NO;
+    
 }
 
-- (void) solveEquation:(NSString *)operation
-{
-    double result = [[self calcModel] performOperation:operation];
-    [[self calcDisplay] setText:[NSString stringWithFormat:@"%g", result]];
-    
-    
+- (void)checkForErrorsInModel{
     if (self.calcModel.operationError == YES){
         UIAlertView *alertDialog;
         alertDialog=[[UIAlertView alloc]
@@ -112,9 +112,19 @@
                      otherButtonTitles:nil];
         [alertDialog show];
     }
+}
+
+- (void) solveEquation:(NSString *)operation
+{
+    double result = [[self calcModel] performOperation:operation];
+    [[self calcDisplay] setText:[NSString stringWithFormat:@"%g", result]];
+    
+    [self checkForErrorsInModel];
     
     self.hasMemoryJustBeenAccessed = NO;
+    
     self.expressionDisplay.text = [[self calcModel] descriptionOfExpression:self.calcModel.expression];
+    [CalcModel propertyListForExpression:self.calcModel.expression];    
 }
 
 - (IBAction)storeValueInMemory:(UIButton *)sender {
@@ -149,15 +159,21 @@
 //        self.isInTheMiddleOfTypingSomething = NO;
 //    }        
     
+    [self solveExpression];
+}
+
+- (void) solveExpression{
     [self.variablesSet removeAllObjects];
     self.variablesCurrentlyInExpression = [[NSMutableSet alloc] initWithSet:[CalcModel variablesInExpression:self.calcModel.expression]];
-
+    
     if ([self.variablesCurrentlyInExpression count] > 0){
         [self promptForVariables];
     } else {
         self.expressionResult = [CalcModel evaluateExpression:self.calcModel.expression usingVariableValues:self.variablesSet];
         [[self calcDisplay] setText:[NSString stringWithFormat:@"%g", self.expressionResult]];
         
+        [CalcModel propertyListForExpression:self.calcModel.expression];
+        self.hasCompleteEquationJustBeenSolved = YES;
         return;
     }
 }
@@ -169,6 +185,9 @@
         
         self.expressionResult = [CalcModel evaluateExpression:self.calcModel.expression usingVariableValues:self.variablesSet];
         [[self calcDisplay] setText:[NSString stringWithFormat:@"%g", self.expressionResult]];
+        
+        [CalcModel propertyListForExpression:self.calcModel.expression];
+        self.hasCompleteEquationJustBeenSolved = YES;
         
         return;
         
@@ -203,7 +222,32 @@
 {
     [super viewDidLoad];
 	self.variablesSet = [[NSMutableDictionary alloc] init];
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    self.hasCompleteEquationJustBeenSolved = NO;
+    
+    // restore saved expression if it exists
+    [[self calcModel] expressionForPropertyList:nil];
+    self.expressionDisplay.text = [[self calcModel] descriptionOfExpression:self.calcModel.expression];
+    
+    @try
+    {
+        // solve restored expression
+        if (self.expressionDisplay.text.length > 0)
+            if (![CalcModel variablesInExpression:self.calcModel.expression])
+                [self solveExpression];
+    }
+    
+    @catch (NSException *ex) {
+        NSLog(@"CalcViewController.viewDidLoad error: %@", ex);
+        UIAlertView *alertDialog;
+        alertDialog=[[UIAlertView alloc]
+                     initWithTitle:@"Operation Error"
+                     message:@"Problem reloading saved expression. Values have been reset"
+                     delegate:nil
+                     cancelButtonTitle:@"OK"
+                     otherButtonTitles:nil];
+        [alertDialog show];
+        [self solveEquation:@"C"];
+    }
 }
 
 - (void)didReceiveMemoryWarning

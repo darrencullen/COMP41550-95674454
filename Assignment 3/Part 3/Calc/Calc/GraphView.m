@@ -83,30 +83,30 @@
 
 // ==========
 
-- (void)setAxisOrigin:(CGPoint)axisOrigin {
-    
-    // Do nothing is the axis origin hasn't changed
-    if (_axisOrigin.x == axisOrigin.x && _axisOrigin.y == axisOrigin.y) return;
-    
-    _axisOrigin = axisOrigin;
-    
-    // Ask the delegate to store the scale
-    [self.dataSource storeAxisOriginX:_axisOrigin.x
-                       andAxisOriginY:_axisOrigin.y
-                         ForGraphView:self];
-    
-    // Redraw whenever the axis origin is changed
-    [self setNeedsDisplay];
-}
-
-- (CGPoint)axisOrigin {
-    
-    // Set it to the middle of the graphBounds, if if the current origin is (0,0)
-    if (!_axisOrigin.x && !_axisOrigin.y) {
-        _axisOrigin.x = (self.graphBounds.origin.x + self.graphBounds.size.width) / 2;
-        _axisOrigin.y = (self.graphBounds.origin.y + self.graphBounds.size.height) / 2;
-    }
-    return _axisOrigin;
-}
+//- (void)setAxisOrigin:(CGPoint)axisOrigin {
+//    
+//    // Do nothing is the axis origin hasn't changed
+//    if (_axisOrigin.x == axisOrigin.x && _axisOrigin.y == axisOrigin.y) return;
+//    
+//    _axisOrigin = axisOrigin;
+//    
+//    // Ask the delegate to store the scale
+//    [self.dataSource storeAxisOriginX:_axisOrigin.x
+//                       andAxisOriginY:_axisOrigin.y
+//                         ForGraphView:self];
+//    
+//    // Redraw whenever the axis origin is changed
+//    [self setNeedsDisplay];
+//}
+//
+//- (CGPoint)axisOrigin {
+//    
+//    // Set it to the middle of the graphBounds, if if the current origin is (0,0)
+//    if (!_axisOrigin.x && !_axisOrigin.y) {
+//        _axisOrigin.x = (self.graphBounds.origin.x + self.graphBounds.size.width) / 2;
+//        _axisOrigin.y = (self.graphBounds.origin.y + self.graphBounds.size.height) / 2;
+//    }
+//    return _axisOrigin;
+//}
 
 @end

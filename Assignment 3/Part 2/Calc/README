@@ -1,13 +1,13 @@
 Darren, Cullen, 95674454, darrencullen@gmail.com
 
-This was a very challenging assignment, as much to do with what was being asked as how to implement it. It helped having Diarmuid as a point of contact, but I would recommend having an area set up in noodle for the class if you are running it next year. It exists for other modules and is a good forum for people to air any queries.
+This was a very challenging assignment, as much to do with what was being asked as how to implement it. It helped having Diarmuid as a point of contact, but I would recommend having an area set up in UCD's moodle for the class if you are running it next year. It exists for other modules and is a good forum for people to air any queries.
 
 The assignment itself gave great exposure to the use of objective-c datatypes such as arrays and dictionaries and also on the MVC paradigm, with a model layer being responsible for the storage of data.
 
-I wasn't sure how you wanted us to replace the variables with values, so I decided to prompt the users for their values when they clicked solve and a variable is present. If a user clicks = and a variable is present then the model returns an error to say that the user must click on solve instead.
+I wasn't sure how you wanted us to replace the variables with values, so I decided to prompt the users for their values when they clicked solve and a variable is present. If a user clicks = and a variable is present then the model returns an error to say that the user must click solve instead.
 
-I store the operands and operations in sequence which is enumerated when a user requests a solution. For the description, however, I use a different array, which is built based upon how a expression would normally be displayed. For example, if a user clicks 5, +, sin, x, -, 3, sqrt, these values are stored in that sequence in an array to be evaluated, but when the controller requests the description of the expression, they are re-ordered to display sqrt(5+sin(x)-3).
+I store the operands and operations in sequence in an array, which is enumerated when a user attempts to solve an expression. For the description, however, I use a different array, which is built based upon how a expression would normally be displayed. For example, if a user clicks 5, +, sin, x, -, 3, sqrt, these values are stored in that sequence in an array to be evaluated, but when the controller requests the description of the expression, they are re-ordered to display sqrt(5+sin(x)-3).
 
 I write to a property list as an expression is being built and solved, and then read the most recently saved expression from the property file when the application restarts.
 
-I created a category to extend the NSArray datatype with the evaluateMathematicalExpressionWithVariables method that gets called when a user requests that an expression be solved.
+I created a category to extend the NSArray datatype with the evaluateMathematicalExpressionWithVariables method that gets called when a user requests that an expression be solved. This category includes all the logic required to solve the expressions.

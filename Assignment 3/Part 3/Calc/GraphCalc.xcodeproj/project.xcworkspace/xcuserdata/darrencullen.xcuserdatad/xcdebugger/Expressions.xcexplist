@@ -45,6 +45,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "-[GraphView drawRect:]:GraphView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.graphOrigin">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "+[CalcModel variablesInExpression:]:CalcModel.m">
       </ContextState>
       <ContextState

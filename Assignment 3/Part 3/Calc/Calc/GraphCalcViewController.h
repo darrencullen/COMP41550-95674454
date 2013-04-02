@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "GraphView.h"
+#import "CalcModel.h"
 
 
 @interface GraphCalcViewController : UIViewController <GraphViewDelegate>
 
-@property (nonatomic, strong) NSString *expressionToPlot;
+@property (nonatomic, strong) NSArray *expressionToPlot;
 
 @end

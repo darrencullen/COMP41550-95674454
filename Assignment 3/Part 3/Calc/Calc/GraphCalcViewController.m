@@ -46,7 +46,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setGraphZoomLevel:10];
+    [self setGraphZoomLevel:16];
     
 	// Do any additional setup after loading the view.
     [self.navigationController setNavigationBarHidden:NO animated:NO];
@@ -56,12 +56,12 @@
 
 - (IBAction)zoomIn:(id)sender
 {
-    [self setGraphZoomLevel:self.graphView.scale * 10];
+    [self setGraphZoomLevel:self.graphView.scale + 4];
 }
 
 - (IBAction)zoomOut:(id)sender
 {
-    [self setGraphZoomLevel:self.graphView.scale * .1];
+    [self setGraphZoomLevel:self.graphView.scale - 4];
 }
 
 - (double) getValueForYAxisFromValueForXAxis:(GraphView *) graphViewDelegator xAxisValue:(double)value{

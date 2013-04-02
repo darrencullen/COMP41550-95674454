@@ -21,7 +21,7 @@
     for (NSString *item in anExpression) {        
         if (([item isEqualToString:@"a"]) || ([item isEqualToString:@"b"]) || ([item isEqualToString:@"x"])){
             if (variables[item]){
-                [describeExpression addObject:[variables objectForKey:item]];
+                [describeExpression addObject:[[NSString alloc] initWithFormat:@"%@", [variables objectForKey:item]]];
             } else {
                 [describeExpression addObject:item];
             }

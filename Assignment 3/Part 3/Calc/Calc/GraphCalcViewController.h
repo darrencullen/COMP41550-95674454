@@ -14,5 +14,6 @@
 @interface GraphCalcViewController : UIViewController <GraphViewDelegate>
 
 @property (nonatomic, strong) NSArray *expressionToPlot;
+@property (nonatomic, strong) NSString *descriptionOfExpression;
 
 @end

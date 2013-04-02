@@ -46,11 +46,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setGraphZoomLevel:100];
+    [self setGraphZoomLevel:10];
     
 	// Do any additional setup after loading the view.
     [self.navigationController setNavigationBarHidden:NO animated:NO];
-    self.expressionLabel.text = [[self calcModel] descriptionOfExpression:self.expressionToPlot];
+    self.expressionLabel.text = self.descriptionOfExpression;
     self.graphView.delegate = self;
 }
 
@@ -67,11 +67,12 @@
 - (double) getValueForYAxisFromValueForXAxis:(GraphView *) graphViewDelegator xAxisValue:(double)value{
     // solve the expression with the value supplied from the view
     NSDictionary *variableSet = @{@"x" : [NSNumber numberWithDouble:value]};
-    return [CalcModel evaluateExpression:self.calcModel.expression usingVariableValues:variableSet];
+    return [CalcModel evaluateExpression:self.expressionToPlot usingVariableValues:variableSet];
 }
 
 - (void) setGraphZoomLevel:(double) zoomLevel
 {
+    if ((zoomLevel > 100) || (zoomLevel < 1)) return;
     self.graphView.scale = zoomLevel;
     [self.graphView setNeedsDisplay];
 }

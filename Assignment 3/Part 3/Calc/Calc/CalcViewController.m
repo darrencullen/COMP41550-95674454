@@ -271,7 +271,8 @@
 	if ([segue.identifier isEqualToString:@"ShowGraph"])
 	{
         GraphCalcViewController *graphCalcVC = segue.destinationViewController;
-        graphCalcVC.expressionToPlot = [[self calcModel] descriptionOfExpression:self.calcModel.expression];
+        graphCalcVC.expressionToPlot = self.calcModel.expression;
+        graphCalcVC.descriptionOfExpression = [[self calcModel] descriptionOfExpression:self.calcModel.expression];
         
         // TODO: is this needed here????
         //[segue.destinationViewController setDelegate:self];

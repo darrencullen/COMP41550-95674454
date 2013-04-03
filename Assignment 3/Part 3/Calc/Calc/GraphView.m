@@ -46,10 +46,8 @@
     CGPoint center = self.graphOrigin;
     center.x += self.bounds.size.width / 2 + self.bounds.origin.x;
     center.y += self.bounds.size.height / 2 + self.bounds.origin.y;
-    [AxesDrawer drawAxesInRect:self.bounds originAtPoint:center scale:scale];
-    
- //   self.graphOrigin = CGPointMake(CGRectGetMidX(rect),CGRectGetMidY(rect));
-    
+    //[AxesDrawer drawAxesInRect:self.bounds originAtPoint:center scale:scale];
+        
     [AxesDrawer drawAxesInRect:rect originAtPoint:center scale:self.scale];
     
     // Set the line width and colour of the graph lines
@@ -66,19 +64,10 @@
     
     //Iterate over the horizontal pixels, plotting the corresponding y values
     for (CGFloat x = startingX; x<= endingX; x+=increment) {
-        // Identify the starting X point for the curve and convert to graph coordinates.
-        // Then retrieve the corresponding Y value and convert it back to view coordindates
-        
+        // for each x, calculate y based upon center and scale of graph
         CGPoint coordinate;
         coordinate.x = x;
-
-        
-       // return -[self.delegate YValueForX:(x - center.x) / scale] * scale + center.y;
-        
-        
-        //coordinate.y = [self.delegate getValueForYAxisFromValueForXAxis:self xAxisValue:coordinate.x];
-        coordinate.y = [self yFromX:x withCenter:center andScale:scale];
-
+        coordinate.y = -[self.delegate getValueForYAxisFromValueForXAxis:self xAxisValue:(x - center.x) / scale] * scale + center.y;
         
         // Handle the edge cases
         if (coordinate.y == NAN || coordinate.y == INFINITY || coordinate.y == -INFINITY)
@@ -93,12 +82,6 @@
         
     }  
     CGContextStrokePath(context);
-}
-
-
-- (int)yFromX:(int)x withCenter:(CGPoint)center andScale:(int)scale
-{    
-    return -[self.delegate getValueForYAxisFromValueForXAxis:self xAxisValue:(x - center.x) / scale] * scale + center.y;
 }
 
 

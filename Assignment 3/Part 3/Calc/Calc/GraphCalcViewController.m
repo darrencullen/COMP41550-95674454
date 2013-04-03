@@ -72,7 +72,7 @@
 
 - (void) setGraphZoomLevel:(double) zoomLevel
 {
-    if ((zoomLevel > 100) || (zoomLevel < 1)) return;
+    if ((zoomLevel > 68) || (zoomLevel < 1)) return;
     self.graphView.scale = zoomLevel;
     [self.graphView setNeedsDisplay];
 }
@@ -94,6 +94,11 @@
     [self setExpressionLabel:nil];
     [self setGraphView:nil];
     [super viewDidUnload];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+{
+    return YES;
 }
 
 @end

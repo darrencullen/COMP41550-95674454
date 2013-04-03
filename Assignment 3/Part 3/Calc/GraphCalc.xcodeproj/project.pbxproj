@@ -21,7 +21,6 @@
 		494D978D16B7346D00B9339D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 494D978B16B7346D00B9339D /* MainStoryboard.storyboard */; };
 		494D979016B7346D00B9339D /* CalcViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 494D978F16B7346D00B9339D /* CalcViewController.m */; };
 		494D979816B735ED00B9339D /* CalcModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 494D979716B735ED00B9339D /* CalcModel.m */; };
-		4990EC6C1709A16B001A2A34 /* cog_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 4990EC6B1709A16B001A2A34 /* cog_01.png */; };
 		4990EC6F1709A21C001A2A34 /* minus.png in Resources */ = {isa = PBXBuildFile; fileRef = 4990EC6D1709A21C001A2A34 /* minus.png */; };
 		4990EC701709A21C001A2A34 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 4990EC6E1709A21C001A2A34 /* plus.png */; };
 		49BBC1F416F9078F00AFE37F /* NSArray+DCMathExpressionParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BBC1F316F9078F00AFE37F /* NSArray+DCMathExpressionParsing.m */; };
@@ -60,7 +59,6 @@
 		494D978F16B7346D00B9339D /* CalcViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalcViewController.m; sourceTree = "<group>"; };
 		494D979616B735ED00B9339D /* CalcModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalcModel.h; sourceTree = "<group>"; };
 		494D979716B735ED00B9339D /* CalcModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalcModel.m; sourceTree = "<group>"; };
-		4990EC6B1709A16B001A2A34 /* cog_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cog_01.png; sourceTree = "<group>"; };
 		4990EC6D1709A21C001A2A34 /* minus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minus.png; sourceTree = "<group>"; };
 		4990EC6E1709A21C001A2A34 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
 		49BBC1F216F9078F00AFE37F /* NSArray+DCMathExpressionParsing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+DCMathExpressionParsing.h"; path = "../NSArray+DCMathExpressionParsing.h"; sourceTree = "<group>"; };
@@ -180,7 +178,6 @@
 			children = (
 				4990EC6D1709A21C001A2A34 /* minus.png */,
 				4990EC6E1709A21C001A2A34 /* plus.png */,
-				4990EC6B1709A16B001A2A34 /* cog_01.png */,
 				49FBA63C16B89D50005F8FCB /* Calculator-icon (3).png */,
 				49FBA63A16B89D02005F8FCB /* Calculator-icon (2).png */,
 				49FBA62B16B88982005F8FCB /* btn_black.png */,
@@ -257,7 +254,6 @@
 				49FBA63D16B89D50005F8FCB /* Calculator-icon (3).png in Resources */,
 				49F6764716B9D3F9008954B6 /* Task List.rtf in Resources */,
 				49BBC1F616F92EA600AFE37F /* Expression.plist in Resources */,
-				4990EC6C1709A16B001A2A34 /* cog_01.png in Resources */,
 				4990EC6F1709A21C001A2A34 /* minus.png in Resources */,
 				4990EC701709A21C001A2A34 /* plus.png in Resources */,
 			);

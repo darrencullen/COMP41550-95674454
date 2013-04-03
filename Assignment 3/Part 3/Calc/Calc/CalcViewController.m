@@ -150,6 +150,7 @@
 {
     [[self calcModel] setVariableAsOperand:sender.titleLabel.text];
     self.expressionDisplay.text = [[self calcModel] descriptionOfExpression:self.calcModel.expression];
+    [CalcModel propertyListForExpression:self.calcModel.expression];
 }
 
 - (IBAction)solveExpressionPressed:(UIButton *)sender {
@@ -180,9 +181,7 @@
 
 - (void)promptForVariables {
     
-    if (![self.variablesCurrentlyInExpression count]){
-        //[[self calcDisplay] setText:[NSString stringWithFormat:@"%g", [CalcModel evaluateExpression:self.calcModel.expression usingVariableValues:self.variablesSet]]];
-        
+    if (![self.variablesCurrentlyInExpression count]){       
         self.expressionResult = [CalcModel evaluateExpression:self.calcModel.expression usingVariableValues:self.variablesSet];
         [[self calcDisplay] setText:[NSString stringWithFormat:@"%g", self.expressionResult]];
         
@@ -270,12 +269,17 @@
 {
 	if ([segue.identifier isEqualToString:@"ShowGraph"])
 	{
+        if (self.isInTheMiddleOfTypingSomething == YES){
+            self.calcModel.operand = [self.calcDisplay.text doubleValue];
+            [[self calcModel] performOperation:@"="];
+            self.expressionDisplay.text = [[self calcModel] descriptionOfExpression:self.calcModel.expression];
+            self.hasCompleteEquationJustBeenSolved = YES;
+            self.calcDisplay.text = @"";
+        }
+        
         GraphCalcViewController *graphCalcVC = segue.destinationViewController;
         graphCalcVC.expressionToPlot = self.calcModel.expression;
         graphCalcVC.descriptionOfExpression = [[self calcModel] descriptionOfExpression:self.calcModel.expression];
-        
-        // TODO: is this needed here????
-        //[segue.destinationViewController setDelegate:self];
 	}
 }
 @end

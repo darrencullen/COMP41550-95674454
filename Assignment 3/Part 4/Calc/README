@@ -1,0 +1,9 @@
+Darren, Cullen, 95674454, darrencullen@gmail.com
+
+Again this was a very challenging assignment. I initially had difficulty in getting my graph to plot properly, but it was because i wasn't taking the scale or origin into consideration (so my plot line was always starting in the top left). The assignment gave us a really good exposure to protocols, which prior to this were something of a mystery!
+
+I have completed all the elements of this part of the assignment i.e. updating the UI, including a navigation controller, adding zoom buttons, plotting an expression, handling rotation and implementing a protocol.
+
+As it is a continuation of part 2 of the assignment, this solution also uses a category extending the NSArray datatype when solving the expression, so I hope that isn't a problem.
+
+I was pleased to see the sin wave displaying and not just a straight line.

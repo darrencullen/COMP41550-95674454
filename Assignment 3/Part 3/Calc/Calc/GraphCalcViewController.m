@@ -22,7 +22,6 @@
 
 @implementation GraphCalcViewController
 
-#define DEFAULT_SCALE 100;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,34 +33,26 @@
     return self;
 }
 
-- (CGFloat)graphScale
-{
-    
-    // Set the scale to the default scale if none already
-    if (!_graphScale) _graphScale = DEFAULT_SCALE;
-    
-    return _graphScale;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setGraphZoomLevel:16];
     
 	// Do any additional setup after loading the view.
     [self.navigationController setNavigationBarHidden:NO animated:NO];
     self.expressionLabel.text = self.descriptionOfExpression;
     self.graphView.delegate = self;
+    [self setGraphZoomLevel:16];
+    [self setGraphOrigin:CGPointZero];
 }
 
 - (IBAction)zoomIn:(id)sender
 {
-    [self setGraphZoomLevel:self.graphView.scale + 4];
+    [self setGraphZoomLevel:self.graphView.graphScale + 1];
 }
 
 - (IBAction)zoomOut:(id)sender
 {
-    [self setGraphZoomLevel:self.graphView.scale - 4];
+    [self setGraphZoomLevel:self.graphView.graphScale - 1];
 }
 
 - (double) getValueForYAxisFromValueForXAxis:(GraphView *) graphViewDelegator xAxisValue:(double)value{
@@ -72,24 +63,17 @@
 
 - (void) setGraphZoomLevel:(double) zoomLevel
 {
-    if ((zoomLevel > 68) || (zoomLevel < 1)) return;
-    self.graphView.scale = zoomLevel;
+    if ((zoomLevel > 70) || (zoomLevel < 0.1)) return;
+    self.graphView.graphScale = zoomLevel;
     [self.graphView setNeedsDisplay];
 }
 
-- (void)didReceiveMemoryWarning
+- (void) setGraphOrigin:(CGPoint) origin
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-
+    self.graphView.graphOrigin = origin;
 }
 
 - (void)viewDidUnload {
-    //[self setGraphView:nil];
     [self setGraphView:nil];
     [self setExpressionLabel:nil];
     [self setGraphView:nil];

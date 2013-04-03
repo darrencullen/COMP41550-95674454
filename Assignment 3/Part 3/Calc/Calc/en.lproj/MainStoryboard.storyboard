@@ -545,9 +545,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Graph Calc" id="p0K-EP-XVu">
-                        <barButtonItem key="rightBarButtonItem" image="cog_01.png" id="UAj-PI-r10"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Graph Calc" id="p0K-EP-XVu"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
                     <connections>
                         <outlet property="expressionLabel" destination="sKh-7Q-aDR" id="oUL-0a-DIG"/>
@@ -583,7 +581,6 @@
         <image name="btn_orange.png" width="46" height="48"/>
         <image name="btn_red.png" width="46" height="48"/>
         <image name="btn_white.png" width="46" height="48"/>
-        <image name="cog_01.png" width="26" height="26"/>
         <image name="minus.png" width="26" height="26"/>
         <image name="plus.png" width="26" height="26"/>
     </resources>
@@ -597,7 +594,9 @@
                 <relationship kind="action" name="backspacePressed:" candidateClass="UIButton"/>
                 <relationship kind="action" name="digitPressed:" candidateClass="UIButton"/>
                 <relationship kind="action" name="operationPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="retrieveValueFromMemory:" candidateClass="UIButton"/>
                 <relationship kind="action" name="solveExpressionPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="storeValueInMemory:" candidateClass="UIButton"/>
                 <relationship kind="action" name="variablePressed:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="calcDisplay" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="calcModel" candidateClass="CalcModel"/>

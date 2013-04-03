@@ -10,6 +10,7 @@
 #import "NSArray+DCMathExpressionParsing.h"
 
 @interface CalcModel()
+//@property (nonatomic) BOOL expressionVariableSet;
 @property (nonatomic) int latestVariableIndex;
 @end
 

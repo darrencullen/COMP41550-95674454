@@ -9,32 +9,24 @@
 #import "GraphView.h"
 #import "AxesDrawer.h"
 
-@interface GraphView ()
-@property (nonatomic, strong) NSMutableArray *points;
-@property (nonatomic) CGPoint graphOrigin;
-@end
-
 @implementation GraphView
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
+- (void) setGraphScale:(int) scale
+{    
+    // Do nothing if the scale hasn't changed
+	if (self.graphScale == scale) return;
+	
+	_graphScale = scale;
+	[self setNeedsDisplay];
 }
 
-
-- (void) setGraphScale:(double) graphScale
+- (void) setGraphOrigin:(CGPoint) origin
 {
-    if (graphScale == 0){
-        self.scale = 1;
-    } else {
-        self.scale = graphScale;
-    }
-    
-    [self setNeedsDisplay];
+    // Do nothing if the origin hasn't changed
+	if (CGPointEqualToPoint(self.graphOrigin,origin)) return;
+	
+	_graphOrigin = origin;
+	[self setNeedsDisplay];
 }
 
 - (void)drawRect:(CGRect)rect
@@ -42,13 +34,12 @@
     //Get the CGContext from this view
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    int scale = self.scale;
+    int scale = self.graphScale;
     CGPoint center = self.graphOrigin;
     center.x += self.bounds.size.width / 2 + self.bounds.origin.x;
     center.y += self.bounds.size.height / 2 + self.bounds.origin.y;
-    //[AxesDrawer drawAxesInRect:self.bounds originAtPoint:center scale:scale];
         
-    [AxesDrawer drawAxesInRect:rect originAtPoint:center scale:self.scale];
+    [AxesDrawer drawAxesInRect:rect originAtPoint:center scale:self.graphScale];
     
     // Set the line width and colour of the graph lines
     CGContextSetLineWidth(context, 2.0);
@@ -58,12 +49,12 @@
 
     BOOL firstPoint = YES;
     
-    CGFloat startingX = self.bounds.origin.x;
-    CGFloat endingX = self.bounds.origin.x + self.bounds.size.width;
+    CGFloat firstXAxisValue = self.bounds.origin.x;
+    CGFloat lastXAxisValue = self.bounds.origin.x + self.bounds.size.width;
     CGFloat increment = 1/self.contentScaleFactor; // To enable iteration over pixels
     
     //Iterate over the horizontal pixels, plotting the corresponding y values
-    for (CGFloat x = startingX; x<= endingX; x+=increment) {
+    for (CGFloat x = firstXAxisValue; x<= lastXAxisValue; x+=increment) {
         // for each x, calculate y based upon center and scale of graph
         CGPoint coordinate;
         coordinate.x = x;
@@ -79,7 +70,6 @@
         }
         
         CGContextAddLineToPoint(context, coordinate.x, coordinate.y);
-        
     }  
     CGContextStrokePath(context);
 }

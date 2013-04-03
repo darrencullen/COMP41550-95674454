@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[CalcModel evaluateExpressionTest:]:CalcModel.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "anExpression">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[CalcModel performOperation:]:CalcModel.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "operation">
+            </PersistentString>
+            <PersistentString
+               value = "self.operand">
+            </PersistentString>
+            <PersistentString
+               value = "_expression">
+            </PersistentString>
+            <PersistentString
+               value = "self.waitingOperand">
+            </PersistentString>
+            <PersistentString
+               value = "self.waitingOperation">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[CalcViewController promptForVariables]:CalcViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.variablesSet">
+            </PersistentString>
+            <PersistentString
+               value = "self.expressionResult">
+            </PersistentString>
+            <PersistentString
+               value = "self.calcModel.expression">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[GraphView drawRect:]:GraphView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.graphOrigin">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "+[CalcModel variablesInExpression:]:CalcModel.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[CalcModel performWaitingOperation]:CalcModel.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.operand">
+            </PersistentString>
+            <PersistentString
+               value = "self.waitingOperation">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[CalcViewController alertView:clickedButtonAtIndex:]:CalcViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.variablesSet">
+            </PersistentString>
+            <PersistentString
+               value = "self.variablesCount">
+            </PersistentString>
+            <PersistentString
+               value = "alertView.message">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[CalcViewController solveExpressionPressed:]:CalcViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.variablesCurrentlyInExpression">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

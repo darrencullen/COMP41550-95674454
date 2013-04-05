@@ -18,13 +18,14 @@
 		494D978616B7346D00B9339D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 494D978516B7346D00B9339D /* Default.png */; };
 		494D978816B7346D00B9339D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 494D978716B7346D00B9339D /* Default@2x.png */; };
 		494D978A16B7346D00B9339D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 494D978916B7346D00B9339D /* Default-568h@2x.png */; };
-		494D978D16B7346D00B9339D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 494D978B16B7346D00B9339D /* MainStoryboard.storyboard */; };
+		494D978D16B7346D00B9339D /* iPhoneStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 494D978B16B7346D00B9339D /* iPhoneStoryboard.storyboard */; };
 		494D979016B7346D00B9339D /* CalcViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 494D978F16B7346D00B9339D /* CalcViewController.m */; };
 		494D979816B735ED00B9339D /* CalcModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 494D979716B735ED00B9339D /* CalcModel.m */; };
 		4990EC6F1709A21C001A2A34 /* minus.png in Resources */ = {isa = PBXBuildFile; fileRef = 4990EC6D1709A21C001A2A34 /* minus.png */; };
 		4990EC701709A21C001A2A34 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 4990EC6E1709A21C001A2A34 /* plus.png */; };
 		49BBC1F416F9078F00AFE37F /* NSArray+DCMathExpressionParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BBC1F316F9078F00AFE37F /* NSArray+DCMathExpressionParsing.m */; };
 		49BBC1F616F92EA600AFE37F /* Expression.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49BBC1F516F92EA600AFE37F /* Expression.plist */; };
+		49CBAEB3170E364F008D93F9 /* iPadStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49CBAEB2170E364F008D93F9 /* iPadStoryboard.storyboard */; };
 		49F40A3316CEE30E00CDD141 /* GraphCalcViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F40A3216CEE30E00CDD141 /* GraphCalcViewController.m */; };
 		49F6764716B9D3F9008954B6 /* Task List.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 49F6764616B9D3F9008954B6 /* Task List.rtf */; };
 		49FBA63016B88982005F8FCB /* btn_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 49FBA62B16B88982005F8FCB /* btn_black.png */; };
@@ -54,7 +55,7 @@
 		494D978516B7346D00B9339D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		494D978716B7346D00B9339D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		494D978916B7346D00B9339D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		494D978C16B7346D00B9339D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		494D978C16B7346D00B9339D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/iPhoneStoryboard.storyboard; sourceTree = "<group>"; };
 		494D978E16B7346D00B9339D /* CalcViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalcViewController.h; sourceTree = "<group>"; };
 		494D978F16B7346D00B9339D /* CalcViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalcViewController.m; sourceTree = "<group>"; };
 		494D979616B735ED00B9339D /* CalcModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalcModel.h; sourceTree = "<group>"; };
@@ -64,6 +65,7 @@
 		49BBC1F216F9078F00AFE37F /* NSArray+DCMathExpressionParsing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+DCMathExpressionParsing.h"; path = "../NSArray+DCMathExpressionParsing.h"; sourceTree = "<group>"; };
 		49BBC1F316F9078F00AFE37F /* NSArray+DCMathExpressionParsing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+DCMathExpressionParsing.m"; path = "../NSArray+DCMathExpressionParsing.m"; sourceTree = "<group>"; };
 		49BBC1F516F92EA600AFE37F /* Expression.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expression.plist; sourceTree = "<group>"; };
+		49CBAEB2170E364F008D93F9 /* iPadStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPadStoryboard.storyboard; sourceTree = "<group>"; };
 		49F40A3116CEE30E00CDD141 /* GraphCalcViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphCalcViewController.h; sourceTree = "<group>"; };
 		49F40A3216CEE30E00CDD141 /* GraphCalcViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphCalcViewController.m; sourceTree = "<group>"; };
 		49F6764616B9D3F9008954B6 /* Task List.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "Task List.rtf"; sourceTree = "<group>"; };
@@ -122,7 +124,8 @@
 			children = (
 				494D978216B7346D00B9339D /* AppDelegate.h */,
 				494D978316B7346D00B9339D /* AppDelegate.m */,
-				494D978B16B7346D00B9339D /* MainStoryboard.storyboard */,
+				494D978B16B7346D00B9339D /* iPhoneStoryboard.storyboard */,
+				49CBAEB2170E364F008D93F9 /* iPadStoryboard.storyboard */,
 				494D979916B7360B00B9339D /* MVC Calc */,
 				49F40A3016CEE2EB00CDD141 /* MVC Graph Calc */,
 				494D977A16B7346D00B9339D /* Supporting Files */,
@@ -244,7 +247,7 @@
 				494D978616B7346D00B9339D /* Default.png in Resources */,
 				494D978816B7346D00B9339D /* Default@2x.png in Resources */,
 				494D978A16B7346D00B9339D /* Default-568h@2x.png in Resources */,
-				494D978D16B7346D00B9339D /* MainStoryboard.storyboard in Resources */,
+				494D978D16B7346D00B9339D /* iPhoneStoryboard.storyboard in Resources */,
 				49FBA63016B88982005F8FCB /* btn_black.png in Resources */,
 				49FBA63116B88982005F8FCB /* btn_blue.png in Resources */,
 				49FBA63216B88982005F8FCB /* btn_orange.png in Resources */,
@@ -256,6 +259,7 @@
 				49BBC1F616F92EA600AFE37F /* Expression.plist in Resources */,
 				4990EC6F1709A21C001A2A34 /* minus.png in Resources */,
 				4990EC701709A21C001A2A34 /* plus.png in Resources */,
+				49CBAEB3170E364F008D93F9 /* iPadStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,12 +292,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		494D978B16B7346D00B9339D /* MainStoryboard.storyboard */ = {
+		494D978B16B7346D00B9339D /* iPhoneStoryboard.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				494D978C16B7346D00B9339D /* en */,
 			);
-			name = MainStoryboard.storyboard;
+			name = iPhoneStoryboard.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -324,7 +328,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -348,7 +352,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -363,6 +367,7 @@
 				INFOPLIST_FILE = "Calc/GraphCalc-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = GraphCalc;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -375,6 +380,7 @@
 				INFOPLIST_FILE = "Calc/GraphCalc-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = GraphCalc;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -38,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4902658A17104412000BDC29 /* SplitViewBarButtonItemPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitViewBarButtonItemPresenter.h; sourceTree = "<group>"; };
 		4919206A16EBAFB600B7AA68 /* AxesDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AxesDrawer.h; sourceTree = "<group>"; };
 		4919206B16EBAFB600B7AA68 /* AxesDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AxesDrawer.m; sourceTree = "<group>"; };
 		4919206D16EBB06E00B7AA68 /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
@@ -122,6 +123,7 @@
 		494D977916B7346D00B9339D /* Calc */ = {
 			isa = PBXGroup;
 			children = (
+				4902658A17104412000BDC29 /* SplitViewBarButtonItemPresenter.h */,
 				494D978216B7346D00B9339D /* AppDelegate.h */,
 				494D978316B7346D00B9339D /* AppDelegate.m */,
 				494D978B16B7346D00B9339D /* iPhoneStoryboard.storyboard */,

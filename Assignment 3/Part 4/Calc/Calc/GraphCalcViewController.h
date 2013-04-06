@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "GraphView.h"
 #import "CalcModel.h"
+#import "SplitViewBarButtonItemPresenter.h"
 
-
-@interface GraphCalcViewController : UIViewController <GraphViewDelegate>
+@interface GraphCalcViewController : UIViewController <GraphViewDelegate, SplitViewBarButtonItemPresenter>
 
 @property (nonatomic, strong) NSArray *expressionToPlot;
 @property (nonatomic, strong) NSString *descriptionOfExpression;

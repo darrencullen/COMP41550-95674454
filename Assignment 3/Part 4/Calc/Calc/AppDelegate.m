@@ -14,15 +14,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-    UINavigationController *leftNavController = [splitViewController.viewControllers objectAtIndex:0];
-    CalcViewController *calcViewController = (CalcViewController *)[leftNavController topViewController];
-    GraphCalcViewController *graphViewController = [splitViewController.viewControllers objectAtIndex:1];
-    
-//    //Set the RightViewController as the left's delegate.
-//    calcViewController.delegate = graphViewController;
-    
-//    return YES;
     return YES;
 }
 

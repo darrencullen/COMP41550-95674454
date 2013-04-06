@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CalcModel.h"
 
-@interface CalcViewController : UIViewController <UIAlertViewDelegate>
+@interface CalcViewController : UIViewController <UIAlertViewDelegate, UISplitViewControllerDelegate>
 
 @property (nonatomic, strong) IBOutlet CalcModel *calcModel;
 @property (nonatomic, weak) IBOutlet UILabel *calcDisplay;

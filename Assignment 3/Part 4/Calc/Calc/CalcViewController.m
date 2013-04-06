@@ -8,6 +8,7 @@
 
 #import "CalcViewController.h"
 #import "GraphCalcViewController.h"
+#import "SplitViewBarButtonItemPresenter.h"
 
 @interface CalcViewController()
 @property (nonatomic) BOOL isInTheMiddleOfTypingSomething;
@@ -21,14 +22,48 @@
 
 @implementation CalcViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+//{
+//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+//    if (self) {
+//        // Custom initialization
+//        [self.navigationController setNavigationBarHidden:YES animated:NO];
+//    }
+//    return self;
+//}
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    self.splitViewController.delegate = self;
+}
+
+-(id <SplitViewBarButtonItemPresenter>)splitViewBarButtonItemPresenter
+//ask the result must conform to the protocol, then it has the splitViewBarButtonItem to use in the next three methods
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-        [self.navigationController setNavigationBarHidden:YES animated:NO];
+    id detailVC=[self.splitViewController.viewControllers lastObject];
+    if (![detailVC conformsToProtocol:@protocol(SplitViewBarButtonItemPresenter)]) {
+        detailVC=nil;
     }
-    return self;
+    return detailVC;
+}
+
+-(BOOL)splitViewController:(UISplitViewController *)svc shouldHideViewController:(UIViewController *)vc inOrientation:(UIInterfaceOrientation)orientation
+{
+    return [self splitViewBarButtonItemPresenter] ? UIInterfaceOrientationIsPortrait(orientation) : NO;
+    //only hide the detail VC when it's iPad and on portrait orientation
+}
+
+-(void)splitViewController:(UISplitViewController *)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)pc
+{
+    //put the button up
+    barButtonItem.title=self.title;
+    [self splitViewBarButtonItemPresenter].splitViewBarButtonItem = barButtonItem;
+}
+
+-(void)splitViewController:(UISplitViewController *)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
+{
+    //take the button away
+    [self splitViewBarButtonItemPresenter].splitViewBarButtonItem = nil;
 }
 
 - (IBAction)digitPressed:(UIButton *)sender
@@ -281,5 +316,26 @@
         graphCalcVC.expressionToPlot = self.calcModel.expression;
         graphCalcVC.descriptionOfExpression = [[self calcModel] descriptionOfExpression:self.calcModel.expression];
 	}
+}
+
+-(GraphCalcViewController *)splitViewGraphViewController
+{  
+    id detailVC = [self.splitViewController.viewControllers lastObject];
+    if(![detailVC conformsToProtocol:@protocol(SplitViewBarButtonItemPresenter)]) detailVC = nil;
+    return detailVC;
+}
+
+- (IBAction)plotGraph {
+    GraphCalcViewController *graphCalcVC = [self splitViewGraphViewController];
+    if(graphCalcVC) {
+        graphCalcVC.expressionToPlot = self.calcModel.expression;
+        graphCalcVC.descriptionOfExpression = [[self calcModel] descriptionOfExpression:self.calcModel.expression];
+    } else [self performSegueWithIdentifier:@"ShowGraph" sender:self];
+}
+
+-(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+{
+    //ipad support autoroation, iphone only support portrait (though its graph does support)
+    return [self splitViewBarButtonItemPresenter] ? YES : toInterfaceOrientation == UIInterfaceOrientationPortrait;
 }
 @end

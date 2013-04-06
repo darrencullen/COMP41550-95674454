@@ -21,7 +21,7 @@
 @end
 
 @implementation GraphCalcViewController
-
+@synthesize splitViewBarButtonItem=_splitViewBarButtonItem;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,6 +31,15 @@
         [self.navigationController setNavigationBarHidden:NO animated:NO];
     }
     return self;
+}
+
+- (id <SplitViewBarButtonItemPresenter>)splitViewBarButtonItemPresenter
+{
+    id detailVC = [self.splitViewController.viewControllers lastObject];
+    if (![detailVC conformsToProtocol:@protocol(SplitViewBarButtonItemPresenter)]) {
+        detailVC = nil;
+    }
+    return detailVC;
 }
 
 - (void)viewDidLoad
@@ -71,6 +80,19 @@
 - (void) setGraphOrigin:(CGPoint) origin
 {
     self.graphView.graphOrigin = origin;
+}
+
+- (void) setExpressionToPlot:(NSArray *)expressionToPlot
+{
+    _expressionToPlot = expressionToPlot;
+    [self.graphView setNeedsDisplay];
+}
+
+- (void) setDescriptionOfExpression:(NSString *)descriptionOfExpression
+{
+    _descriptionOfExpression = descriptionOfExpression;
+    self.expressionLabel.text = _descriptionOfExpression;
+    [self.graphView setNeedsDisplay];
 }
 
 - (void)viewDidUnload {

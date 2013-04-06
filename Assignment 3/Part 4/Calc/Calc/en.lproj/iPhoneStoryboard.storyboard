@@ -73,7 +73,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="operationPressed:" destination="2" eventType="touchUpInside" id="QFf-tj-NPk"/>
                                     <action selector="retrieveValueFromMemory:" destination="2" eventType="touchUpInside" id="ziW-w1-gKR"/>
                                 </connections>
                             </button>
@@ -584,6 +583,38 @@
         <image name="minus.png" width="26" height="26"/>
         <image name="plus.png" width="26" height="26"/>
     </resources>
+    <classes>
+        <class className="CalcModel" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CalcModel.h"/>
+        </class>
+        <class className="CalcViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CalcViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backspacePressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="digitPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="operationPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="retrieveValueFromMemory:" candidateClass="UIButton"/>
+                <relationship kind="action" name="solveExpressionPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="storeValueInMemory:" candidateClass="UIButton"/>
+                <relationship kind="action" name="variablePressed:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="calcDisplay" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="calcModel" candidateClass="CalcModel"/>
+                <relationship kind="outlet" name="expressionDisplay" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="GraphCalcViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GraphCalcViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="zoomIn:"/>
+                <relationship kind="action" name="zoomOut:"/>
+                <relationship kind="outlet" name="expressionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="graphView" candidateClass="GraphView"/>
+            </relationships>
+        </class>
+        <class className="GraphView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GraphView.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

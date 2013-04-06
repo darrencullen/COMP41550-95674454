@@ -464,7 +464,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="operationPressed:" destination="Phe-6h-yKh" eventType="touchUpInside" id="MtT-3U-5i1"/>
+                                    <action selector="storeValueInMemory:" destination="Phe-6h-yKh" eventType="touchUpInside" id="k0y-ll-Pi9"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="I0N-XM-BaM">
@@ -479,7 +479,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="operationPressed:" destination="Phe-6h-yKh" eventType="touchUpInside" id="QEB-XB-ha5"/>
+                                    <action selector="retrieveValueFromMemory:" destination="Phe-6h-yKh" eventType="touchUpInside" id="AMv-FK-7Ki"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GTW-Pg-R8T">
@@ -566,38 +566,6 @@
         <image name="btn_red.png" width="46" height="48"/>
         <image name="btn_white.png" width="46" height="48"/>
     </resources>
-    <classes>
-        <class className="CalcModel" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CalcModel.h"/>
-        </class>
-        <class className="CalcViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CalcViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backspacePressed:" candidateClass="UIButton"/>
-                <relationship kind="action" name="digitPressed:" candidateClass="UIButton"/>
-                <relationship kind="action" name="operationPressed:" candidateClass="UIButton"/>
-                <relationship kind="action" name="retrieveValueFromMemory:" candidateClass="UIButton"/>
-                <relationship kind="action" name="solveExpressionPressed:" candidateClass="UIButton"/>
-                <relationship kind="action" name="storeValueInMemory:" candidateClass="UIButton"/>
-                <relationship kind="action" name="variablePressed:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="calcDisplay" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="calcModel" candidateClass="CalcModel"/>
-                <relationship kind="outlet" name="expressionDisplay" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="GraphCalcViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GraphCalcViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="zoomIn:"/>
-                <relationship kind="action" name="zoomOut:"/>
-                <relationship kind="outlet" name="expressionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="graphView" candidateClass="GraphView"/>
-            </relationships>
-        </class>
-        <class className="GraphView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GraphView.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

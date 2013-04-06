@@ -11,7 +11,7 @@
 
 @implementation GraphView
 
-- (void) setGraphScale:(int) scale
+- (void) setGraphScale:(double) scale
 {    
     // Do nothing if the scale hasn't changed
 	if (self.graphScale == scale) return;
@@ -72,6 +72,29 @@
         CGContextAddLineToPoint(context, coordinate.x, coordinate.y);
     }  
     CGContextStrokePath(context);
+}
+
+- (void)pinch:(UIPinchGestureRecognizer *)gesture
+{
+    if ((gesture.state != UIGestureRecognizerStateChanged) &&
+        (gesture.state != UIGestureRecognizerStateEnded)) return;
+    [self.delegate setGraphScale:self graphScale:self.graphScale *= gesture.scale];
+    gesture.scale = 1;
+}
+
+- (void)doubleTap:(UITapGestureRecognizer *)gesture
+{
+    self.graphOrigin = CGPointZero;
+}
+
+-(void)pan:(UIPanGestureRecognizer *)gesture
+{
+    if (gesture.state==UIGestureRecognizerStateChanged || gesture.state==UIGestureRecognizerStateEnded) {
+        CGPoint panLocation=[gesture translationInView:self];
+        
+        self.graphOrigin=CGPointMake(self.graphOrigin.x + panLocation.x, self.graphOrigin.y+ panLocation.y);
+        [gesture setTranslation:CGPointZero inView:self];
+    }
 }
 
 

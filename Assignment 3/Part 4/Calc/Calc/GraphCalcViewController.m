@@ -10,7 +10,7 @@
 
 @interface GraphCalcViewController ()
 
-@property (nonatomic) CGFloat graphScale;
+//@property (nonatomic) CGFloat graphScale;
 @property (weak, nonatomic) IBOutlet UILabel *expressionLabel;
 @property (weak, nonatomic) IBOutlet GraphView *graphView;
 @property (nonatomic, strong) CalcModel *calcModel;
@@ -31,6 +31,18 @@
         [self.navigationController setNavigationBarHidden:NO animated:NO];
     }
     return self;
+}
+
+-(void)setGraphView:(GraphView *)graphView
+{
+    _graphView=graphView;
+    
+    // add gesture recognizers
+    [self.graphView addGestureRecognizer:[[UIPinchGestureRecognizer alloc]initWithTarget:self.graphView action:@selector(pinch:)]];
+    [self.graphView addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self.graphView action:@selector(pan:)]];
+    UITapGestureRecognizer *doubleTap=[[UITapGestureRecognizer alloc]initWithTarget:self.graphView action:@selector(doubleTap:)];
+    doubleTap.numberOfTapsRequired=2;
+    [self.graphView addGestureRecognizer:doubleTap];
 }
 
 - (id <SplitViewBarButtonItemPresenter>)splitViewBarButtonItemPresenter
@@ -82,6 +94,11 @@
     self.graphView.graphOrigin = origin;
 }
 
+- (void) setGraphScale:(GraphView *) graphViewDelegator graphScale:(double)scale;
+{
+    self.graphView.graphScale = scale;
+}
+
 - (void) setExpressionToPlot:(NSArray *)expressionToPlot
 {
     _expressionToPlot = expressionToPlot;
@@ -98,6 +115,7 @@
 - (void)viewDidUnload {
     [self setGraphView:nil];
     [self setExpressionLabel:nil];
+    [self setGraphView:nil];
     [self setGraphView:nil];
     [super viewDidUnload];
 }

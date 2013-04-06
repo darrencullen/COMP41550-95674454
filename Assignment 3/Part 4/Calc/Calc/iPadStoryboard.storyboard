@@ -33,7 +33,7 @@
                     <toolbarItems/>
                     <connections>
                         <outlet property="expressionLabel" destination="xoB-cR-HY2" id="HrI-rh-xV7"/>
-                        <outlet property="graphView" destination="nTw-rK-ojP" id="49b-gT-0hK"/>
+                        <outlet property="graphView" destination="nTw-rK-ojP" id="vzl-Xw-ccZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0sW-d1-3oE" userLabel="First Responder" sceneMemberID="firstResponder"/>

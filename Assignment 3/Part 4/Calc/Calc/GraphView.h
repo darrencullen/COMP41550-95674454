@@ -12,13 +12,13 @@
 
 @protocol GraphViewDelegate <NSObject>
 - (double) getValueForYAxisFromValueForXAxis:(GraphView *) graphViewDelegator xAxisValue:(double)value;
-//- (id) setGraphScale:(GraphView *) graphViewDelegator graphScale:(double)scale;
+- (void) setGraphScale:(GraphView *) graphViewDelegator graphScale:(double)scale;
 //- (id) setGraphOrigin:(GraphView *) graphViewDelegator graphAxisOrigin:(CGPoint)origin;
 @end
 
 @interface GraphView : UIView
 @property (nonatomic, assign) id <GraphViewDelegate> delegate;
-@property (nonatomic) int graphScale;
+@property (nonatomic) double graphScale;
 @property (nonatomic) CGPoint graphOrigin;
 @end
 

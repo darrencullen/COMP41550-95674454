@@ -37,6 +37,7 @@
     self.splitViewController.delegate = self;
 }
 
+
 -(id <SplitViewBarButtonItemPresenter>)splitViewBarButtonItemPresenter
 //ask the result must conform to the protocol, then it has the splitViewBarButtonItem to use in the next three methods
 {

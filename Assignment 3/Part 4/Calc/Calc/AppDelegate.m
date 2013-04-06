@@ -7,15 +7,22 @@
 //
 
 #import "AppDelegate.h"
+#import "CalcViewController.h"
+#import "GraphCalcViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-//    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-//    CalcViewController *calcViewController = [[navigationController viewControllers] objectAtIndex:0];
+    UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
+    UINavigationController *leftNavController = [splitViewController.viewControllers objectAtIndex:0];
+    CalcViewController *calcViewController = (CalcViewController *)[leftNavController topViewController];
+    GraphCalcViewController *graphViewController = [splitViewController.viewControllers objectAtIndex:1];
     
+//    //Set the RightViewController as the left's delegate.
+//    calcViewController.delegate = graphViewController;
+    
+//    return YES;
     return YES;
 }
 

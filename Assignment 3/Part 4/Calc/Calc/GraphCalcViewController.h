@@ -11,9 +11,11 @@
 #import "CalcModel.h"
 #import "SplitViewBarButtonItemPresenter.h"
 
-@interface GraphCalcViewController : UIViewController <GraphViewDelegate, SplitViewBarButtonItemPresenter>
+@interface GraphCalcViewController : UIViewController <GraphViewDelegate, SplitViewBarButtonItemPresenter, UISplitViewControllerDelegate>
 
 @property (nonatomic, strong) NSArray *expressionToPlot;
 @property (nonatomic, strong) NSString *descriptionOfExpression;
 
+@property (nonatomic, weak) IBOutlet UINavigationItem *navBarItem;
+@property (nonatomic, strong) UIPopoverController *popover;
 @end

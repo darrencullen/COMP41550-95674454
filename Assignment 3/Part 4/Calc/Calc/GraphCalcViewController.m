@@ -125,4 +125,34 @@
     return YES;
 }
 
+-(void)splitViewController:(UISplitViewController *)svc
+    willHideViewController:(UIViewController *)aViewController
+         withBarButtonItem:(UIBarButtonItem *)barButtonItem
+      forPopoverController:(UIPopoverController *)pc
+{
+    //Grab a reference to the popover
+    self.popover = pc;
+    
+    //Set the title of the bar button item
+    barButtonItem.title = @"Calc";
+    
+    //Set the bar button item as the Nav Bar's leftBarButtonItem
+    [_navBarItem setLeftBarButtonItem:barButtonItem animated:YES];
+    
+}
+
+-(void)splitViewController:(UISplitViewController *)svc
+    willShowViewController:(UIViewController *)aViewController
+ invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
+{
+    //Remove the barButtonItem.
+    [_navBarItem setLeftBarButtonItem:nil animated:YES];
+    
+    
+    //Nil out the pointer to the popover.
+    _popover = nil;
+    
+}
+
+
 @end

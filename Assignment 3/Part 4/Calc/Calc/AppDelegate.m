@@ -10,10 +10,21 @@
 #import "CalcViewController.h"
 #import "GraphCalcViewController.h"
 
+//[Inside application:didFinishLaunchingWithOptions:
+
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
+ //   UINavigationController *leftNavController = [splitViewController.viewControllers objectAtIndex:0];
+//CalcViewController *leftViewController = (CalcViewController *)[leftNavController topViewController];
+    GraphCalcViewController *rightViewController = [splitViewController.viewControllers objectAtIndex:1];
+    
+    //leftViewController.delegate = rightViewController;
+    splitViewController.delegate = rightViewController;
+    
     return YES;
 }
 

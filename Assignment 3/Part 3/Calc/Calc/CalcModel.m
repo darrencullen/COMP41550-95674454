@@ -64,6 +64,11 @@
         return 0;
     }
     
+    if ([operation isEqualToString:@"mem+"]){
+        _valueInMemory = self.valueInMemory + self.operand;
+        return 0;
+    }            
+    
     if (([self.waitingOperation isEqualToString:@"/"]) && (self.operand == 0)){
         _operationError = YES;
         _operationErrorMessage = @"Division by zero not allowed";
@@ -90,12 +95,6 @@
         self.operand = - self.operand;
     else if ([operation isEqualToString:@"1/x"])
         self.operand = 1 / self.operand;
-    //    else if ([operation isEqualToString:@"sin"])
-    //        self.operand = sin(self.operand);
-    //    else if ([operation isEqualToString:@"cos"])
-    //        self.operand = cos(self.operand);
-    else if ([operation isEqualToString:@"mem+"])
-        _valueInMemory = self.valueInMemory + self.operand;
     else if ([self doesExpressionHaveVariable]){
         if ([operation isEqualToString:@"="]){
             _operationError = YES;

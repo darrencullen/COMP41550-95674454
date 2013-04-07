@@ -16,7 +16,7 @@
 
 @interface GraphView : UIView
 @property (nonatomic, assign) id <GraphViewDelegate> delegate;
-@property (nonatomic) int graphScale;
+@property (nonatomic) double graphScale;
 @property (nonatomic) CGPoint graphOrigin;
 @end
 

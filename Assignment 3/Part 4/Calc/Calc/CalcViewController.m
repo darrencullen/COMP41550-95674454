@@ -335,9 +335,17 @@
 }
 
 - (void) showPlottedGraph
-{
+{  
     GraphCalcViewController *graphCalcVC = [self splitViewGraphViewController];
     if(graphCalcVC) {
+        if (self.isInTheMiddleOfTypingSomething == YES){
+            self.calcModel.operand = [self.calcDisplay.text doubleValue];
+            [[self calcModel] performOperation:@"="];
+            self.expressionDisplay.text = [[self calcModel] descriptionOfExpression:self.calcModel.expression];
+            self.hasCompleteEquationJustBeenSolved = YES;
+            self.calcDisplay.text = @"";
+        }
+        
         graphCalcVC.expressionToPlot = self.calcModel.expression;
         graphCalcVC.descriptionOfExpression = [[self calcModel] descriptionOfExpression:self.calcModel.expression];
     } else [self performSegueWithIdentifier:@"ShowGraph" sender:self];
@@ -348,7 +356,8 @@
     if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
         return [self splitViewBarButtonItemPresenter] ? YES : toInterfaceOrientation == UIInterfaceOrientationPortrait;
     } else {
-        return YES;
+        return NO;
     }
 }
+
 @end

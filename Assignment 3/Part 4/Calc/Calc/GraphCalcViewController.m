@@ -10,7 +10,6 @@
 
 @interface GraphCalcViewController ()
 
-//@property (nonatomic) CGFloat graphScale;
 @property (weak, nonatomic) IBOutlet UILabel *expressionLabel;
 @property (weak, nonatomic) IBOutlet GraphView *graphView;
 @property (nonatomic, strong) CalcModel *calcModel;
@@ -38,7 +37,7 @@
 {
     _graphView=graphView;
     
-    // add gesture recognizers
+    // add gesture recognition
     [self.graphView addGestureRecognizer:[[UIPinchGestureRecognizer alloc]initWithTarget:self.graphView action:@selector(pinch:)]];
     [self.graphView addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self.graphView action:@selector(pan:)]];
     UITapGestureRecognizer *doubleTap=[[UITapGestureRecognizer alloc]initWithTarget:self.graphView action:@selector(doubleTap:)];
@@ -52,15 +51,12 @@
     float restoredXAxisOrigin = [[NSUserDefaults standardUserDefaults] floatForKey:[self.defaultPropertyIdentifier stringByAppendingString:@".xAxisOrigin"]];
     float restoredYAxisOrigin = [[NSUserDefaults standardUserDefaults] floatForKey:[self.defaultPropertyIdentifier stringByAppendingString:@".yAxisOrigin"]];
     
-    // If we have scale in storage, then set this as the scale for the graph view
     if (restoredGraphScale)
         self.graphView.graphScale = restoredGraphScale;
     else
         self.graphView.graphScale = 16;
     
-    // If we have a value for the xAxisOrigin and yAxisOrigin then set it in the graph view
     if (restoredXAxisOrigin && restoredYAxisOrigin) {
-        
         CGPoint axisOrigin;
         
         axisOrigin.x = restoredXAxisOrigin;
@@ -69,7 +65,6 @@
         self.graphView.graphOrigin = axisOrigin;
     } else
         self.graphView.graphOrigin = CGPointZero;
-    
     
     // Refresh the graph View
     [self.graphView setNeedsDisplay];
@@ -95,13 +90,13 @@
 }
 
 - (IBAction)zoomIn:(id)sender
-{
-    [self setGraphZoomLevel:self.graphView.graphScale + 1];
+{ 
+    [self setGraphZoomLevel:self.graphView.graphScale * 1.1];
 }
 
 - (IBAction)zoomOut:(id)sender
 {
-    [self setGraphZoomLevel:self.graphView.graphScale - 1];
+    [self setGraphZoomLevel:self.graphView.graphScale / 1.1];
 }
 
 - (double) getValueForYAxisFromValueForXAxis:(GraphView *) graphViewDelegator xAxisValue:(double)value{
@@ -112,7 +107,6 @@
 
 - (void) setGraphZoomLevel:(double) zoomLevel
 {
-    if ((zoomLevel > 70) || (zoomLevel < 0.1)) return;
     self.graphView.graphScale = zoomLevel;
     [self.graphView setNeedsDisplay];
 }
@@ -148,7 +142,7 @@
     _expressionToPlot = expressionToPlot;
     [self.graphView setNeedsDisplay];
     
-    //Dismiss the popover if it's showing.
+    // dismiss popover if present
     if (self.popover) {
         [self.popover dismissPopoverAnimated:YES];
       //  self.popover = nil;
@@ -182,13 +176,8 @@
          withBarButtonItem:(UIBarButtonItem *)barButtonItem
       forPopoverController:(UIPopoverController *)pc
 {
-    //Grab a reference to the popover
     self.popover = pc;
-    
-    //Set the title of the bar button item
     barButtonItem.title = @"Calc";
-    
-    //Set the bar button item as the Nav Bar's leftBarButtonItem
     [_navBarItem setLeftBarButtonItem:barButtonItem animated:YES];
     
 }
@@ -197,14 +186,7 @@
     willShowViewController:(UIViewController *)aViewController
  invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
 {
-    //Remove the barButtonItem.
     [_navBarItem setLeftBarButtonItem:nil animated:YES];
-    
-    
-    //Nil out the pointer to the popover.
     _popover = nil;
-    
 }
-
-
 @end

@@ -47,12 +47,12 @@
 
 - (IBAction)zoomIn:(id)sender
 {
-    [self setGraphZoomLevel:self.graphView.graphScale + 1];
+    [self setGraphZoomLevel:self.graphView.graphScale * 1.1];
 }
 
 - (IBAction)zoomOut:(id)sender
 {
-    [self setGraphZoomLevel:self.graphView.graphScale - 1];
+    [self setGraphZoomLevel:self.graphView.graphScale / 1.1];
 }
 
 - (double) getValueForYAxisFromValueForXAxis:(GraphView *) graphViewDelegator xAxisValue:(double)value{
@@ -63,7 +63,6 @@
 
 - (void) setGraphZoomLevel:(double) zoomLevel
 {
-    if ((zoomLevel > 70) || (zoomLevel < 0.1)) return;
     self.graphView.graphScale = zoomLevel;
     [self.graphView setNeedsDisplay];
 }

@@ -11,7 +11,7 @@
 
 @implementation GraphView
 
-- (void) setGraphScale:(int) scale
+- (void) setGraphScale:(double) scale
 {    
     // Do nothing if the scale hasn't changed
 	if (self.graphScale == scale) return;

@@ -58,7 +58,7 @@
     CGFloat lastXAxisValue = self.bounds.origin.x + self.bounds.size.width;
     CGFloat increment = 1/self.contentScaleFactor; // To enable iteration over pixels
     
-    //Iterate over the horizontal pixels, plotting the corresponding y values
+    // Iterate over the horizontal pixels, plotting the corresponding y values
     for (CGFloat x = firstXAxisValue; x<= lastXAxisValue; x+=increment) {
         // for each x, calculate y based upon center and scale of graph
         CGPoint coordinate;
@@ -101,6 +101,5 @@
         [gesture setTranslation:CGPointZero inView:self];
     }
 }
-
 
 @end

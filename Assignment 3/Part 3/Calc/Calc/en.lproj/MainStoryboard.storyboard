@@ -73,7 +73,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="operationPressed:" destination="2" eventType="touchUpInside" id="QFf-tj-NPk"/>
                                     <action selector="retrieveValueFromMemory:" destination="2" eventType="touchUpInside" id="ziW-w1-gKR"/>
                                 </connections>
                             </button>
@@ -594,9 +593,7 @@
                 <relationship kind="action" name="backspacePressed:" candidateClass="UIButton"/>
                 <relationship kind="action" name="digitPressed:" candidateClass="UIButton"/>
                 <relationship kind="action" name="operationPressed:" candidateClass="UIButton"/>
-                <relationship kind="action" name="retrieveValueFromMemory:" candidateClass="UIButton"/>
                 <relationship kind="action" name="solveExpressionPressed:" candidateClass="UIButton"/>
-                <relationship kind="action" name="storeValueInMemory:" candidateClass="UIButton"/>
                 <relationship kind="action" name="variablePressed:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="calcDisplay" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="calcModel" candidateClass="CalcModel"/>

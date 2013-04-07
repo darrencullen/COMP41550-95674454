@@ -269,6 +269,10 @@
         if (self.expressionDisplay.text.length > 0)
             if (![CalcModel variablesInExpression:self.calcModel.expression])
                 [self solveExpression];
+        
+        // show plotted graph on restart on iPad because graph visible
+        if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+            [self showPlottedGraph];
     }
     
     @catch (NSException *ex) {
@@ -327,6 +331,11 @@
 }
 
 - (IBAction)plotGraph {
+    [self showPlottedGraph];
+}
+
+- (void) showPlottedGraph
+{
     GraphCalcViewController *graphCalcVC = [self splitViewGraphViewController];
     if(graphCalcVC) {
         graphCalcVC.expressionToPlot = self.calcModel.expression;
@@ -336,7 +345,10 @@
 
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 {
-    //ipad support autoroation, iphone only support portrait (though its graph does support)
-    return [self splitViewBarButtonItemPresenter] ? YES : toInterfaceOrientation == UIInterfaceOrientationPortrait;
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
+        return [self splitViewBarButtonItemPresenter] ? YES : toInterfaceOrientation == UIInterfaceOrientationPortrait;
+    } else {
+        return YES;
+    }
 }
 @end

@@ -17,13 +17,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
- //   UINavigationController *leftNavController = [splitViewController.viewControllers objectAtIndex:0];
-//CalcViewController *leftViewController = (CalcViewController *)[leftNavController topViewController];
-    GraphCalcViewController *rightViewController = [splitViewController.viewControllers objectAtIndex:1];
-    
-    //leftViewController.delegate = rightViewController;
-    splitViewController.delegate = rightViewController;
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    {
+        UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
+        GraphCalcViewController *rightViewController = [splitViewController.viewControllers objectAtIndex:1];
+        splitViewController.delegate = rightViewController;
+    }
     
     return YES;
 }

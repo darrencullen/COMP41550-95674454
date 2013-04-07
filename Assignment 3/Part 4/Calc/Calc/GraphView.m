@@ -9,6 +9,7 @@
 #import "GraphView.h"
 #import "AxesDrawer.h"
 
+
 @implementation GraphView
 
 - (void) setGraphScale:(double) scale
@@ -17,6 +18,8 @@
 	if (self.graphScale == scale) return;
 	
 	_graphScale = scale;
+    [self.delegate setGraphScale:self graphScale:_graphScale];
+     
 	[self setNeedsDisplay];
 }
 
@@ -26,6 +29,8 @@
 	if (CGPointEqualToPoint(self.graphOrigin,origin)) return;
 	
 	_graphOrigin = origin;
+     [self.delegate setGraphOrigin:self graphAxisOrigin:_graphOrigin];
+    
 	[self setNeedsDisplay];
 }
 

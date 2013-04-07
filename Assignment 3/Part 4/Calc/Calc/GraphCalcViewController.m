@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *expressionLabel;
 @property (weak, nonatomic) IBOutlet GraphView *graphView;
 @property (nonatomic, strong) CalcModel *calcModel;
+@property (nonatomic, strong) NSString *defaultPropertyIdentifier;
 
 - (IBAction)zoomIn:(id)sender;
 - (IBAction)zoomOut:(id)sender;
@@ -43,6 +44,35 @@
     UITapGestureRecognizer *doubleTap=[[UITapGestureRecognizer alloc]initWithTarget:self.graphView action:@selector(doubleTap:)];
     doubleTap.numberOfTapsRequired=2;
     [self.graphView addGestureRecognizer:doubleTap];
+    
+    self.defaultPropertyIdentifier = [[NSBundle mainBundle] bundleIdentifier];
+        
+    // restore values
+    float restoredGraphScale = [[NSUserDefaults standardUserDefaults] floatForKey:[self.defaultPropertyIdentifier stringByAppendingString:@".graphScale"]];
+    float restoredXAxisOrigin = [[NSUserDefaults standardUserDefaults] floatForKey:[self.defaultPropertyIdentifier stringByAppendingString:@".xAxisOrigin"]];
+    float restoredYAxisOrigin = [[NSUserDefaults standardUserDefaults] floatForKey:[self.defaultPropertyIdentifier stringByAppendingString:@".yAxisOrigin"]];
+    
+    // If we have scale in storage, then set this as the scale for the graph view
+    if (restoredGraphScale)
+        self.graphView.graphScale = restoredGraphScale;
+    else
+        self.graphView.graphScale = 16;
+    
+    // If we have a value for the xAxisOrigin and yAxisOrigin then set it in the graph view
+    if (restoredXAxisOrigin && restoredYAxisOrigin) {
+        
+        CGPoint axisOrigin;
+        
+        axisOrigin.x = restoredXAxisOrigin;
+        axisOrigin.y = restoredYAxisOrigin;
+        
+        self.graphView.graphOrigin = axisOrigin;
+    } else
+        self.graphView.graphOrigin = CGPointZero;
+    
+    
+    // Refresh the graph View
+    [self.graphView setNeedsDisplay];
 }
 
 - (id <SplitViewBarButtonItemPresenter>)splitViewBarButtonItemPresenter
@@ -62,8 +92,6 @@
     [self.navigationController setNavigationBarHidden:NO animated:NO];
     self.expressionLabel.text = self.descriptionOfExpression;
     self.graphView.delegate = self;
-    [self setGraphZoomLevel:16];
-    [self setGraphOrigin:CGPointZero];
 }
 
 - (IBAction)zoomIn:(id)sender
@@ -89,14 +117,30 @@
     [self.graphView setNeedsDisplay];
 }
 
-- (void) setGraphOrigin:(CGPoint) origin
+- (void) setGraphOrigin:(GraphView *) graphViewDelegator graphAxisOrigin:(CGPoint)origin
 {
+    NSLog(@"GraphCalcViewController.m - setGraphOrigin (delegate)");
     self.graphView.graphOrigin = origin;
+    
+    NSUserDefaults *standardUserDefaults=[NSUserDefaults standardUserDefaults];
+    if (standardUserDefaults) {
+        [standardUserDefaults setFloat:origin.x forKey:[self.defaultPropertyIdentifier stringByAppendingString:@".xAxisOrigin"]];
+        [standardUserDefaults setFloat:origin.y forKey:[self.defaultPropertyIdentifier stringByAppendingString:@".yAxisOrigin"]];
+        [standardUserDefaults synchronize];
+    }
 }
 
 - (void) setGraphScale:(GraphView *) graphViewDelegator graphScale:(double)scale;
 {
+    NSLog(@"GraphCalcViewController.m - setGraphScale (delegate)");
+    
     self.graphView.graphScale = scale;
+    
+    NSUserDefaults *standardUserDefaults=[NSUserDefaults standardUserDefaults];
+    if (standardUserDefaults) {
+        [standardUserDefaults setFloat:scale forKey:[self.defaultPropertyIdentifier stringByAppendingString:@".graphScale"]];
+        [standardUserDefaults synchronize];
+    }
 }
 
 - (void) setExpressionToPlot:(NSArray *)expressionToPlot

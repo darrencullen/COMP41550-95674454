@@ -87,13 +87,25 @@
     if (waitingExpressionOperations){
         NSString *totalExpressionOperation;
         for (int i=[waitingExpressionOperations count]; i>0; i--) {
-            totalExpressionOperation = waitingExpressionOperations[i];
-            if ([totalExpressionOperation isEqualToString:@"sqrt"])
-                operand = sqrt(operand);
-            else if ([totalExpressionOperation isEqualToString:@"+/-"])
-                operand = - operand;
-            else if ([totalExpressionOperation isEqualToString:@"1/x"])
-                operand = 1 / operand;
+            totalExpressionOperation = waitingExpressionOperations[i-1];
+            if ([totalExpressionOperation isEqualToString:@"sqrt"]){
+                if (operand < 0)
+                    operand = 0;
+                else
+                    operand = sqrt(operand);
+            }
+            else if ([totalExpressionOperation isEqualToString:@"+/-"]){
+                if (operand < 0)
+                    operand = 0;
+                else
+                    operand = - operand;
+            }
+            else if ([totalExpressionOperation isEqualToString:@"1/x"]){
+                if (operand < 0)
+                    operand = 0;
+                else
+                    operand = 1 / operand;
+            }
         }
     }
     

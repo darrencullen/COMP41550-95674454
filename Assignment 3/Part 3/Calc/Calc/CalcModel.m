@@ -66,7 +66,7 @@
     
     if ([operation isEqualToString:@"mem+"]){
         _valueInMemory = self.valueInMemory + self.operand;
-        return 0;
+        return self.operand;
     }            
     
     if (([self.waitingOperation isEqualToString:@"/"]) && (self.operand == 0)){
@@ -151,7 +151,8 @@
             if ([lastExpressionItem isEqualToString:@"="]){
                 [_expression removeLastObject];
                 [_expression addObject:operation];
-            }
+            } else if ([operation isEqualToString:@"sqrt"])
+                [_expression addObject:operation];
         } else
             [_expression addObject:operation];
         

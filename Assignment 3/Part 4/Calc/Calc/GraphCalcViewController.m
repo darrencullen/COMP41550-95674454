@@ -103,14 +103,22 @@
 {
     _expressionToPlot = expressionToPlot;
     [self.graphView setNeedsDisplay];
+    
+    //Dismiss the popover if it's showing.
+    if (self.popover) {
+        [self.popover dismissPopoverAnimated:YES];
+      //  self.popover = nil;
+    }
 }
 
 - (void) setDescriptionOfExpression:(NSString *)descriptionOfExpression
 {
     _descriptionOfExpression = descriptionOfExpression;
     self.expressionLabel.text = _descriptionOfExpression;
+    self.navBarItem.title = _descriptionOfExpression;
     [self.graphView setNeedsDisplay];
 }
+
 
 - (void)viewDidUnload {
     [self setGraphView:nil];

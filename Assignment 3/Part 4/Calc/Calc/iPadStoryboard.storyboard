@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="703" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Title" id="xQX-Nl-XWo"/>
+                                    <navigationItem id="xQX-Nl-XWo"/>
                                 </items>
                             </navigationBar>
                         </subviews>

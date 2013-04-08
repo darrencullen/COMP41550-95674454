@@ -6,4 +6,4 @@ I achieved most of the tasks but didn't create the graph view programatically. I
 
 I looked into storing the orientation using [UIDevice currentDevice] orientation], but decided against it as the app should really display in the orientation that it is currently loaded in. 
 
-I got parts 2, 3 & 4 of this assignment working on my iPhone, but was only able to test the iPad version on the simulator.
+I got parts 2, 3 & 4 of this assignment working on my iPhone, but was only able to test the iPad version on the simulator. 

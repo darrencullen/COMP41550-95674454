@@ -1,9 +1,7 @@
 Darren, Cullen, 95674454, darrencullen@gmail.com
 
-Again this was a very challenging assignment. I initially had difficulty in getting my graph to plot properly, but it was because i wasn't taking the scale or origin into consideration (so my plot line was always starting in the top left). The assignment gave us a really good exposure to protocols, which prior to this were something of a mystery!
+The assignment gave a good introduction to programming for the iPad and in particular the controls that aren't present for the iPhone (popover, splitview). 
 
-I have completed all the elements of this part of the assignment i.e. updating the UI, including a navigation controller, adding zoom buttons, plotting an expression, handling rotation and implementing a protocol.
+I achieved most of the tasks but didn't create the graph view programatically. I migrated the calc view to the iPad storyboard and created a popover in the style with the arrow pointing to the button that has called it. I implemented the 3 gestures and also saved the graph origin and scale state. 
 
-As it is a continuation of part 2 of the assignment, this solution also uses a category extending the NSArray datatype when solving the expression, so I hope that isn't a problem.
-
-I was pleased to see the sin wave displaying and not just a straight line.
+I looked into storing the orientation using [UIDevice currentDevice] orientation], but decided against it as the app should really display in the orientation that it is currently loaded in. 

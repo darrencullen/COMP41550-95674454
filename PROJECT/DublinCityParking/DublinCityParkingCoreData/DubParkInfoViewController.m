@@ -8,6 +8,7 @@
 
 #import "DubParkInfoViewController.h"
 #import "WebViewController.h"
+#import <BugSense-iOS/BugSenseController.h>
 
 @interface DubParkInfoViewController ()
 
@@ -26,30 +27,40 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+    @try{
+        [super viewDidLoad];
+        
+    } @catch (NSException *exc) {
+        BUGSENSE_LOG(exc, nil);
+    }
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0,0,tableView.frame.size.width,30)];
-    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(15,10, headerView.frame.size.width, 30)];
-    
-    headerLabel.backgroundColor = [UIColor clearColor];
-    headerLabel.textColor = [UIColor whiteColor];
-    headerLabel.shadowColor = [UIColor grayColor];
-    headerLabel.shadowOffset = CGSizeMake(0.0, 1.0);
-    headerLabel.font = [UIFont boldSystemFontOfSize:18];
-    
-    if(section == 0)
-        headerLabel.text = @"App Details";
-    else if(section == 1)
-        headerLabel.text = @"Credits";
-    else if(section == 2)
-        headerLabel.text = @"Information Sources";
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    @try{
+        UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0,0,tableView.frame.size.width,30)];
+        UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(15,10, headerView.frame.size.width, 30)];
+        
+        headerLabel.backgroundColor = [UIColor clearColor];
+        headerLabel.textColor = [UIColor whiteColor];
+        headerLabel.shadowColor = [UIColor grayColor];
+        headerLabel.shadowOffset = CGSizeMake(0.0, 1.0);
+        headerLabel.font = [UIFont boldSystemFontOfSize:18];
+        
+        if(section == 0)
+            headerLabel.text = @"App Details";
+        else if(section == 1)
+            headerLabel.text = @"Credits";
+        else if(section == 2)
+            headerLabel.text = @"Information Sources";
 
-    
-    [headerView addSubview:headerLabel];
-    return headerView;
+        
+        [headerView addSubview:headerLabel];
+        return headerView;
+        
+    } @catch (NSException *exc) {
+        BUGSENSE_LOG(exc, nil);
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

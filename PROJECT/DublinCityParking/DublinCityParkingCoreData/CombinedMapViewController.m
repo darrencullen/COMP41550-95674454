@@ -298,17 +298,6 @@
             annotationView.enabled = YES;
             annotationView.canShowCallout = YES;
             
-            //            UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
-            //            if (self.selectedCarparkInfo.favourite == 1)
-            //                [leftButton setImage:[UIImage imageNamed:@"StarFull24-3.png"] forState:UIControlStateNormal];
-            //            else
-            //                [leftButton setImage:[UIImage imageNamed:@"StarEmpty24-3.png"] forState:UIControlStateNormal];
-            //
-            //            [leftButton setTitle:annotation.title forState:UIControlStateNormal];
-            //            leftButton.frame = CGRectMake(0, 0, 32, 32);
-            //            leftButton.tag = 1;
-            //            annotationView.leftCalloutAccessoryView = leftButton;
-            
             UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
             [rightButton setImage:[UIImage imageNamed:@"directions38.png"] forState:UIControlStateNormal];
             [rightButton setTitle:annotation.title forState:UIControlStateNormal];
@@ -348,10 +337,7 @@
  annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
     
     @try{
-        if (control.tag == 1){
-            //            [self setFavouriteCarpark];
-            
-        } else if(control.tag == 2) {
+        if(control.tag == 2) {
             
             [self performSegueWithIdentifier:@"showDirections" sender:self];
         }

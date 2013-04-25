@@ -146,8 +146,6 @@
     }
 }
 
-#pragma mark - CLLocationManagerDelegate
-
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
     NSException* locationManagerException = [NSException

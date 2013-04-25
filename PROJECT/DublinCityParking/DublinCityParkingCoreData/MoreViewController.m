@@ -27,50 +27,65 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+    @try{
+        [super viewDidLoad];
+        
+    } @catch (NSException *exc) {
+        BUGSENSE_LOG(exc, nil);
+    }
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    
-    if (cell.tag == 502){
+    @try{
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         
-        NSString *phoneNumberURL = [NSString stringWithFormat:@"https://twitter.com/LiveDrive"];
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumberURL]];
+        if (cell.tag == 502){
+            
+            NSString *phoneNumberURL = [NSString stringWithFormat:@"https://twitter.com/LiveDrive"];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumberURL]];
+            
+        } else if (cell.tag == 504){
+            NSString *emailTitle = @"DubPark Feedback";
+            NSArray *toRecipents = [NSArray arrayWithObject:@"dcdevelopmentstudios@gmail.com"];
+            
+            MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+            mc.mailComposeDelegate = self;
+            [mc setSubject:emailTitle];
+            [mc setToRecipients:toRecipents];
+            
+            [self presentViewController:mc animated:YES completion:NULL];
+        }
         
-    } else if (cell.tag == 504){
-        NSString *emailTitle = @"DubPark Feedback";
-        NSArray *toRecipents = [NSArray arrayWithObject:@"dcdevelopmentstudios@gmail.com"];
-        
-        MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
-        mc.mailComposeDelegate = self;
-        [mc setSubject:emailTitle];
-        [mc setToRecipients:toRecipents];
-        
-        [self presentViewController:mc animated:YES completion:NULL];
+    } @catch (NSException *exc) {
+        BUGSENSE_LOG(exc, nil);
     }
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0,0,tableView.frame.size.width,30)];
-    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(15,10, headerView.frame.size.width, 30)];
-    
-    headerLabel.backgroundColor = [UIColor clearColor];
-    headerLabel.textColor = [UIColor whiteColor];
-    headerLabel.shadowColor = [UIColor grayColor];
-    headerLabel.shadowOffset = CGSizeMake(0.0, 1.0);
-    headerLabel.font = [UIFont boldSystemFontOfSize:18];
-    
-    if(section == 0)
-        headerLabel.text = @"Parking & Traffic";
-    else if(section == 1)
-        headerLabel.text = @"DubPark";
-    
-    [headerView addSubview:headerLabel];
-    return headerView;
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    @try{
+        UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0,0,tableView.frame.size.width,30)];
+        UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(15,10, headerView.frame.size.width, 30)];
+        
+        headerLabel.backgroundColor = [UIColor clearColor];
+        headerLabel.textColor = [UIColor whiteColor];
+        headerLabel.shadowColor = [UIColor grayColor];
+        headerLabel.shadowOffset = CGSizeMake(0.0, 1.0);
+        headerLabel.font = [UIFont boldSystemFontOfSize:18];
+        
+        if(section == 0)
+            headerLabel.text = @"Parking & Traffic";
+        else if(section == 1)
+            headerLabel.text = @"DubPark";
+        
+        [headerView addSubview:headerLabel];
+        return headerView;
+        
+    } @catch (NSException *exc) {
+        BUGSENSE_LOG(exc, nil);
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -94,17 +109,22 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if([segue.identifier isEqualToString:@"showParkingInformation"]){
-        
-        UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:@"More Info" style: UIBarButtonItemStyleBordered target: nil action: nil];
-        
-        [[self navigationItem] setBackBarButtonItem: newBackButton];
+    @try{
+        if([segue.identifier isEqualToString:@"showParkingInformation"]){
+            
+            UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:@"More Info" style: UIBarButtonItemStyleBordered target: nil action: nil];
+            
+            [[self navigationItem] setBackBarButtonItem: newBackButton];
 
-    } else if([segue.identifier isEqualToString:@"showDubParkInformation"]){
+        } else if([segue.identifier isEqualToString:@"showDubParkInformation"]){
+            
+            UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:@"More Info" style: UIBarButtonItemStyleBordered target: nil action: nil];
+            
+            [[self navigationItem] setBackBarButtonItem: newBackButton];
+        }
         
-        UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:@"More Info" style: UIBarButtonItemStyleBordered target: nil action: nil];
-        
-        [[self navigationItem] setBackBarButtonItem: newBackButton];
+    } @catch (NSException *exc) {
+        BUGSENSE_LOG(exc, nil);
     }
 }
 

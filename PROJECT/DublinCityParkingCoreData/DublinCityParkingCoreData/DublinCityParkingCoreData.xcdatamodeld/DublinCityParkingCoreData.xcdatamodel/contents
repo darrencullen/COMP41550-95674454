@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12C3006" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="CarparkDetails" representedClassName="CarparkDetails" syncable="YES">
+        <attribute name="directions" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="disabledSpaces" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="heightRestrictions" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hourlyRate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="openingHours" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="otherRate1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="otherRate2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="region" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="services" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="totalSpaces" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="info" optional="YES" minCount="1" maxCount="1" deletionRule="Deny" destinationEntity="CarparkInfo" inverseName="details" inverseEntity="CarparkInfo" syncable="YES"/>
+    </entity>
+    <entity name="CarparkInfo" representedClassName="CarparkInfo" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="availableSpaces" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="favourite" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="lastUpdated" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="details" optional="YES" minCount="1" maxCount="1" deletionRule="Deny" destinationEntity="CarparkDetails" inverseName="info" inverseEntity="CarparkDetails" syncable="YES"/>
+    </entity>
+    <entity name="DisabledParkingSpaceInfo" syncable="YES">
+        <attribute name="favourite" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="postCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="spaces" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="street" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="TrafficCameraInfo" syncable="YES">
+        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="favourite" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="postCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CarparkDetails" positionX="160" positionY="192" width="128" height="255"/>
+        <element name="CarparkInfo" positionX="-182" positionY="189" width="128" height="150"/>
+        <element name="DisabledParkingSpaceInfo" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="TrafficCameraInfo" positionX="160" positionY="192" width="128" height="150"/>
+    </elements>
+</model>

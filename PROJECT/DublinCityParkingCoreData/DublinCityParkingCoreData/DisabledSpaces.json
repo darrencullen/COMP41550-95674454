@@ -1,0 +1,415 @@
+[
+ {
+ "street":"Aldborough Prde",
+ "postCode":"D1",
+ "latitude":53.354826,
+ "longitude":-6.245476,
+ "spaces":"1"
+ },
+ {
+ "street":"Belvedere Rd",
+ "postCode":"D1",
+ "latitude":53.359851,
+ "longitude":-6.2593357,
+ "spaces":"1"
+ },
+ {
+ "street":"Capel St",
+ "postCode":"D1",
+ "latitude":53.348177,
+ "longitude":-6.26869,
+ "spaces":"1"
+ },
+ {
+ "street":"Cathal Brugha",
+ "postCode":"D1",
+ "latitude":53.352071,
+ "longitude":-6.26063,
+ "spaces":"1"
+ },
+ {
+ "street":"Cathedral St",
+ "postCode":"D1",
+ "latitude":53.350442,
+ "longitude":-6.26003,
+ "spaces":"2"
+ },
+ {
+ "street":"Dorset Street Lr",
+ "postCode":"D1",
+ "latitude":53.358748,
+ "longitude":-6.262285,
+ "spaces":"1"
+ },
+ {
+ "street":"Hardwick Street",
+ "postCode":"D1",
+ "latitude":53.355638,
+ "longitude":-6.264249,
+ "spaces":"1"
+ },
+ {
+ "street":"Hill St",
+ "postCode":"D1",
+ "latitude":53.355631,
+ "longitude":-6.26073,
+ "spaces":"4"
+ },
+ {
+ "street":"Jervis St",
+ "postCode":"D1",
+ "latitude":53.34782,
+ "longitude":-6.26633,
+ "spaces":"4"
+ },
+ {
+ "street":"Mary St",
+ "postCode":"D1",
+ "latitude":53.348534,
+ "longitude":-6.268387,
+ "spaces":"2"
+ },
+ {
+ "street":"Parnell Sq North",
+ "postCode":"D1",
+ "latitude":53.35391,
+ "longitude":-6.264737,
+ "spaces":"2"
+ },
+ {
+ "street":"Parnell St",
+ "postCode":"D1",
+ "latitude":53.353473,
+ "longitude":-6.259555,
+ "spaces":"1"
+ },
+ {
+ "street":"Sherrard St Upr",
+ "postCode":"D1",
+ "latitude":53.358684,
+ "longitude":-6.260043,
+ "spaces":"1"
+ },
+ {
+ "street":"Stephens St Lr",
+ "postCode":"D1",
+ "latitude":53.341128,
+ "longitude":-6.263811,
+ "spaces":"1"
+ },
+ {
+ "street":"Strand St Great",
+ "postCode":"D1",
+ "latitude":53.346971,
+ "longitude":-6.264941,
+ "spaces":"2"
+ },
+ {
+ "street":"Summer St Nth",
+ "postCode":"D1",
+ "latitude":53.357162,
+ "longitude":-6.251994,
+ "spaces":"1"
+ },
+ {
+ "street":"Talbot Place",
+ "postCode":"D1",
+ "latitude":53.350617,
+ "longitude":-6.251559,
+ "spaces":"1"
+ },
+ {
+ "street":"Talbot St",
+ "postCode":"D1",
+ "latitude":53.35094,
+ "longitude":-6.252965,
+ "spaces":"1"
+ },
+ {
+ "street":"Aston Quay",
+ "postCode":"D2",
+ "latitude":53.346601,
+ "longitude":-6.260617,
+ "spaces":"1"
+ },
+ {
+ "street":"Baggot St Lower",
+ "postCode":"D2",
+ "latitude":53.337017,
+ "longitude":-6.249899,
+ "spaces":"1"
+ },
+ {
+ "street":"Baggot St Upper",
+ "postCode":"D2",
+ "latitude":53.333505,
+ "longitude":-6.244247,
+ "spaces":"2"
+ },
+ {
+ "street":"Bath Street",
+ "postCode":"D2",
+ "latitude":53.338888,
+ "longitude":-6.222173,
+ "spaces":"1"
+ },
+ {
+ "street":"Castle St",
+ "postCode":"D2",
+ "latitude":53.343666,
+ "longitude":-6.2678,
+ "spaces":"2"
+ },
+ {
+ "street":"Clanwilliam Tce",
+ "postCode":"D2",
+ "latitude":53.338122,
+ "longitude":-6.239929,
+ "spaces":"1"
+ },
+ {
+ "street":"Clonmel St/Plce",
+ "postCode":"D2",
+ "latitude":53.336014,
+ "longitude":-6.262814,
+ "spaces":"4"
+ },
+ {
+ "street":"Conway Court",
+ "postCode":"D2",
+ "latitude":53.341444,
+ "longitude":-6.242356,
+ "spaces":"1"
+ },
+ {
+ "street":"Dawson St",
+ "postCode":"D2",
+ "latitude":53.341386,
+ "longitude":0-6.258181,
+ "spaces":"1"
+ },
+ {
+ "street":"D'Olier St Wst",
+ "postCode":"D2",
+ "latitude":53.346553,
+ "longitude":-6.258342,
+ "spaces":"2"
+ },
+ {
+ "street":"Drury St",
+ "postCode":"D2",
+ "latitude":53.342981,
+ "longitude":-6.262905,
+ "spaces":"2"
+ },
+ {
+ "street":"Earl St South",
+ "postCode":"D2",
+ "latitude":53.341498,
+ "longitude":-6.280221,
+ "spaces":"1"
+ },
+ {
+ "street":"Earlsford Trce",
+ "postCode":"D2",
+ "latitude":53.33326,
+ "longitude":-6.258726,
+ "spaces":"1"
+ },
+ {
+ "street":"Ely Place",
+ "postCode":"D2",
+ "latitude":53.337031,
+ "longitude":-6.254504,
+ "spaces":"1"
+ },
+ {
+ "street":"Erne Terrce Nth",
+ "postCode":"D2",
+ "latitude":53.342987,
+ "longitude":-6.245586,
+ "spaces":"2"
+ },
+ {
+ "street":"Fade St",
+ "postCode":"D2",
+ "latitude":53.341879,
+ "longitude":-6.26376,
+ "spaces":"1"
+ },
+ {
+ "street":"Fitzwilliam Lane",
+ "postCode":"D2",
+ "latitude":53.338763,
+ "longitude":-6.252377,
+ "spaces":"1"
+ },
+ {
+ "street":"Fleet St",
+ "postCode":"D2",
+ "latitude":53.345801,
+ "longitude":-6.26007,
+ "spaces":"1"
+ },
+ {
+ "street":"Foster Place",
+ "postCode":"D2",
+ "latitude":53.344715,
+ "longitude":-6.261129,
+ "spaces":"1"
+ },
+ {
+ "street":"Grand Canal Qy",
+ "postCode":"D2",
+ "latitude":53.339453,
+ "longitude":-6.239529,
+ "spaces":"2"
+ },
+ {
+ "street":"Grand Canal St",
+ "postCode":"D2",
+ "latitude":53.339102,
+ "longitude":-6.240347,
+ "spaces":"2"
+ },
+ {
+ "street":"Hatch St Lwr",
+ "postCode":"D2",
+ "latitude":53.334365,
+ "longitude":-6.255421,
+ "spaces":"1"
+ },
+ {
+ "street":"Hatch St Upr",
+ "postCode":"D2",
+ "latitude":53.333847,
+ "longitude":-6.258855,
+ "spaces":"1"
+ },
+ {
+ "street":"Herbert St",
+ "postCode":"D2",
+ "latitude":53.336477,
+ "longitude":-6.244596,
+ "spaces":"3"
+ },
+ {
+ "street":"Hogan Place",
+ "postCode":"D2",
+ "latitude":53.340548,
+ "longitude":-6.243797,
+ "spaces":"1"
+ },
+ {
+ "street":"Holles St",
+ "postCode":"D2",
+ "latitude":53.340058,
+ "longitude":-6.246425,
+ "spaces":"1"
+ },
+ {
+ "street":"Mercer Health Cntr",
+ "postCode":"D2",
+ "latitude":53.341014,
+ "longitude":-6.263868,
+ "spaces":"2"
+ },
+ {
+ "street":"Merrion Sq East",
+ "postCode":"D2",
+ "latitude":53.339397,
+ "longitude":-6.246594,
+ "spaces":"1"
+ },
+ {
+ "street":"Merrion Sq West",
+ "postCode":"D2",
+ "latitude":53.340457,
+ "longitude":-6.251409,
+ "spaces":"1"
+ },
+ {
+ "street":"Merrion Sqr Sth",
+ "postCode":"D2",
+ "latitude":53.338984,
+ "longitude":-6.249869,
+ "spaces":"2"
+ },
+ {
+ "street":"Molesworth St",
+ "postCode":"D2",
+ "latitude":53.340994,
+ "longitude":-6.256167,
+ "spaces":"2"
+ },
+ {
+ "street":"Montague St",
+ "postCode":"D2",
+ "latitude":53.336481,
+ "longitude":-6.264579,
+ "spaces":"1"
+ },
+ {
+ "street":"Mount St Upr",
+ "postCode":"D2",
+ "latitude":53.33716,
+ "longitude":-6.244797,
+ "spaces":"1"
+ },
+ {
+ "street":"Nassau St",
+ "postCode":"D2",
+ "latitude":53.342432,
+ "longitude":-6.25573,
+ "spaces":"1"
+ },
+ {
+ "street":"New Bride St",
+ "postCode":"D2",
+ "latitude":53.337321,
+ "longitude":-6.269189,
+ "spaces":"2"
+ },
+ {
+ "street":"Noel Purcell Way Nth",
+ "postCode":"D2",
+ "latitude":53.340287,
+ "longitude":-6.263905,
+ "spaces":"1"
+ },
+ {
+ "street":"Pearse Grove",
+ "postCode":"D2",
+ "latitude":53.342613,
+ "longitude":-6.243494,
+ "spaces":"2"
+ },
+ {
+ "street":"Pearse St",
+ "postCode":"D2",
+ "latitude":53.343103,
+ "longitude":-6.244105,
+ "spaces":"1"
+ },
+ {
+ "street":"South William St",
+ "postCode":"D2",
+ "latitude":53.341149,
+ "longitude":-6.263272,
+ "spaces":"1"
+ },
+ {
+ "street":"St Stephens Green Nth",
+ "postCode":"D2",
+ "latitude":53.339455,
+ "longitude":-6.25867,
+ "spaces":"1"
+ },
+ {
+ "street":"Wellington Quay",
+ "postCode":"D2",
+ "latitude":53.345601,
+ "longitude":-6.265764,
+ "spaces":"1"
+ }
+ ]

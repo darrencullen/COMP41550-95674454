@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cameraDetails>
+	<cameraInfo 
+		code="122" 
+		postCode="D1"
+		name="North Wall Quay" 
+		url="http://www.dublincity.ie/dublintraffic/Site0Camera122.jpg"
+		latitude="53.348207" 
+		longitude="-6.250169">
+	</cameraInfo>	
+	<cameraInfo 
+		code="21" 
+		postCode="D1"
+		name="Quays from Liberty Hall" 
+		url="http://www.dublincity.ie/dublintraffic/Site0Camera10.jpg"
+		latitude="53.34831" 
+		longitude="-6.255534">
+	</cameraInfo>
+	<cameraInfo 
+		code="22" 
+		postCode="D1"
+		name="North Quays" 
+		url="http://www.dublincity.ie/dublintraffic/Site0Camera22.jpg"
+		latitude="53.345773" 
+		longitude="-6.275425">
+	</cameraInfo>			
+	<cameraInfo 
+		code="135" 
+		postCode="D1"
+		name="Dublin Port Tunnel" 
+		url="http://www.dublincity.ie/dublintraffic/Site0Camera135.jpg"
+		latitude="53.352473" 
+		longitude="-6.22486">
+	</cameraInfo>					
+	<cameraInfo 
+		code="32" 
+		postCode="D1"
+		name="Cabra Road" 
+		url="http://www.dublincity.ie/dublintraffic/Site0Camera32.jpg"
+		latitude="53.36113" 
+		longitude="-6.285381">
+	</cameraInfo>
+	<cameraInfo 
+		code="127" 
+		postCode="D1"
+		name="Guild Street/Mayor Street" 
+		url="http://www.dublincity.ie/dublintraffic/Site0Camera127.jpg"
+		latitude="53.349027" 
+		longitude="-6.241028">
+	</cameraInfo>	
+	<cameraInfo 
+		code="139" 
+		postCode="D1"
+		name="Guild Street/Seville Place" 
+		url="http://www.dublincity.ie/dublintraffic/Site0Camera139.jpg"
+		latitude="53.35082" 
+		longitude="-6.241457">
+	</cameraInfo>	
+	<cameraInfo 
+		code="27" 
+		postCode="D1"
+		name="Drumcondra Road" 
+		url="http://www.dublincity.ie/dublintraffic/Site0Camera27.jpg"
+		latitude="53.366252" 
+		longitude="-6.255641">
+	</cameraInfo>	
+	<cameraInfo 
+		code="24" 
+		postCode="D1"
+		name="North Strand Rd" 
+		url="http://www.dublincity.ie/dublintraffic/Site0Camera24.jpg"
+		latitude="53.357365" 
+		longitude="-6.243024">
+	</cameraInfo>	
+	<cameraInfo 
+		code="131" 
+		postCode="D1"
+		name="Constitution Hill" 
+		url="http://www.dublincity.ie/dublintraffic/Site0Camera131.jpg"
+		latitude="53.352524" 
+		longitude="-6.273236">
+	</cameraInfo>		
+	<cameraInfo 
+		code="21" 
+		postCode="D2"
+		name="Dame Street" 
+		url="http://www.dublincity.ie/dublintraffic/Site0Camera21.jpg"
+		latitude="53.34414" 
+		longitude="-6.267063">
+	</cameraInfo>	
+	<cameraInfo 
+		code="23" 
+		postCode="D2"
+		name="Pearse Street" 
+		url="http://www.dublincity.ie/dublintraffic/Site0Camera23.jpg"
+		latitude="53.343192" 
+		longitude="-6.24454">
+	</cameraInfo>	
+	<cameraInfo 
+		code="163" 
+		postCode="D2"
+		name="Heuston Station" 
+		url="http://www.dublincity.ie/dublintraffic/Site0Camera163.jpg"
+		latitude="53.346299" 
+		longitude="-6.291647">
+	</cameraInfo>		
+	<cameraInfo 
+		code="136" 
+		postCode="D2"
+		name="Samuel Beckett Bridge" 
+		url="http://www.dublincity.ie/dublintraffic/Site0Camera136.jpg"
+		latitude="53.346811" 
+		longitude="-6.241415">
+	</cameraInfo>		
+	<cameraInfo 
+		code="137" 
+		postCode="D2"
+		name="Sir John Rogersons Quay" 
+		url="http://www.dublincity.ie/dublintraffic/Site0Camera137.jpg"
+		latitude="53.345902" 
+		longitude="-6.23708">
+	</cameraInfo>	
+	<cameraInfo 
+		code="31" 
+		postCode="D2"
+		name="Harolds Cross Bridge" 
+		url="http://www.dublincity.ie/dublintraffic/Site0Camera31.jpg"
+		latitude="53.329694" 
+		longitude="-6.275468">
+	</cameraInfo>		
+	<cameraInfo 
+		code="6" 
+		postCode="D2"
+		name="O'Connell Bridge" 
+		url="http://www.dublincity.ie/dublintraffic/Site0Camera6.jpg"
+		latitude="53.347003" 
+		longitude="-6.259177">
+	</cameraInfo>	
+</cameraDetails>

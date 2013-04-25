@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cameraDetails>
+	<cameraInfo 
+		code="6" 
+		name="O'Connell Bridge" 
+		url="http://www.dublincity.ie/dublintraffic/Site0Camera6.jpg"
+		latitude="53.347231" 
+		longitude="-6.259292">
+	</cameraInfo>
+	<cameraInfo 
+		code="21" 
+		name="Dame St from Civic Offices" 
+		url="http://www.dublincity.ie/dublintraffic/Site0Camera21.jpg"
+		latitude="53.347231" 
+		longitude="-6.259292">
+	</cameraInfo>	
+	<cameraInfo 
+		code="21" 
+		name="Pearse Street" 
+		url="http://www.dublincity.ie/dublintraffic/Site0Camera23.jpg"
+		latitude="53.347231" 
+		longitude="-6.259292">
+	</cameraInfo>	
+	<cameraInfo 
+		code="35" 
+		name="Dublin Port Tunnel" 
+		url="http://www.dublincity.ie/dublintraffic/Site0Camera35.jpg"
+		latitude="53.347231" 
+		longitude="-6.259292">
+	</cameraInfo>	
+	<cameraInfo 
+		code="22" 
+		name="North Wall Quay" 
+		url="http://www.dublincity.ie/dublintraffic/Site0Camera22.jpg"
+		latitude="53.347231" 
+		longitude="-6.259292">
+	</cameraInfo>	
+	<cameraInfo 
+		code="21" 
+		name="Quays from Liberty Hall" 
+		url="http://www.dublincity.ie/dublintraffic/Site0Camera10.jpg"
+		latitude="53.347231" 
+		longitude="-6.259292">
+	</cameraInfo>						
+	
+</cameraDetails>

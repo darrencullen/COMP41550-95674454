@@ -1,0 +1,358 @@
+[
+ {
+ "street":"Gledswood Park",
+ "postCode":"D2",
+ "latitude":53.35067,
+ "longitude":-6.268366,
+ "spaces":"1"
+ }
+]
+ 
+
+<?xml version="1.0" encoding="utf-8"?>
+<disabledParking>
+   <parkingSpot
+        street="Aldborough Prde"
+        postCode="D1"
+		latitude="53.354826" 
+		longitude="-6.245476"        
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="Belvedere Rd"
+        postCode="D1"
+        latitude="53.359851" 
+		longitude="-6.2593357"   
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="Capel St"
+        postCode="D1"
+        latitude="53.348177" 
+		longitude="-6.26869"           
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="Cathal Brugha"
+        latitude="53.352071" 
+		longitude="-6.26063"    
+        postCode="D1"
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="Cathedral St"
+        postCode="D1"
+        latitude="53.350442" 
+		longitude="-6.26003"          
+        spaces="2">
+   </parkingSpot>
+   <parkingSpot
+        street="Dorset Street Lr"
+        postCode="D1"
+        latitude="53.358748" 
+		longitude="-6.262285"           
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="Hardwick Street"
+        latitude="53.355638" 
+		longitude="-6.264249"             
+        postCode="D1"
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="Hill St"
+        postCode="D1"
+        spaces="4">
+   </parkingSpot>
+   <parkingSpot
+        street="Jervis St"
+        postCode="D1"
+        spaces="4">
+   </parkingSpot>
+   <parkingSpot
+        street="Mary St"
+        postCode="D1"
+        spaces="2">
+   </parkingSpot>
+   <parkingSpot
+        street="Northumberl. Sq"
+        postCode="D1"
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="Parnell Sq North"
+        postCode="D1"
+        spaces="2">
+   </parkingSpot>
+   <parkingSpot
+        street="Parnell St"
+        postCode="D1"
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="Sherrard St Upr"
+        postCode="D1"
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="Stephens St Lr"
+        postCode="D1"
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="Strand St Great"
+        postCode="D1"
+        spaces="2">
+   </parkingSpot>
+   <parkingSpot
+        street="Summer St Nth"
+        postCode="D1"
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="Talbot Place"
+        postCode="D1"
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="Talbot St"
+        postCode="D1"
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="Aston Quay"
+        postCode="D2"
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="Baggot St Lower"
+        postCode="D2"
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="Baggot St Upper"
+        postCode="D2"
+        spaces="2">
+   </parkingSpot>
+   <parkingSpot
+        street="Bath Street"
+        postCode="D2"
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="Castle St"
+        postCode="D2"
+        spaces="2">
+   </parkingSpot>
+   <parkingSpot
+        street="Clanwilliam Tce"
+        postCode="D2"
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="Clonmel St/Plce"
+        postCode="D2"
+        spaces="4">
+   </parkingSpot>
+   <parkingSpot
+        street="Conway Court"
+        postCode="D2"
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="Dawson St"
+        postCode="D2"
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="D'Olier St Wst"
+        postCode="D2"
+        spaces="2">
+   </parkingSpot>
+   <parkingSpot
+        street="Drury St"
+        postCode="D2"
+        spaces="2">
+   </parkingSpot>
+   <parkingSpot
+        street="Earl St South"
+        postCode="D2"
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="Earlsford Trce"
+        postCode="D2"
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="Ely Place"
+        postCode="D2"
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="Erne Terrce Nth"
+        postCode="D2"
+        spaces="2">
+   </parkingSpot>
+   <parkingSpot
+        street="Fade St"
+        postCode="D2"
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="Fitzwilliam Lane"
+        postCode="D2"
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="Fleet St"
+        postCode="D2"
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="Foster Place"
+        postCode="D2"
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="Granby St"
+        postCode="D2"
+        spaces="2">
+   </parkingSpot>
+   <parkingSpot
+        street="Grand Canal Qy"
+        postCode="D2"
+        spaces="2">
+   </parkingSpot>
+   <parkingSpot
+        street="Grand Canal St"
+        postCode="D2"
+        spaces="2">
+   </parkingSpot>
+   <parkingSpot
+        street="Hatch St Lwr"
+        postCode="D2"
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="Hatch St Upr"
+        postCode="D2"
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="Herbert St"
+        postCode="D2"
+        spaces="3">
+   </parkingSpot>
+   <parkingSpot
+        street="Hogan Place"
+        postCode="D2"
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="Holles St"
+        postCode="D2"
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="King St South"
+        postCode="D2"
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="Mercer Health Cntr"
+        postCode="D2"
+        spaces="2">
+   </parkingSpot>
+   <parkingSpot
+        street="Merrion Sq East"
+        postCode="D2"
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="Merrion Sq West"
+        postCode="D2"
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="Merrion Sqr Sth"
+        postCode="D2"
+        spaces="2">
+   </parkingSpot>
+   <parkingSpot
+        street="Molesworth St"
+        postCode="D2"
+        spaces="2">
+   </parkingSpot>
+   <parkingSpot
+        street="Montague St"
+        postCode="D2"
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="Mount St Upr"
+        postCode="D2"
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="Nassau St"
+        postCode="D2"
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="New Bride St"
+        postCode="D2"
+        spaces="2">
+   </parkingSpot>
+   <parkingSpot
+        street="Noel Purcell Way Nth"
+        postCode="D2"
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="Georges St Nth"
+        postCode="D2"
+        spaces="2">
+   </parkingSpot>
+   <parkingSpot
+        street="Palace St Wst"
+        postCode="D2"
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="Pearse Grove"
+        postCode="D2"
+        spaces="2">
+   </parkingSpot>
+   <parkingSpot
+        street="Pearse St"
+        postCode="D2"
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="South King St"
+        postCode="D2"
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="South William St"
+        postCode="D2"
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="St Stephens Green Nth"
+        postCode="D2"
+        spaces="1">
+   </parkingSpot>
+   <parkingSpot
+        street="Stephen St Lower"
+        postCode="D2"
+        spaces="2">
+   </parkingSpot>
+   <parkingSpot
+        street="Wellington Quay"
+        postCode="D2"
+        spaces="1">
+   </parkingSpot>
+</disabledParking>

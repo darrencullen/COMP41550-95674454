@@ -36,36 +36,32 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    
-    // start recording current location
-    locationManager = [[CLLocationManager alloc] init];
-    locationManager.delegate = self;
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-   
-//    self.details = [self.details stringByReplacingOccurrencesOfString: @";" withString: @"\n"];
-    
-    if ([self.title isEqualToString:@"Directions"]){
-        // Get the reference to the current toolbar buttons
-        NSMutableArray *toolbarButtons = [self.navigationItem.rightBarButtonItems mutableCopy];
-    
-        // This is how you add the button to the toolbar and animate it
-        if (![toolbarButtons containsObject:self.directionsButton]) {
-            [toolbarButtons addObject:self.directionsButton];
+    @try{
+        [super viewDidLoad];
+        
+        // start recording current location
+        locationManager = [[CLLocationManager alloc] init];
+        locationManager.delegate = self;
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        
+        if ([self.title isEqualToString:@"Directions"]){
+            NSMutableArray *toolbarButtons = [self.navigationItem.rightBarButtonItems mutableCopy];
+
+            if (![toolbarButtons containsObject:self.directionsButton]) {
+                [toolbarButtons addObject:self.directionsButton];
+                [self.navigationItem setRightBarButtonItems:toolbarButtons animated:YES];
+            }
+        } else {
+            NSMutableArray *toolbarButtons = [self.navigationItem.rightBarButtonItems mutableCopy];
+            [toolbarButtons removeObject:self.directionsButton];
             [self.navigationItem setRightBarButtonItems:toolbarButtons animated:YES];
         }
-    } else {
-        // Get the reference to the current toolbar buttons
-        NSMutableArray *toolbarButtons = [self.navigationItem.rightBarButtonItems mutableCopy];
+        self.textView.text = self.details;
         
-        // This is how you remove the button from the toolbar and animate it
-        [toolbarButtons removeObject:self.directionsButton];
-        [self.navigationItem setRightBarButtonItems:toolbarButtons animated:YES];
+    } @catch (NSException *exc) {
+        BUGSENSE_LOG(exc, nil);
     }
-    self.textView.text = self.details;
 }
-
-#pragma mark - CLLocationManagerDelegate
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
@@ -79,41 +75,46 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
-    if (newLocation != nil) {
-        currentLocation.latitude = newLocation.coordinate.latitude;
-        currentLocation.longitude = newLocation.coordinate.longitude;
+    @try{
+        if (newLocation != nil) {
+            currentLocation.latitude = newLocation.coordinate.latitude;
+            currentLocation.longitude = newLocation.coordinate.longitude;
+            
+            NSLog(@"Current location: latitude=%.8f; longitude=%.8f",currentLocation.latitude,currentLocation.longitude);
+            [locationManager stopUpdatingLocation];
+        }
         
-        NSLog(@"Current location: latitude=%.8f; longitude=%.8f",currentLocation.latitude,currentLocation.longitude);
-        [locationManager stopUpdatingLocation];
+    } @catch (NSException *exc) {
+        BUGSENSE_LOG(exc, nil);
     }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
-    if([segue.identifier isEqualToString:@"showCarparkDirections"]){
-        
-        NSString *directionsURL;
-        
-        if ((currentLocation.latitude == 0) || (currentLocation.longitude == 0)){
-            directionsURL = [NSString stringWithFormat:@"http://maps.google.com/?daddr=%1.6f,%1.6f",self.carparkLocationLatitude, self.carparkLocationLongitude];
-        } else {
-            directionsURL = [NSString stringWithFormat:@"http://maps.google.com/?saddr=%1.6f,%1.6f&daddr=%1.6f,%1.6f",currentLocation.latitude, currentLocation.longitude, self.carparkLocationLatitude, self.carparkLocationLongitude];
+    @try{
+        if([segue.identifier isEqualToString:@"showCarparkDirections"]){
+            
+            NSString *directionsURL;
+            
+            if ((currentLocation.latitude == 0) || (currentLocation.longitude == 0)){
+                directionsURL = [NSString stringWithFormat:@"http://maps.google.com/?daddr=%1.6f,%1.6f",self.carparkLocationLatitude, self.carparkLocationLongitude];
+            } else {
+                directionsURL = [NSString stringWithFormat:@"http://maps.google.com/?saddr=%1.6f,%1.6f&daddr=%1.6f,%1.6f",currentLocation.latitude, currentLocation.longitude, self.carparkLocationLatitude, self.carparkLocationLongitude];
+            }
+            
+            WebViewController *destViewController = segue.destinationViewController;
+            destViewController.url = directionsURL;
+            destViewController.title = self.title;
+            destViewController.hideNavigationToolbar = YES;
+            
+            UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Map" style: UIBarButtonItemStyleBordered target: nil action: nil];
+            
+            [[self navigationItem] setBackBarButtonItem: newBackButton];
         }
         
-        WebViewController *destViewController = segue.destinationViewController;
-        destViewController.url = directionsURL;
-        destViewController.title = self.title;
-        destViewController.hideNavigationToolbar = YES;
-        
-        UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Map" style: UIBarButtonItemStyleBordered target: nil action: nil];
-        
-        [[self navigationItem] setBackBarButtonItem: newBackButton];
+    } @catch (NSException *exc) {
+        BUGSENSE_LOG(exc, nil);
     }
-}
-
-- (IBAction)getDirections:(id)sender {
-    [self performSegueWithIdentifier:@"showCarparkDirections" sender:self];
 }
 
 - (void)didReceiveMemoryWarning

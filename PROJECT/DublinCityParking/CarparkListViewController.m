@@ -181,31 +181,45 @@
 }
 
 - (void) loadXMLDataWithOperation {
-    self.xmlParser = [[XMLParser alloc] loadXMLByURL:@"http://www.dublincity.ie/dublintraffic/cpdata.xml"];
-	
-    [self performSelectorOnMainThread:@selector(reloadUpdatedData) withObject:nil waitUntilDone:YES];
-
+    @try{
+        self.xmlParser = [[XMLParser alloc] loadXMLByURL:@"http://www.dublincity.ie/dublintraffic/cpdata.xml"];
+        
+        [self performSelectorOnMainThread:@selector(reloadUpdatedData) withObject:nil waitUntilDone:YES];
+    } @catch (NSException *exc) {
+        BUGSENSE_LOG(exc, nil);
+    }
 }
 
 - (void) reloadUpdatedData
 {
-    [self.carparkList reloadData];
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    @try{
+        [self.carparkList reloadData];
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
+    } @catch (NSException *exc) {
+        BUGSENSE_LOG(exc, nil);
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
     return self.carparkLocations.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.    
-    NSArray *sectionContents = [self.carparkLocations objectAtIndex:section];
-    NSInteger rows = [sectionContents count];
+    @try{
+        // Return the number of rows in the section.    
+        NSArray *sectionContents = [self.carparkLocations objectAtIndex:section];
+        NSInteger rows = [sectionContents count];
+        
+        return rows;
+        
+    } @catch (NSException *exc) {
+        BUGSENSE_LOG(exc, nil);
+    }
     
-    return rows;
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -235,6 +249,8 @@
     } @catch (NSException *exc) {       
         BUGSENSE_LOG(exc, nil);
     }
+    
+    return nil;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section

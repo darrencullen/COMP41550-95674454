@@ -60,14 +60,24 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
-    
-    [locationManager startUpdatingLocation];
+    @try{
+        [self.navigationController setNavigationBarHidden:NO animated:YES];
+        
+        [locationManager startUpdatingLocation];
+
+    } @catch (NSException *exc) {
+        BUGSENSE_LOG(exc, nil);
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [self plotCarparkPosition];
+    @try{
+        [self plotCarparkPosition];
+        
+    } @catch (NSException *exc) {
+        BUGSENSE_LOG(exc, nil);
+    }
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
@@ -130,8 +140,6 @@
         BUGSENSE_LOG(exc, nil);
     }
 }
-
-#pragma mark - CLLocationManagerDelegate
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
@@ -243,12 +251,22 @@
 
 -(void)dismissAlertView:(UIAlertView*)favouritesUpdateAlert
 {
-	[favouritesUpdateAlert dismissWithClickedButtonIndex:-1 animated:YES];
+    @try{
+        [favouritesUpdateAlert dismissWithClickedButtonIndex:-1 animated:YES];
+        
+    } @catch (NSException *exc) {
+        BUGSENSE_LOG(exc, nil);
+    }
 }
 
 
 - (IBAction)showCarparkDetails:(id)sender {
-    [self performSegueWithIdentifier:@"showCarparkDetails" sender:self];
+    @try{
+        [self performSegueWithIdentifier:@"showCarparkDetails" sender:self];
+        
+    } @catch (NSException *exc) {
+        BUGSENSE_LOG(exc, nil);
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

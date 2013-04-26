@@ -1,0 +1,11 @@
+Darren, Cullen, 95674454, darrencullen@gmail.com
+
+This folder contains two Xcode projects: DublinCityParkingCoreData and DublinCityParking. 
+
+
+DublinCityParkingCoreData was created with the purpose of pre-populating the SQLite database that is used in DublinCityParking. The information is taken from a set of JSON files and stored in the database, which is then added to the DublinCityParking project. I got the idea for doing this and indeed, a lot of the code from here: http://www.raywenderlich.com/12170/core-data-tutorial-how-to-preloadimport-existing-data-updated.
+
+
+DublinCityParking is the actual project for my app. It has been built with the Base SDK set to Latest iOS (iOS 6.1) and the iOS Deployment Target to be iOS 6.0, so hopefully you won't have any problems installing it.
+
+If you are wondering about the relatively few commits to the repository, I completed all of the development up until April 25th in a Development repository (something I now regret). However, this is also a public repository, so you should be able to view a history of the commits by looking here: https://github.com/darrencullen/Development.git.

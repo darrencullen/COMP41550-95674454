@@ -8,4 +8,4 @@ DublinCityParkingCoreData was created with the purpose of pre-populating the SQL
 
 DublinCityParking is the actual project for my app. It has been built with the Base SDK set to Latest iOS (iOS 6.1) and the iOS Deployment Target to be iOS 6.0, so hopefully you won't have any problems installing it.
 
-If you are wondering about the relatively few commits to the repository, I completed all of the development up until April 25th in a Development repository (something I now regret). However, this is also a public repository, so you should be able to view a history of the commits by looking here: https://github.com/darrencullen/Development.git.
+If you are wondering about the relatively few commits to the repository, I completed all of the development up until April 25th in a Development repository (something I now regret). However, this is also a public repository, so you should be able to view a history of the commits by looking here: https://github.com/darrencullen/Development/commits/master.

@@ -30,6 +30,14 @@
     @try{
         [super viewDidLoad];
         
+    } @catch (NSException *exc) {
+        BUGSENSE_LOG(exc, nil);
+    }
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    @try{
         // Last Updated
         NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
         NSString *lastUpdated;

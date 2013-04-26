@@ -162,8 +162,7 @@
         if (newLocation != nil) {
             currentLocation.latitude = newLocation.coordinate.latitude;
             currentLocation.longitude = newLocation.coordinate.longitude;
-            
-            NSLog(@"Current location: latitude=%.8f; longitude=%.8f",currentLocation.latitude,currentLocation.longitude);
+
             [locationManager stopUpdatingLocation];
         }
         

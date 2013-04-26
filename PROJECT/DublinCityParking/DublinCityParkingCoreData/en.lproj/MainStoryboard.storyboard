@@ -18,7 +18,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3622" y="-588"/>
+            <point key="canvasLocation" x="-3374" y="-572"/>
         </scene>
         <!--Carpark List View Controller - Master-->
         <scene sceneID="18">
@@ -31,7 +31,7 @@
                         <color key="separatorColor" red="0.030923979470000001" green="0.035297404820000003" blue="0.30651324730000001" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CarparkCell" rowHeight="44" id="ab7-DP-plN">
-                                <rect key="frame" x="0.0" y="46" width="320" height="46"/>
+                                <rect key="frame" x="0.0" y="46" width="320" height="45"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="10" y="1" width="300" height="43"/>
@@ -107,7 +107,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3153" y="-588"/>
+            <point key="canvasLocation" x="-2905" y="-572"/>
         </scene>
         <!--Carpark Map View Controller - Carpark Map-->
         <scene sceneID="R6O-ll-ZuE">
@@ -145,7 +145,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IAA-da-rbV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2726" y="-588"/>
+            <point key="canvasLocation" x="-2478" y="-572"/>
         </scene>
         <!--Carpark Details View Controller - Carpark Details-->
         <scene sceneID="1ro-xy-dJ9">
@@ -270,7 +270,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y1I-3V-TTX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2319" y="-588"/>
+            <point key="canvasLocation" x="-2071" y="-572"/>
         </scene>
         <!--Carpark Detals Description View Controller - Further Details-->
         <scene sceneID="ZW5-5f-8Z7">
@@ -331,7 +331,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ew0-HQ-FQ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1917" y="-588"/>
+            <point key="canvasLocation" x="-1669" y="-572"/>
         </scene>
         <!--Traffic Cameras View Controller - Traffic Cameras-->
         <scene sceneID="Pvl-bs-Uev">
@@ -344,7 +344,7 @@
                         <color key="separatorColor" red="0.030923979470000001" green="0.035297404820000003" blue="0.30651324730000001" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TrafficCameraCell" rowHeight="44" id="hxh-jL-794">
-                                <rect key="frame" x="0.0" y="46" width="320" height="46"/>
+                                <rect key="frame" x="0.0" y="46" width="320" height="45"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="10" y="1" width="300" height="43"/>
@@ -390,7 +390,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sxf-tj-7p9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3153" y="788"/>
+            <point key="canvasLocation" x="-2905" y="804"/>
         </scene>
         <!--Navigation Controller - Cameras-->
         <scene sceneID="ien-DR-C47">
@@ -406,7 +406,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bue-CD-m1K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3622" y="788"/>
+            <point key="canvasLocation" x="-3374" y="804"/>
         </scene>
         <!--More View Controller - More Information-->
         <scene sceneID="zs4-a7-UuY">
@@ -455,7 +455,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell tag="502" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="InformationCell" id="jEf-OR-3md">
-                                        <rect key="frame" x="0.0" y="55" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="55" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="300" height="43"/>
@@ -522,7 +522,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell tag="504" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="InformationCell" id="kjw-VO-Q0B">
-                                        <rect key="frame" x="0.0" y="164" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="164" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="300" height="43"/>
@@ -559,7 +559,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e6M-5Q-Lxt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3153" y="2062"/>
+            <point key="canvasLocation" x="-5021" y="798"/>
         </scene>
         <!--Web View Controller - WebView-->
         <scene sceneID="X85-ko-ESe">
@@ -615,7 +615,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZIj-Wt-9gl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1447" y="140"/>
+            <point key="canvasLocation" x="-1139" y="147"/>
         </scene>
         <!--Disabled Spaces View Controller - Disabled Parking Spaces-->
         <scene sceneID="3vC-dy-JLJ">
@@ -628,7 +628,7 @@
                         <color key="separatorColor" red="0.030923979470000001" green="0.035297404820000003" blue="0.30651324730000001" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DisabledSpaceCell" rowHeight="44" id="hr4-a3-QKS">
-                                <rect key="frame" x="0.0" y="46" width="320" height="46"/>
+                                <rect key="frame" x="0.0" y="46" width="320" height="45"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="10" y="1" width="300" height="43"/>
@@ -683,7 +683,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kHu-K8-bb5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3153" y="131"/>
+            <point key="canvasLocation" x="-2905" y="147"/>
         </scene>
         <!--Navigation Controller - Parking-->
         <scene sceneID="YhS-lE-70R">
@@ -699,7 +699,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zTH-zu-mrt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3622" y="120"/>
+            <point key="canvasLocation" x="-3374" y="136"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="a5a-11-Z5v">
@@ -715,7 +715,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="37P-Lm-oxH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3622" y="2062"/>
+            <point key="canvasLocation" x="-5490" y="798"/>
         </scene>
         <!--Navigation Controller - Map-->
         <scene sceneID="VHZ-WW-n5D">
@@ -731,7 +731,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hpd-9j-sSw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3622" y="1414"/>
+            <point key="canvasLocation" x="-3374" y="1430"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="f88-gE-N6D">
@@ -753,7 +753,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dwe-E3-Y7H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4163" y="788"/>
+            <point key="canvasLocation" x="-3915" y="804"/>
         </scene>
         <!--Disabled Spaces Map View Controller - Disabled Space Map-->
         <scene sceneID="M2K-vy-DUM">
@@ -788,7 +788,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dLS-6a-bdT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2726" y="131"/>
+            <point key="canvasLocation" x="-2478" y="147"/>
         </scene>
         <!--Traffic Camera Image View Controller - Traffic Camera Image-->
         <scene sceneID="IIx-9S-DWZ">
@@ -828,7 +828,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gyd-9W-tLO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2726" y="788"/>
+            <point key="canvasLocation" x="-2478" y="804"/>
         </scene>
         <!--Traffic Camera Map View Controller - Traffic Camera Map-->
         <scene sceneID="DPS-WC-UzM">
@@ -866,7 +866,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iCC-ry-jrK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2319" y="788"/>
+            <point key="canvasLocation" x="-2071" y="804"/>
         </scene>
         <!--Combined Map View Controller - Locations-->
         <scene sceneID="RnL-Ua-j7L">
@@ -919,7 +919,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7bl-hy-Siw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3153" y="1414"/>
+            <point key="canvasLocation" x="-2905" y="1430"/>
         </scene>
         <!--Parking Info View Controller - Parking Information-->
         <scene sceneID="DpE-mQ-HWN">
@@ -1723,7 +1723,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dIN-14-XVu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2614" y="1723"/>
+            <point key="canvasLocation" x="-4482" y="459"/>
         </scene>
         <!--Dub Park Info View Controller - DubPark Credits-->
         <scene sceneID="d2Q-xu-MdC">
@@ -1752,7 +1752,7 @@
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="300" contentMode="left" text="DC Development Studios" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WDJ-BB-67n">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="300" contentMode="left" text="Darren Cullen" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WDJ-BB-67n">
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="170" id="awy-tS-jMJ"/>
                                                     </constraints>
@@ -1804,7 +1804,7 @@
                                         </constraints>
                                     </tableViewCell>
                                     <tableViewCell tag="501" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="InformationCell" rowHeight="44" id="jNL-hX-LYw">
-                                        <rect key="frame" x="0.0" y="135" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="135" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="300" height="43"/>
@@ -1841,7 +1841,7 @@
                             <tableViewSection headerTitle="Credits" id="2hM-5c-rif">
                                 <cells>
                                     <tableViewCell tag="501" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="InformationCell" rowHeight="44" id="dVR-Cg-t29">
-                                        <rect key="frame" x="0.0" y="225" width="320" height="46"/>
+                                        <rect key="frame" x="0.0" y="225" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="43"/>
@@ -1911,7 +1911,7 @@
                                         </constraints>
                                     </tableViewCell>
                                     <tableViewCell tag="501" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="InformationCell" rowHeight="44" id="ElR-ow-gr1">
-                                        <rect key="frame" x="0.0" y="361" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="361" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="300" height="43"/>
@@ -1951,7 +1951,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6HX-4a-dTL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2614" y="2413"/>
+            <point key="canvasLocation" x="-4482" y="1149"/>
         </scene>
     </scenes>
     <resources>
@@ -1963,6 +1963,104 @@
         <image name="pointer1.png" width="16" height="16"/>
         <image name="wheelchair2.png" width="25" height="25"/>
     </resources>
+    <classes>
+        <class className="CarparkDetailsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CarparkDetailsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="setFavouriteCarpark:"/>
+                <relationship kind="outlet" name="buttonFavs" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="CarparkDetalsDescriptionViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CarparkDetalsDescriptionViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="directionsButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="CarparkListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CarparkListViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="carparkList" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="CarparkMapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CarparkMapViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="showCarparkDetails:"/>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="CombinedMapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CombinedMapViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="selectOverlayType:" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="navigationBar" candidateClass="UINavigationItem"/>
+                <relationship kind="outlet" name="segmentedControlOverlayTypes" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
+        <class className="DisabledSpacesMapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DisabledSpacesMapViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="showDisabledSpacesDirections:"/>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="DisabledSpacesViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DisabledSpacesViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="disabledSpacesList" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="DubParkInfoViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DubParkInfoViewController.h"/>
+        </class>
+        <class className="MoreViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MoreViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="ParkingInfoViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ParkingInfoViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="lastUpdatedLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="TrafficCameraImageViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TrafficCameraImageViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="activitySpinner" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="TrafficCameraMapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TrafficCameraMapViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="setFavouriteCamera:"/>
+                <relationship kind="outlet" name="buttonFavouriteCamera" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="TrafficCamerasViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TrafficCamerasViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="cameraList" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="WebViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WebViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backButtonPressed:"/>
+                <relationship kind="action" name="refreshPage:"/>
+                <relationship kind="outlet" name="backButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="navigationToolbar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="refreshButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

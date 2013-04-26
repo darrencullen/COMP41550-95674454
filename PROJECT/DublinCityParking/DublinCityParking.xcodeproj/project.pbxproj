@@ -40,13 +40,12 @@
 		49F6DCC216E7A86400043CFC /* parking3.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F6DCC116E7A86400043CFC /* parking3.png */; };
 		49F6DCC716E7AF7800043CFC /* camera1.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F6DCC516E7AF7800043CFC /* camera1.png */; };
 		49F6DCC816E7AF7800043CFC /* wheelchair2.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F6DCC616E7AF7800043CFC /* wheelchair2.png */; };
-		49F70EE31719739A008B81BE /* TaskList.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 49F70EE21719739A008B81BE /* TaskList.rtf */; };
 		49F70EE6171993AC008B81BE /* TrafficCameraImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F70EE5171993AC008B81BE /* TrafficCameraImageViewController.m */; };
 		49F7E27916E6BB1E004CA8B5 /* NavigationBarStrip.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F7E27816E6BB1E004CA8B5 /* NavigationBarStrip.png */; };
 		49F7EE0917162ACD00BE44F0 /* DisabledParkingSpaceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F7EE0517162ACD00BE44F0 /* DisabledParkingSpaceInfo.m */; };
 		49F7EE0D17162F4700BE44F0 /* DisabledSpacesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F7EE0C17162F4700BE44F0 /* DisabledSpacesViewController.m */; };
 		49F888DB16D6D18700AB3377 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49F888DA16D6D18700AB3377 /* UIKit.framework */; };
-		49F888DD16D6D18700AB3377 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49F888DC16D6D18700AB3377 /* Foundation.framework */; };
+		49F888DD16D6D18700AB3377 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49F888DC16D6D18700AB3377 /* Foundation.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		49F888DF16D6D18700AB3377 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49F888DE16D6D18700AB3377 /* CoreGraphics.framework */; };
 		49F888E116D6D18700AB3377 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49F888E016D6D18700AB3377 /* CoreData.framework */; };
 		49F888E716D6D18700AB3377 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49F888E516D6D18700AB3377 /* InfoPlist.strings */; };
@@ -60,7 +59,6 @@
 		49F8891016D6DD9000AB3377 /* CarparkInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F8890F16D6DD9000AB3377 /* CarparkInfo.m */; };
 		49F8D8D9171898090015F14C /* pointer1.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F8D8D6171898090015F14C /* pointer1.png */; };
 		49F8D8DC1718A68F0015F14C /* DisabledSpacesMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F8D8DB1718A68F0015F14C /* DisabledSpacesMapViewController.m */; };
-		49FCCDF41725CAB000CE676D /* TaskList Required.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 49FCCDF31725CAB000CE676D /* TaskList Required.rtf */; };
 		49FCCDF51725E7EF00CE676D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49004A7E1724399E0042945C /* CoreLocation.framework */; };
 		49FCD01A1717740100BBF2F7 /* TrafficCameraInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FCD0161717740100BBF2F7 /* TrafficCameraInfo.m */; };
 		49FCD01E17177BDB00BBF2F7 /* TrafficCamerasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FCD01D17177BDB00BBF2F7 /* TrafficCamerasViewController.m */; };
@@ -114,7 +112,6 @@
 		49F6DCC116E7A86400043CFC /* parking3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = parking3.png; sourceTree = "<group>"; };
 		49F6DCC516E7AF7800043CFC /* camera1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera1.png; sourceTree = "<group>"; };
 		49F6DCC616E7AF7800043CFC /* wheelchair2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wheelchair2.png; sourceTree = "<group>"; };
-		49F70EE21719739A008B81BE /* TaskList.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = TaskList.rtf; path = ../TaskList.rtf; sourceTree = "<group>"; };
 		49F70EE4171993AC008B81BE /* TrafficCameraImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrafficCameraImageViewController.h; sourceTree = "<group>"; };
 		49F70EE5171993AC008B81BE /* TrafficCameraImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrafficCameraImageViewController.m; sourceTree = "<group>"; };
 		49F7E27816E6BB1E004CA8B5 /* NavigationBarStrip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NavigationBarStrip.png; sourceTree = "<group>"; };
@@ -145,7 +142,6 @@
 		49F8D8D6171898090015F14C /* pointer1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pointer1.png; sourceTree = "<group>"; };
 		49F8D8DA1718A68F0015F14C /* DisabledSpacesMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisabledSpacesMapViewController.h; sourceTree = "<group>"; };
 		49F8D8DB1718A68F0015F14C /* DisabledSpacesMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisabledSpacesMapViewController.m; sourceTree = "<group>"; };
-		49FCCDF31725CAB000CE676D /* TaskList Required.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "TaskList Required.rtf"; sourceTree = "<group>"; };
 		49FCD0151717740100BBF2F7 /* TrafficCameraInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrafficCameraInfo.h; sourceTree = "<group>"; };
 		49FCD0161717740100BBF2F7 /* TrafficCameraInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrafficCameraInfo.m; sourceTree = "<group>"; };
 		49FCD01C17177BDB00BBF2F7 /* TrafficCamerasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrafficCamerasViewController.h; sourceTree = "<group>"; };
@@ -445,8 +441,6 @@
 				4907CB3816E14ECE00C6BA03 /* General Classes */,
 				49175CA61719DEEA000DEED1 /* Core Data */,
 				496776EB16DD6251009E7E22 /* Resources */,
-				49F70EE21719739A008B81BE /* TaskList.rtf */,
-				49FCCDF31725CAB000CE676D /* TaskList Required.rtf */,
 				49F888E416D6D18700AB3377 /* DublinCityParking-Info.plist */,
 				49F888E516D6D18700AB3377 /* InfoPlist.strings */,
 				49F888E816D6D18700AB3377 /* main.m */,
@@ -519,14 +513,12 @@
 				49F6DCC716E7AF7800043CFC /* camera1.png in Resources */,
 				49F6DCC816E7AF7800043CFC /* wheelchair2.png in Resources */,
 				49F8D8D9171898090015F14C /* pointer1.png in Resources */,
-				49F70EE31719739A008B81BE /* TaskList.rtf in Resources */,
 				491CB5251720801C0089FB08 /* StarEmpty24-3.png in Resources */,
 				491CB5261720801C0089FB08 /* StarFull24-3.png in Resources */,
 				491CB5281720A4F90089FB08 /* imagenotavailable.jpg in Resources */,
 				49F60E571721E79C0087C2A3 /* newpin2.png in Resources */,
 				49004A8117249EE10042945C /* directions24.png in Resources */,
 				49004A841724B0000042945C /* directions38.png in Resources */,
-				49FCCDF41725CAB000CE676D /* TaskList Required.rtf in Resources */,
 				4910CF6817273B0100923713 /* DublinCityParkingCoreData.sqlite in Resources */,
 				492E79011729D8EF00406DCF /* Default.png in Resources */,
 			);
